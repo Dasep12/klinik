@@ -41,9 +41,9 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        master_penyakit = new javax.swing.JButton();
-        daftar_pasien1 = new javax.swing.JButton();
-        daftar_pasien2 = new javax.swing.JButton();
+        tambah_pasien = new javax.swing.JButton();
+        penyakit = new javax.swing.JButton();
+        data_obat = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -93,29 +93,29 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 120));
 
-        master_penyakit.setText("Tambah Pasien");
-        master_penyakit.addActionListener(new java.awt.event.ActionListener() {
+        tambah_pasien.setText("Tambah Pasien");
+        tambah_pasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                master_penyakitActionPerformed(evt);
+                tambah_pasienActionPerformed(evt);
             }
         });
-        jPanel1.add(master_penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 118, 50));
+        jPanel1.add(tambah_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 118, 50));
 
-        daftar_pasien1.setText("Data Penyakit");
-        daftar_pasien1.addActionListener(new java.awt.event.ActionListener() {
+        penyakit.setText("Data Penyakit");
+        penyakit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftar_pasien1ActionPerformed(evt);
+                penyakitActionPerformed(evt);
             }
         });
-        jPanel1.add(daftar_pasien1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 118, 50));
+        jPanel1.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 118, 50));
 
-        daftar_pasien2.setText("Data Obat");
-        daftar_pasien2.addActionListener(new java.awt.event.ActionListener() {
+        data_obat.setText("Data Obat");
+        data_obat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftar_pasien2ActionPerformed(evt);
+                data_obatActionPerformed(evt);
             }
         });
-        jPanel1.add(daftar_pasien2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
+        jPanel1.add(data_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
 
         jPanel3.setBackground(new java.awt.Color(31, 56, 233));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -157,21 +157,24 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void daftar_pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftar_pasienActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_daftar_pasienActionPerformed
 
-    private void master_penyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_master_penyakitActionPerformed
+    private void tambah_pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambah_pasienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_master_penyakitActionPerformed
+         Tambah_Pasien a = new Tambah_Pasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_tambah_pasienActionPerformed
 
-    private void daftar_pasien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftar_pasien1ActionPerformed
+    private void penyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penyakitActionPerformed
         // TODO add your handling code here:
         Penyakit a = new Penyakit();
         a.setVisible(true);
-    }//GEN-LAST:event_daftar_pasien1ActionPerformed
+    }//GEN-LAST:event_penyakitActionPerformed
 
-    private void daftar_pasien2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftar_pasien2ActionPerformed
+    private void data_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_obatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_daftar_pasien2ActionPerformed
+    }//GEN-LAST:event_data_obatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,8 +213,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton daftar_pasien;
-    private javax.swing.JButton daftar_pasien1;
-    private javax.swing.JButton daftar_pasien2;
+    private javax.swing.JButton data_obat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -221,6 +223,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton master_penyakit;
+    private javax.swing.JButton penyakit;
+    private javax.swing.JButton tambah_pasien;
     // End of variables declaration//GEN-END:variables
 }
