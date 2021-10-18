@@ -134,7 +134,7 @@ public class Dashboard extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 340));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 270));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 840, 540));
 
@@ -162,14 +162,12 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void tambah_pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambah_pasienActionPerformed
         // TODO add your handling code here:
-         Tambah_Pasien a = new Tambah_Pasien();
-        a.setVisible(true);
+        
     }//GEN-LAST:event_tambah_pasienActionPerformed
 
     private void penyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penyakitActionPerformed
         // TODO add your handling code here:
-        Penyakit a = new Penyakit();
-        a.setVisible(true);
+      
     }//GEN-LAST:event_penyakitActionPerformed
 
     private void data_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_obatActionPerformed

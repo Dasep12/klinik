@@ -13,13 +13,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author dasep
  */
-public class Master_obat extends javax.swing.JFrame {
+public class Master_penyakit extends javax.swing.JFrame {
 
     /**
      * Creates new form Master_obat
      */
     private String id ;
-    public Master_obat() {
+    public Master_penyakit() {
         initComponents();
         loadData(this.id);
         reset.setEnabled(false);
@@ -40,24 +40,20 @@ public class Master_obat extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        obat = new javax.swing.JTable();
+        penyakit = new javax.swing.JTable();
         key = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        id_obat = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        nama_obat = new javax.swing.JTextField();
+        id_penyakit = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        expired = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        supplier = new javax.swing.JTextField();
+        nama_penyakit = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         tambah = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         reset = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
         cari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -67,33 +63,33 @@ public class Master_obat extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("MASTER OBAT");
+        jLabel10.setText("MASTER PENYAKIT");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 190, 30));
 
         jPanel2.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Penyakit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        obat.setBackground(new java.awt.Color(51, 240, 255));
-        obat.setModel(new javax.swing.table.DefaultTableModel(
+        penyakit.setBackground(new java.awt.Color(51, 240, 255));
+        penyakit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "No", "ID Obat", "Nama Obat", "Expired Date"
+                "No", "ID Penyakit", "Nama Penyakit"
             }
         ));
-        obat.setGridColor(new java.awt.Color(51, 102, 255));
-        obat.setRowHeight(18);
-        obat.addMouseListener(new java.awt.event.MouseAdapter() {
+        penyakit.setGridColor(new java.awt.Color(51, 102, 255));
+        penyakit.setRowHeight(18);
+        penyakit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                obatMouseClicked(evt);
+                penyakitMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(obat);
+        jScrollPane1.setViewportView(penyakit);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 740, 220));
 
@@ -104,52 +100,32 @@ public class Master_obat extends javax.swing.JFrame {
         jPanel1.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 150, 30));
 
         jPanel3.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Penyakit", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID Obat");
+        jLabel2.setText("ID Penyakit");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(110, 40, 49, 33);
+        jLabel2.setBounds(110, 40, 90, 33);
 
-        id_obat.setBackground(new java.awt.Color(149, 72, 91));
-        id_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(id_obat);
-        id_obat.setBounds(180, 40, 180, 33);
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nama  Obat");
-        jPanel3.add(jLabel3);
-        jLabel3.setBounds(90, 80, 100, 33);
-
-        nama_obat.setBackground(new java.awt.Color(149, 72, 91));
-        nama_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(nama_obat);
-        nama_obat.setBounds(180, 80, 180, 33);
+        id_penyakit.setBackground(new java.awt.Color(149, 72, 91));
+        id_penyakit.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(id_penyakit);
+        id_penyakit.setBounds(180, 40, 180, 33);
 
         jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("Tanggal Exp");
+        jLabel4.setText("Nama Penyakit");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(370, 40, 100, 33);
+        jLabel4.setBounds(390, 40, 110, 33);
 
-        expired.setBackground(new java.awt.Color(149, 72, 91));
-        expired.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(expired);
-        expired.setBounds(450, 40, 180, 33);
+        nama_penyakit.setBackground(new java.awt.Color(149, 72, 91));
+        nama_penyakit.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(nama_penyakit);
+        nama_penyakit.setBounds(480, 40, 180, 33);
 
-        jLabel5.setForeground(java.awt.Color.white);
-        jLabel5.setText("Supplier");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(380, 80, 100, 33);
-
-        supplier.setBackground(new java.awt.Color(149, 72, 91));
-        supplier.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(supplier);
-        supplier.setBounds(450, 80, 180, 33);
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 750, 130));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 750, 100));
 
         jPanel4.setBackground(new java.awt.Color(72, 136, 99));
 
@@ -231,13 +207,18 @@ public class Master_obat extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 750, 50));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 750, 50));
 
-        jButton9.setBackground(new java.awt.Color(48, 37, 40));
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Refresh");
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 107, 38));
+        refresh.setBackground(new java.awt.Color(48, 37, 40));
+        refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        refresh.setForeground(new java.awt.Color(255, 255, 255));
+        refresh.setText("Refresh");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 107, 38));
 
         cari.setBackground(new java.awt.Color(48, 37, 40));
         cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -258,7 +239,7 @@ public class Master_obat extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -267,23 +248,20 @@ public class Master_obat extends javax.swing.JFrame {
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
-        if(id_obat.getText().equals("") || nama_obat.getText().equals("")|| expired.getText().equals("")
-                || supplier.getText().equals("")){
+        if(id_penyakit.getText().equals("") || nama_penyakit.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
             try {
-                String sql = "INSERT INTO  tbl_obat ("
-                        + " id_obat , nama_obat , expired , "
-                        + "supplier) values "
-                        + "('"+ id_obat.getText() +"' , '"+ nama_obat.getText() +"' , '"+ expired.getText() +"' , "
-                        + "'"+ supplier.getText() +"' ) " ;
+                String sql = "INSERT INTO  tbl_penyakit ("
+                        + " id_penyakit , nama_penyakit) values "
+                        + "('"+ id_penyakit.getText() +"' , '"+ nama_penyakit.getText() +"' ) " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
                   JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
                    String data = null ;
                    loadData(data);
-                  reset();
+                   reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
@@ -295,49 +273,44 @@ public class Master_obat extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_resetActionPerformed
 
-    private void obatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obatMouseClicked
+    private void penyakitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_penyakitMouseClicked
         // TODO add your handling code here:
-         int baris  = obat.rowAtPoint(evt.getPoint());
-        String id = obat.getValueAt(baris,0).toString();
-        id_obat.setText(id);
-        id_obat.setEditable(false);
+         int baris  = penyakit.rowAtPoint(evt.getPoint());
+        String id = penyakit.getValueAt(baris,0).toString();
+        id_penyakit.setText(id);
+        id_penyakit.setEditable(false);
         tambah.setEnabled(false);
         ubah.setEnabled(true);
         hapus.setEnabled(true);
         reset.setEnabled(true);
         try {
-            String sql = "Select * from tbl_obat where id_obat = '"+ id +"' " ;
+            String sql = "Select * from tbl_penyakit where id_penyakit  = '"+ id +"' " ;
             java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             while(res.next()){
-                nama_obat.setText(res.getString("nama_obat"));
-                supplier.setText(res.getString("supplier"));
-                expired.setText(res.getString("expired"));
+                nama_penyakit.setText(res.getString("nama_penyakit"));
             }
         }catch(Exception e){
             
         }
-    }//GEN-LAST:event_obatMouseClicked
+    }//GEN-LAST:event_penyakitMouseClicked
 
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
-        if(id_obat.getText().equals("") || nama_obat.getText().equals("")|| expired.getText().equals("")
-                || supplier.getText().equals("")){
+        if(nama_penyakit.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
             try {
-                String sql = "update tbl_obat  set"
-                        + " nama_obat = '"+ nama_obat.getText() +"' ,"
-                        + " expired = '"+ expired.getText() + "' , " 
-                        + " supplier = '"+ supplier.getText() + "' "
-                                + " where id_obat='"+ id_obat.getText() +"' " ;
+                String sql = "update tbl_penyakit  set"
+                        + " nama_penyakit = '"+ nama_penyakit.getText() + "' , " 
+                                + " where id_obat='"+ id_penyakit.getText() +"' " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
                   JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
-                   String data = null ;
-                   loadData(data);
+                    String data = null ;
+                    loadData(data);
                   reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
@@ -351,7 +324,7 @@ public class Master_obat extends javax.swing.JFrame {
         switch(option){
             case JOptionPane.YES_OPTION : 
                 try {
-                    String sql = "delete from tbl_obat where id_obat = '"+ id_obat.getText() +"' " ;
+                    String sql = "delete from tbl_penyakit where id_penyakit = '"+ id_penyakit.getText() +"' " ;
                     java.sql.Connection conn = (Connection)Conn.configDB();
                     java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                     pst.execute();
@@ -378,13 +351,17 @@ public class Master_obat extends javax.swing.JFrame {
             loadData(data);
         }
     }//GEN-LAST:event_cariActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+        String data = null ;
+                   loadData(data);
+    }//GEN-LAST:event_refreshActionPerformed
         
         public void reset(){
-            id_obat.setText("");
-            nama_obat.setText("");
-            expired.setText("");
-            supplier.setText("");
-            id_obat.setEditable(true);
+            id_penyakit.setText("");
+            nama_penyakit.setText("");
+            id_penyakit.setEditable(true);
             tambah.setEnabled(true);
             ubah.setEnabled(false);
             reset.setEnabled(false);
@@ -394,32 +371,28 @@ public class Master_obat extends javax.swing.JFrame {
     
        public void loadData(String data){
        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID Obat");
-        model.addColumn("Nama Obat");
-        model.addColumn("Tanggal Exp");
-        model.addColumn("Supplier");
+        model.addColumn("ID Penyakit");
+        model.addColumn("Nama Penyakit");
         
         //tampilkan data makanan kedalam table 
         try {
             String sql = "" ;
             
             if(data == null ){
-                sql = "Select * from tbl_obat  " ;
+                sql = "Select * from tbl_penyakit  " ;
             }else {
-                    sql = "Select * from tbl_obat where " 
-                            + "id_obat like  '%"+ data +"%' or nama_obat like '%"+ data +"%'"
-                            + "or supplier like '%"+ data +"%'  " ;
+                    sql = "Select * from tbl_penyakit where " 
+                            + "id_penyakit like  '%"+ data +"%' or nama_penyakit like '%"+ data +"%'" ;
+            }
                     java.sql.Connection conn = (Connection)Conn.configDB();
                     java.sql.Statement stm = conn.createStatement();
                     java.sql.ResultSet res = stm.executeQuery(sql);
                     while(res.next()){
-                        model.addRow(new Object[] {res.getString("id_obat") ,  res.getString("nama_obat") ,
-                            res.getString("expired") ,  res.getString("supplier") } );
+                        model.addRow(new Object[] {res.getString("id_penyakit") ,  res.getString("nama_penyakit") } );
                     }
-            }
-            obat.setModel(model);
+            penyakit.setModel(model);
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null,e);
         } 
     }
     
@@ -440,46 +413,43 @@ public class Master_obat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_penyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_penyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_penyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_penyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Master_obat().setVisible(true);
+                new Master_penyakit().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
-    private javax.swing.JTextField expired;
     private javax.swing.JButton hapus;
-    private javax.swing.JTextField id_obat;
+    private javax.swing.JTextField id_penyakit;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField key;
-    private javax.swing.JTextField nama_obat;
-    private javax.swing.JTable obat;
+    private javax.swing.JTextField nama_penyakit;
+    private javax.swing.JTable penyakit;
+    private javax.swing.JButton refresh;
     private javax.swing.JButton reset;
-    private javax.swing.JTextField supplier;
     private javax.swing.JButton tambah;
     private javax.swing.JButton ubah;
     // End of variables declaration//GEN-END:variables

@@ -57,7 +57,7 @@ public class Master_obat extends javax.swing.JFrame {
         tambah = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         reset = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
         cari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -71,7 +71,7 @@ public class Master_obat extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 190, 30));
 
         jPanel2.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         obat.setBackground(new java.awt.Color(51, 240, 255));
@@ -104,7 +104,7 @@ public class Master_obat extends javax.swing.JFrame {
         jPanel1.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 150, 30));
 
         jPanel3.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
@@ -233,11 +233,16 @@ public class Master_obat extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 750, 50));
 
-        jButton9.setBackground(new java.awt.Color(48, 37, 40));
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Refresh");
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 107, 38));
+        refresh.setBackground(new java.awt.Color(48, 37, 40));
+        refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        refresh.setForeground(new java.awt.Color(255, 255, 255));
+        refresh.setText("Refresh");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 107, 38));
 
         cari.setBackground(new java.awt.Color(48, 37, 40));
         cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -283,7 +288,7 @@ public class Master_obat extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
                    String data = null ;
                    loadData(data);
-                  reset();
+                   reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
@@ -336,8 +341,8 @@ public class Master_obat extends javax.swing.JFrame {
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
                   JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
-                   String data = null ;
-                   loadData(data);
+                    String data = null ;
+                    loadData(data);
                   reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
@@ -378,6 +383,12 @@ public class Master_obat extends javax.swing.JFrame {
             loadData(data);
         }
     }//GEN-LAST:event_cariActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+        String data = null ;
+                   loadData(data);
+    }//GEN-LAST:event_refreshActionPerformed
         
         public void reset(){
             id_obat.setText("");
@@ -409,6 +420,7 @@ public class Master_obat extends javax.swing.JFrame {
                     sql = "Select * from tbl_obat where " 
                             + "id_obat like  '%"+ data +"%' or nama_obat like '%"+ data +"%'"
                             + "or supplier like '%"+ data +"%'  " ;
+            }
                     java.sql.Connection conn = (Connection)Conn.configDB();
                     java.sql.Statement stm = conn.createStatement();
                     java.sql.ResultSet res = stm.executeQuery(sql);
@@ -416,10 +428,9 @@ public class Master_obat extends javax.swing.JFrame {
                         model.addRow(new Object[] {res.getString("id_obat") ,  res.getString("nama_obat") ,
                             res.getString("expired") ,  res.getString("supplier") } );
                     }
-            }
             obat.setModel(model);
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null,e);
         } 
     }
     
@@ -464,7 +475,6 @@ public class Master_obat extends javax.swing.JFrame {
     private javax.swing.JButton hapus;
     private javax.swing.JTextField id_obat;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -478,6 +488,7 @@ public class Master_obat extends javax.swing.JFrame {
     private javax.swing.JTextField key;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTable obat;
+    private javax.swing.JButton refresh;
     private javax.swing.JButton reset;
     private javax.swing.JTextField supplier;
     private javax.swing.JButton tambah;
