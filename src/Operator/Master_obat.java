@@ -403,8 +403,8 @@ public class Master_obat extends javax.swing.JFrame {
 
         }
     
-       public void loadData(String data){
-       DefaultTableModel model = new DefaultTableModel();
+    public void loadData(String data){
+        DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID Obat");
         model.addColumn("Nama Obat");
         model.addColumn("Tanggal Exp");
