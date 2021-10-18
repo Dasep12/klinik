@@ -61,7 +61,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(18, 141, 109));
+        jPanel1.setBackground(new java.awt.Color(72, 136, 99));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         daftar_pasien.setText("Tindak Lanjut");
@@ -72,7 +72,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jPanel1.add(daftar_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 118, 50));
 
-        jPanel2.setBackground(new java.awt.Color(18, 141, 109));
+        jPanel2.setBackground(new java.awt.Color(72, 136, 99));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -117,7 +117,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jPanel1.add(data_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
 
-        jPanel3.setBackground(new java.awt.Color(31, 56, 233));
+        jPanel3.setBackground(new java.awt.Color(72, 136, 99));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
