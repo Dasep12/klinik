@@ -174,6 +174,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void data_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_obatActionPerformed
         // TODO add your handling code here:
+        Master_obat a = new Master_obat();
+        a.setVisible(true);
     }//GEN-LAST:event_data_obatActionPerformed
 
     /**
