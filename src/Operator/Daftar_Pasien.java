@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package Operator;
-
+import Conection.Conn ;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author cad-server
@@ -16,6 +22,8 @@ public class Daftar_Pasien extends javax.swing.JFrame {
      */
     public Daftar_Pasien() {
         initComponents();
+        idPasien();
+        id_pasien.setEditable(false);
     }
 
     /**
@@ -31,22 +39,22 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        id_obat = new javax.swing.JTextField();
+        id_pasien = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        nama_obat = new javax.swing.JTextField();
+        nama_pasien = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        expired = new javax.swing.JTextField();
+        tgl_lahir = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        supplier = new javax.swing.JTextField();
+        tempat_lahir = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jenis_kelamin = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        expired1 = new javax.swing.JTextField();
+        alamat = new javax.swing.JTextArea();
+        no_telpon = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        supplier1 = new javax.swing.JTextField();
+        no_bpjs = new javax.swing.JTextField();
         tambah = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -60,7 +68,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 270, 30));
 
         jPanel3.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
@@ -68,42 +76,42 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Alamat");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(330, 80, 80, 33);
+        jLabel2.setBounds(340, 130, 80, 33);
 
-        id_obat.setBackground(new java.awt.Color(149, 72, 91));
-        id_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(id_obat);
-        id_obat.setBounds(120, 30, 180, 33);
+        id_pasien.setBackground(new java.awt.Color(149, 72, 91));
+        id_pasien.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(id_pasien);
+        id_pasien.setBounds(120, 30, 180, 33);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nama Pasien");
         jPanel3.add(jLabel3);
         jLabel3.setBounds(30, 80, 100, 33);
 
-        nama_obat.setBackground(new java.awt.Color(149, 72, 91));
-        nama_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(nama_obat);
-        nama_obat.setBounds(120, 80, 180, 33);
+        nama_pasien.setBackground(new java.awt.Color(149, 72, 91));
+        nama_pasien.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(nama_pasien);
+        nama_pasien.setBounds(120, 80, 180, 33);
 
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("Tanggal Lahir");
         jPanel3.add(jLabel4);
         jLabel4.setBounds(30, 180, 100, 33);
 
-        expired.setBackground(new java.awt.Color(149, 72, 91));
-        expired.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(expired);
-        expired.setBounds(120, 180, 180, 33);
+        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(tgl_lahir);
+        tgl_lahir.setBounds(120, 180, 180, 33);
 
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("Tempat Lahir");
         jPanel3.add(jLabel5);
         jLabel5.setBounds(30, 130, 100, 33);
 
-        supplier.setBackground(new java.awt.Color(149, 72, 91));
-        supplier.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(supplier);
-        supplier.setBounds(120, 130, 180, 33);
+        tempat_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tempat_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(tempat_lahir);
+        tempat_lahir.setBounds(120, 130, 180, 33);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,13 +119,12 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jPanel3.add(jLabel6);
         jLabel6.setBounds(29, 30, 80, 33);
 
-        jComboBox1.setBackground(new java.awt.Color(149, 72, 91));
-        jComboBox1.setEditable(true);
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
-        jPanel3.add(jComboBox1);
-        jComboBox1.setBounds(420, 30, 230, 40);
+        jenis_kelamin.setBackground(new java.awt.Color(149, 72, 91));
+        jenis_kelamin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jenis_kelamin.setForeground(new java.awt.Color(255, 255, 255));
+        jenis_kelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        jPanel3.add(jenis_kelamin);
+        jenis_kelamin.setBounds(420, 30, 230, 40);
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,19 +132,19 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jPanel3.add(jLabel7);
         jLabel7.setBounds(330, 30, 80, 33);
 
-        jTextArea1.setBackground(new java.awt.Color(149, 72, 91));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        alamat.setBackground(new java.awt.Color(149, 72, 91));
+        alamat.setColumns(20);
+        alamat.setForeground(new java.awt.Color(255, 255, 255));
+        alamat.setRows(5);
+        jScrollPane1.setViewportView(alamat);
 
         jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(420, 90, 230, 96);
+        jScrollPane1.setBounds(420, 140, 230, 83);
 
-        expired1.setBackground(new java.awt.Color(149, 72, 91));
-        expired1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(expired1);
-        expired1.setBounds(120, 230, 180, 33);
+        no_telpon.setBackground(new java.awt.Color(149, 72, 91));
+        no_telpon.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(no_telpon);
+        no_telpon.setBounds(120, 230, 180, 33);
 
         jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("No Telpon");
@@ -147,17 +154,17 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("No BPJS");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(340, 200, 100, 33);
+        jLabel9.setBounds(340, 80, 100, 33);
 
-        supplier1.setBackground(new java.awt.Color(149, 72, 91));
-        supplier1.setForeground(new java.awt.Color(255, 255, 255));
-        supplier1.addActionListener(new java.awt.event.ActionListener() {
+        no_bpjs.setBackground(new java.awt.Color(149, 72, 91));
+        no_bpjs.setForeground(new java.awt.Color(255, 255, 255));
+        no_bpjs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supplier1ActionPerformed(evt);
+                no_bpjsActionPerformed(evt);
             }
         });
-        jPanel3.add(supplier1);
-        supplier1.setBounds(420, 200, 230, 33);
+        jPanel3.add(no_bpjs);
+        no_bpjs.setBounds(420, 80, 230, 33);
 
         tambah.setBackground(new java.awt.Color(48, 37, 40));
         tambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -177,9 +184,9 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,35 +198,85 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    public void idPasien(){
+        try {
+            String sql  = "SELECT * FROM tbl_pasien order by id_pasien desc ";
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            
+            if(rs.next()){
+                String nofak = rs.getString("id_pasien").substring(3);
+                String AN    = "" + (Integer.parseInt(nofak) + 1 );
+                String nol   = "" ;
+                
+                if(AN.length() == 1){
+                    nol = "000" ;
+                }else if(AN.length() == 2){
+                    nol = "00" ;
+                }else if(AN.length() == 3){
+                    nol = "0" ;
+                }else if(AN.length() == 4){
+                    nol = "" ;
+                }
+                id_pasien.setText("PSN" + nol + AN);
+            }else {
+                id_pasien.setText("PSN0001");
+            }
+        
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    
+    private  String getTanggal() {  
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+        Date date = new Date();  
+        return dateFormat.format(date);  
+    }
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
-        if(id_obat.getText().equals("") || nama_obat.getText().equals("")|| expired.getText().equals("")
-            || supplier.getText().equals("")){
+        Daftar_Pasien a = new Daftar_Pasien();
+        String tgl_daftar =  a.getTanggal();
+        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")|| tgl_lahir.getText().equals("")
+            || tempat_lahir.getText().equals("") || alamat.getText().equals("")
+                || no_telpon.getText().equals("") || no_bpjs.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
             try {
-                String sql = "INSERT INTO  tbl_obat ("
-                + " id_obat , nama_obat , expired , "
-                + "supplier) values "
-                + "('"+ id_obat.getText() +"' , '"+ nama_obat.getText() +"' , '"+ expired.getText() +"' , "
-                + "'"+ supplier.getText() +"' ) " ;
+                String sql = "INSERT INTO  tbl_pasien ("
+                + " id_pasien , nama , tgl_daftar ,  tempat_lahir ,tgl_lahir , jenis_kelamin ,"
+                        + "alamat , no_telp , no_bpjs , status) values "
+                + "('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"  + tgl_daftar +  "' ,"
+                        + " '"+ tempat_lahir.getText()  +"' , '"+ tgl_lahir.getText()  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
+                        + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ) " ;
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
-                String data = null ;
-                loadData(data);
-                reset();
+                JOptionPane.showMessageDialog(null,"Pasien Di Daftarkan");
+//                String data = null ;
+//                loadData(data);
+               reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
         }
     }//GEN-LAST:event_tambahActionPerformed
 
-    private void supplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier1ActionPerformed
+    public void reset(){
+        id_pasien.setText("") ;
+        nama_pasien.setText("");
+        tgl_lahir.setText("");
+        tempat_lahir.setText("") ;
+        alamat.setText("");
+         no_telpon.setText("");
+         no_bpjs.setText("");
+    }
+    
+    private void no_bpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_bpjsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_supplier1ActionPerformed
+    }//GEN-LAST:event_no_bpjsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,10 +314,8 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField expired;
-    private javax.swing.JTextField expired1;
-    private javax.swing.JTextField id_obat;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextArea alamat;
+    private javax.swing.JTextField id_pasien;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -273,10 +328,12 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField nama_obat;
-    private javax.swing.JTextField supplier;
-    private javax.swing.JTextField supplier1;
+    private javax.swing.JComboBox<String> jenis_kelamin;
+    private javax.swing.JTextField nama_pasien;
+    private javax.swing.JTextField no_bpjs;
+    private javax.swing.JTextField no_telpon;
     private javax.swing.JButton tambah;
+    private javax.swing.JTextField tempat_lahir;
+    private javax.swing.JTextField tgl_lahir;
     // End of variables declaration//GEN-END:variables
 }
