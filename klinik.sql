@@ -1,6 +1,6 @@
 /*
 SQLyog Enterprise - MySQL GUI v8.05 
-MySQL - 5.5.5-10.4.20-MariaDB : Database - klinik
+MySQL - 5.5.5-10.1.28-MariaDB : Database - klinik
 *********************************************************************
 */
 
@@ -11,7 +11,7 @@ MySQL - 5.5.5-10.4.20-MariaDB : Database - klinik
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`klinik` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`klinik` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `klinik`;
 
@@ -29,16 +29,19 @@ CREATE TABLE `tbl_obat` (
 
 /*Data for the table `tbl_obat` */
 
+insert  into `tbl_obat`(`id_obat`,`nama_obat`,`expired`,`supplier`) values ('01','Oskadon','2021-12-12','SUOP'),('02','Bodrex','2021-12-05','SYOP'),('03','Konimex','2021-05-08','Kond');
+
 /*Table structure for table `tbl_pasien` */
 
 DROP TABLE IF EXISTS `tbl_pasien`;
 
 CREATE TABLE `tbl_pasien` (
   `id_pasien` varchar(60) NOT NULL,
+  `tgl_daftar` date DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `jenis_kelamin` varchar(20) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `no_telp` varchar(15) DEFAULT NULL,
   `no_bpjs` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id_pasien`)
@@ -58,6 +61,20 @@ CREATE TABLE `tbl_penyakit` (
 
 /*Data for the table `tbl_penyakit` */
 
+/*Table structure for table `tbl_status_periksa` */
+
+DROP TABLE IF EXISTS `tbl_status_periksa`;
+
+CREATE TABLE `tbl_status_periksa` (
+  `id_status` varchar(10) NOT NULL,
+  `jenis_status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_status`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_status_periksa` */
+
+insert  into `tbl_status_periksa`(`id_status`,`jenis_status`) values ('1','dadsd');
+
 /*Table structure for table `tbl_tindaklanjut` */
 
 DROP TABLE IF EXISTS `tbl_tindaklanjut`;
@@ -70,6 +87,8 @@ CREATE TABLE `tbl_tindaklanjut` (
 
 /*Data for the table `tbl_tindaklanjut` */
 
+insert  into `tbl_tindaklanjut`(`id_tindaklanjut`,`jenis_tindaklanjut`) values ('01','Rujukan');
+
 /*Table structure for table `transaksi` */
 
 DROP TABLE IF EXISTS `transaksi`;
@@ -81,7 +100,7 @@ CREATE TABLE `transaksi` (
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
   `jenis_kelmin` varchar(100) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `no_telp` varchar(20) DEFAULT NULL,
   `no_bpjs` varchar(40) DEFAULT NULL,
   `jasa_medis` int(60) DEFAULT NULL,
