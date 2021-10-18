@@ -40,25 +40,38 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        key = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
+        rekamMedis = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
-        refresh1 = new javax.swing.JButton();
+        key = new javax.swing.JTextField();
+        cari = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pasienList = new javax.swing.JTable();
-        cari = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        id_pasien = new javax.swing.JTextField();
+        id_status1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        id_status4 = new javax.swing.JTextField();
+        id_status5 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        id_status6 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        id_status2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel3.setBackground(new java.awt.Color(225, 225, 225));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel2.setBackground(new java.awt.Color(181, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,10 +91,6 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 100));
-
-        key.setBackground(new java.awt.Color(149, 72, 91));
-        key.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 150, 30));
 
         jPanel1.setBackground(new java.awt.Color(71, 82, 83));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -108,29 +117,44 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 180, 50));
 
+        rekamMedis.setBackground(new java.awt.Color(48, 37, 40));
+        rekamMedis.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        rekamMedis.setForeground(new java.awt.Color(255, 255, 255));
+        rekamMedis.setText("Input Rekam Medis");
+        rekamMedis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rekamMedisActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rekamMedis, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 180, 50));
+
         refresh.setBackground(new java.awt.Color(48, 37, 40));
         refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         refresh.setForeground(new java.awt.Color(255, 255, 255));
-        refresh.setText("Simpan");
+        refresh.setText("Refresh Table");
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 180, 50));
+        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 180, 50));
 
-        refresh1.setBackground(new java.awt.Color(48, 37, 40));
-        refresh1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        refresh1.setForeground(new java.awt.Color(255, 255, 255));
-        refresh1.setText("Refresh Table");
-        refresh1.addActionListener(new java.awt.event.ActionListener() {
+        key.setBackground(new java.awt.Color(149, 72, 91));
+        key.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 100, 40));
+
+        cari.setBackground(new java.awt.Color(48, 37, 40));
+        cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cari.setForeground(new java.awt.Color(255, 255, 255));
+        cari.setText("Cari");
+        cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refresh1ActionPerformed(evt);
+                cariActionPerformed(evt);
             }
         });
-        jPanel1.add(refresh1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 180, 50));
+        jPanel1.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 80, 40));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 200, 310));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 200, 320));
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "List Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -154,18 +178,67 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 630, 280));
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 650, 310));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 650, 320));
 
-        cari.setBackground(new java.awt.Color(48, 37, 40));
-        cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cari.setForeground(new java.awt.Color(255, 255, 255));
-        cari.setText("Cari");
-        cari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cariActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, 70, 30));
+        jPanel5.setBackground(new java.awt.Color(71, 82, 83));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("ID Pasien");
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 90, 33));
+
+        id_pasien.setBackground(new java.awt.Color(149, 72, 91));
+        id_pasien.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 230, 33));
+
+        id_status1.setBackground(new java.awt.Color(149, 72, 91));
+        id_status1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_status1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 230, 33));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("No Antrian");
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 90, 33));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Nama Pasien");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 90, 33));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Tempat Lahir");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 90, 33));
+
+        id_status4.setBackground(new java.awt.Color(149, 72, 91));
+        id_status4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_status4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 230, 33));
+
+        id_status5.setBackground(new java.awt.Color(149, 72, 91));
+        id_status5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_status5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 230, 33));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Tanggal Lahir");
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 90, 33));
+
+        id_status6.setBackground(new java.awt.Color(149, 72, 91));
+        id_status6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_status6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 230, 33));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("No BPJS");
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 90, 33));
+
+        id_status2.setBackground(new java.awt.Color(149, 72, 91));
+        id_status2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_status2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 230, 33));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 850, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,9 +248,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -216,12 +287,16 @@ public class Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         } 
     }
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+    private void rekamMedisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedisActionPerformed
         // TODO add your handling code here:
-        String data = null ;
-        loadData(data);
-        
-    }//GEN-LAST:event_refreshActionPerformed
+       if(id_pasien.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Pilih Pasien Dahulu");
+       }else {
+        Form_rekam_medis a = new Form_rekam_medis();
+        a.setVisible(true);
+           
+       }
+    }//GEN-LAST:event_rekamMedisActionPerformed
 
     private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
         // TODO add your handling code here:
@@ -237,9 +312,11 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutActionPerformed
 
-    private void refresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh1ActionPerformed
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_refresh1ActionPerformed
+         String data = null ;
+         loadData(data);
+    }//GEN-LAST:event_refreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,20 +355,33 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
+    private javax.swing.JTextField id_pasien;
+    private javax.swing.JTextField id_status1;
+    private javax.swing.JTextField id_status2;
+    private javax.swing.JTextField id_status4;
+    private javax.swing.JTextField id_status5;
+    private javax.swing.JTextField id_status6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField key;
     private javax.swing.JButton logout;
     private javax.swing.JTable pasienList;
     private javax.swing.JButton refresh;
-    private javax.swing.JButton refresh1;
+    private javax.swing.JButton rekamMedis;
     // End of variables declaration//GEN-END:variables
 }
