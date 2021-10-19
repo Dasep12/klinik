@@ -287,6 +287,7 @@ public class Dashboard extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Pilih Pasien Dahulu");
        }else {
         Form_rekam_medis a = new Form_rekam_medis();
+        a.idPasien(id_pasien.getText());
         a.setVisible(true);
         
        }
@@ -333,6 +334,7 @@ public class Dashboard extends javax.swing.JFrame {
                no_bpjs.setEditable(false);
                tempat_lahir.setEditable(false);
                tgl_lahir.setEditable(false);
+               nama.setEditable(false);
             }
         }catch(Exception e){
             

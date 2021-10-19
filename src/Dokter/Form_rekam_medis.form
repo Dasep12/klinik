@@ -500,7 +500,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="sistol1">
+            <Component class="javax.swing.JTextField" name="harga_obat">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="5b" green="48" red="95" type="rgb"/>
@@ -515,7 +515,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="id_status11">
+            <Component class="javax.swing.JTextField" name="nama_obat">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="5b" green="48" red="95" type="rgb"/>

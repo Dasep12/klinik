@@ -14,8 +14,11 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     /**
      * Creates new form Form_rekam_medis
      */
+    private String PA , obt ,hrg  ;
     public Form_rekam_medis() {
         initComponents();
+        idPasien(this.PA);
+        FormObat(obt, hrg );
     }
 
     /**
@@ -55,8 +58,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        sistol1 = new javax.swing.JTextField();
-        id_status11 = new javax.swing.JTextField();
+        harga_obat = new javax.swing.JTextField();
+        nama_obat = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         data_obat = new javax.swing.JTable();
         input_obat = new javax.swing.JButton();
@@ -198,13 +201,13 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel20.setText("Nama obat");
         jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 100, 33));
 
-        sistol1.setBackground(new java.awt.Color(149, 72, 91));
-        sistol1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(sistol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
+        harga_obat.setBackground(new java.awt.Color(149, 72, 91));
+        harga_obat.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(harga_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
 
-        id_status11.setBackground(new java.awt.Color(149, 72, 91));
-        id_status11.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(id_status11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
+        nama_obat.setBackground(new java.awt.Color(149, 72, 91));
+        nama_obat.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(nama_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
 
         data_obat.setBackground(new java.awt.Color(77, 80, 89));
         data_obat.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,9 +270,23 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    public void idPasien(String id){
+        id_pasien.setText(id);
+        id_pasien.setEditable(false);
+    }
+    
+    public void FormObat(String obat , String harga){
+        nama_obat.setText(obat);
+        harga_obat.setText(harga);
+        nama_obat.setEditable(false);
+        harga_obat.setEditable(false);
+    }
+    
     private void input_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_obatActionPerformed
         // TODO add your handling code here:
-       
+        
     }//GEN-LAST:event_input_obatActionPerformed
 
     private void cari_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_obatActionPerformed
@@ -278,6 +295,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
 
     private void cari_obat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_obat1ActionPerformed
         // TODO add your handling code here:
+        Obat a = new Obat();
+        a.setVisible(true);
     }//GEN-LAST:event_cari_obat1ActionPerformed
 
     /**
@@ -325,8 +344,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JTextField diagnosa;
     private javax.swing.JTextField diagnosa_1;
     private javax.swing.JTextField distole;
+    private javax.swing.JTextField harga_obat;
     private javax.swing.JTextField id_pasien;
-    private javax.swing.JTextField id_status11;
     private javax.swing.JTextField id_status9;
     private javax.swing.JButton input_obat;
     private javax.swing.JLabel jLabel10;
@@ -346,9 +365,9 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField penyakit;
     private javax.swing.JTextField sistol;
-    private javax.swing.JTextField sistol1;
     private javax.swing.JTextField tinggi_badan;
     // End of variables declaration//GEN-END:variables
 }
