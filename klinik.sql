@@ -1,6 +1,6 @@
 /*
 SQLyog Enterprise - MySQL GUI v8.05 
-MySQL - 5.5.5-10.4.20-MariaDB : Database - klinik
+MySQL - 5.5.5-10.1.28-MariaDB : Database - klinik
 *********************************************************************
 */
 
@@ -11,7 +11,7 @@ MySQL - 5.5.5-10.4.20-MariaDB : Database - klinik
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`klinik` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`klinik` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `klinik`;
 
@@ -38,18 +38,18 @@ CREATE TABLE `rekam_medis` (
   `jenis_kelamin` varchar(14) DEFAULT NULL,
   `tempat_lahir` varchar(60) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `no_telp` varchar(14) DEFAULT NULL,
   `no_bpjs` varchar(29) DEFAULT NULL,
   `status_periksa` varchar(20) DEFAULT NULL,
   `sistol` varchar(255) DEFAULT NULL,
-  `diastole` varchar(255) DEFAULT NULL,
+  `distole` varchar(255) DEFAULT NULL,
   `tinggi` varchar(10) DEFAULT NULL,
   `berat_badan` varchar(10) DEFAULT NULL,
-  `diagnosa1` text DEFAULT NULL,
-  `diagnosa2` text DEFAULT NULL,
-  `anamnesa1` text DEFAULT NULL,
-  `anamnesa2` text DEFAULT NULL,
+  `diagnosa1` text,
+  `diagnosa2` text,
+  `anamnesa1` text,
+  `anamnesa2` text,
   `nama_penyakit` varchar(255) DEFAULT NULL,
   `tidak_lanjut` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_pasien`)
@@ -66,12 +66,13 @@ CREATE TABLE `tbl_obat` (
   `nama_obat` varchar(100) DEFAULT NULL,
   `expired` varchar(100) DEFAULT NULL,
   `supplier` varchar(100) DEFAULT NULL,
+  `harga` int(30) DEFAULT NULL,
   PRIMARY KEY (`id_obat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_obat` */
 
-insert  into `tbl_obat`(`id_obat`,`nama_obat`,`expired`,`supplier`) values ('01','Oskadon','2021-12-12','SUOP'),('02','Bodrex','2021-12-05','SYOP'),('03','Konimex','2021-05-08','Kond');
+insert  into `tbl_obat`(`id_obat`,`nama_obat`,`expired`,`supplier`,`harga`) values ('01','Oskadon','2021-12-12','SUOP',12000),('02','Bodrex','2021-12-05','SYOP',15000),('03','Konimex','2021-05-08','Kond',30000);
 
 /*Table structure for table `tbl_pasien` */
 
@@ -84,7 +85,7 @@ CREATE TABLE `tbl_pasien` (
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
   `jenis_kelamin` varchar(20) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `no_telp` varchar(15) DEFAULT NULL,
   `no_bpjs` varchar(30) DEFAULT NULL,
   `status` varchar(30) DEFAULT NULL,
@@ -148,7 +149,7 @@ CREATE TABLE `transaksi` (
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
   `jenis_kelmin` varchar(100) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `no_telp` varchar(20) DEFAULT NULL,
   `no_bpjs` varchar(40) DEFAULT NULL,
   `jasa_medis` int(60) DEFAULT NULL,
