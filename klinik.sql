@@ -22,10 +22,12 @@ DROP TABLE IF EXISTS `obat_pasien`;
 CREATE TABLE `obat_pasien` (
   `id_pasien` varchar(20) NOT NULL,
   `obat` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_pasien`)
+  `harga` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `obat_pasien` */
+
+insert  into `obat_pasien`(`id_pasien`,`obat`,`harga`) values ('PSN0001','Bodrex',15000),('PSN0002','Oskadon',12000),('PSN0002','Bodrex',15000),('PSN0002','Bodrex',15000);
 
 /*Table structure for table `rekam_medis` */
 

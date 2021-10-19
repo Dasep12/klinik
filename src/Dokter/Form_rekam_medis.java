@@ -5,6 +5,13 @@
  */
 package Dokter;
 
+import Conection.Conn;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dasep
@@ -19,6 +26,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         initComponents();
         idPasien(this.PA);
         FormObat(obt, hrg );
+        listObat();
+        loadObat();
     }
 
     /**
@@ -59,11 +68,11 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         harga_obat = new javax.swing.JTextField();
-        nama_obat = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         data_obat = new javax.swing.JTable();
+        hapus = new javax.swing.JButton();
+        nama_obat = new javax.swing.JComboBox<>();
         input_obat = new javax.swing.JButton();
-        cari_obat1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,10 +90,12 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 33));
 
         id_pasien.setBackground(new java.awt.Color(149, 72, 91));
+        id_pasien.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         id_pasien.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 230, 33));
 
         distole.setBackground(new java.awt.Color(149, 72, 91));
+        distole.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         distole.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(distole, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 230, 33));
 
@@ -104,14 +115,17 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 100, 33));
 
         sistol.setBackground(new java.awt.Color(149, 72, 91));
+        sistol.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         sistol.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(sistol, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
 
         tinggi_badan.setBackground(new java.awt.Color(149, 72, 91));
+        tinggi_badan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tinggi_badan.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(tinggi_badan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
 
         diagnosa.setBackground(new java.awt.Color(149, 72, 91));
+        diagnosa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         diagnosa.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(diagnosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 230, 33));
 
@@ -121,6 +135,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 33));
 
         diagnosa_1.setBackground(new java.awt.Color(149, 72, 91));
+        diagnosa_1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         diagnosa_1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(diagnosa_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 230, 33));
 
@@ -130,6 +145,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 90, 33));
 
         amnesa_2.setBackground(new java.awt.Color(149, 72, 91));
+        amnesa_2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         amnesa_2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(amnesa_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 230, 33));
 
@@ -139,6 +155,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 90, 33));
 
         amnesa_1.setBackground(new java.awt.Color(149, 72, 91));
+        amnesa_1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         amnesa_1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(amnesa_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 230, 33));
 
@@ -148,6 +165,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, 33));
 
         penyakit.setBackground(new java.awt.Color(149, 72, 91));
+        penyakit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         penyakit.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 230, 33));
 
@@ -157,6 +175,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 90, 33));
 
         id_status9.setBackground(new java.awt.Color(149, 72, 91));
+        id_status9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         id_status9.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(id_status9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 230, 33));
 
@@ -171,6 +190,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 100, 33));
 
         berat_badan.setBackground(new java.awt.Color(149, 72, 91));
+        berat_badan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         berat_badan.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(berat_badan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 230, 33));
 
@@ -194,7 +214,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Harga");
-        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 90, 33));
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 90, 33));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,11 +223,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
 
         harga_obat.setBackground(new java.awt.Color(149, 72, 91));
         harga_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(harga_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
-
-        nama_obat.setBackground(new java.awt.Color(149, 72, 91));
-        nama_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(nama_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
+        jPanel6.add(harga_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 230, 33));
 
         data_obat.setBackground(new java.awt.Color(77, 80, 89));
         data_obat.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,7 +241,29 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         data_obat.setRowHeight(20);
         jScrollPane1.setViewportView(data_obat);
 
-        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 410, 230));
+        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 410, 180));
+
+        hapus.setBackground(new java.awt.Color(48, 37, 40));
+        hapus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        hapus.setForeground(new java.awt.Color(255, 255, 255));
+        hapus.setText("Input");
+        hapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusActionPerformed(evt);
+            }
+        });
+        jPanel6.add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 100, 40));
+
+        nama_obat.setBackground(new java.awt.Color(149, 72, 91));
+        nama_obat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nama_obat.setForeground(new java.awt.Color(255, 255, 255));
+        nama_obat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Obat" }));
+        nama_obat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nama_obatActionPerformed(evt);
+            }
+        });
+        jPanel6.add(nama_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 40));
 
         input_obat.setBackground(new java.awt.Color(48, 37, 40));
         input_obat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -236,68 +274,128 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 input_obatActionPerformed(evt);
             }
         });
-        jPanel6.add(input_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 100, 40));
+        jPanel6.add(input_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 100, 40));
 
-        cari_obat1.setBackground(new java.awt.Color(48, 37, 40));
-        cari_obat1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cari_obat1.setForeground(new java.awt.Color(255, 255, 255));
-        cari_obat1.setText("Cari Obat");
-        cari_obat1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cari_obat1ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cari_obat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 100, 40));
-
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 830, 280));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 830, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+    public void loadObat(){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("Nama Obat");
+        model.addColumn("Harga");
+        
+        //tampilkan data makanan kedalam table 
+        try {
+            int no = 1 ;
+            String sql = "Select * from obat_pasien where id_pasien='" + id_pasien.getText() +"'  " ;
+       
+                    java.sql.Connection conn = (Connection)Conn.configDB();
+                    java.sql.Statement stm = conn.createStatement();
+                    java.sql.ResultSet res = stm.executeQuery(sql);
+                    while(res.next()){
+                        model.addRow(new Object[] {no++ , res.getString("obat") ,
+                            res.getString("harga")   } );
+                    }
+            data_obat.setModel(model);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        } 
+    }
+    public void listObat(){
+
+        try {
+            String sql  = "SELECT * FROM tbl_obat  ";
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            
+            while (rs.next()) {                
+                nama_obat.addItem(rs.getString("nama_obat"));
+            }
+        
+           
+        } catch (SQLException e) {
+            
+        }
+        
+    }
     public void idPasien(String id){
         id_pasien.setText(id);
         id_pasien.setEditable(false);
     }
     
     public void FormObat(String obat , String harga){
-        nama_obat.setText(obat);
         harga_obat.setText(harga);
-        nama_obat.setEditable(false);
         harga_obat.setEditable(false);
     }
     
-    private void input_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_obatActionPerformed
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_input_obatActionPerformed
+    }//GEN-LAST:event_hapusActionPerformed
 
     private void cari_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_obatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cari_obatActionPerformed
 
-    private void cari_obat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_obat1ActionPerformed
+    private void nama_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nama_obatActionPerformed
         // TODO add your handling code here:
-        Obat a = new Obat();
-        a.setVisible(true);
-    }//GEN-LAST:event_cari_obat1ActionPerformed
+        String d = (String)  nama_obat.getSelectedItem();
+         // JOptionPane.showMessageDialog(null,d);
+          if(d == "Pilih Obat"){
+              harga_obat.setText("");
+          }else {
+//              JOptionPane.showMessageDialog(null,d);
+                try {
+                    String sql = "Select * from tbl_obat where nama_obat='"+ d +"' " ;
+                    java.sql.Connection conn = (Connection)Conn.configDB();
+                    java.sql.Statement stm = conn.createStatement();
+                    java.sql.ResultSet res = stm.executeQuery(sql);
+                     while(res.next()){
+                         harga_obat.setText(res.getString("harga"));
+                     }
+                }catch(Exception e){
+
+                }
+          }
+    }//GEN-LAST:event_nama_obatActionPerformed
+
+    private void input_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_obatActionPerformed
+        // TODO add your handling code here:
+        if(harga_obat.getText().equals("") || id_pasien.getText().equals("") || nama_obat.getSelectedItem().equals("") ){
+            JOptionPane.showMessageDialog(null,"field kosong");
+        }else {
+            try {
+                String sql = "INSERT INTO  obat_pasien ("
+                        + " id_pasien , obat  , harga) values "
+                        + "('"+ id_pasien.getText() +"' , '"+ nama_obat.getSelectedItem() +"' , '"+ harga_obat.getText() +"'  ) " ;
+                  java.sql.Connection conn = (Connection)Conn.configDB();
+                  java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                  pst.execute();
+                  JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
+                   loadObat();
+                   harga_obat.setText("");
+                   nama_obat.setSelectedItem("Pilih Obat");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_input_obatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,11 +437,11 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JTextField amnesa_2;
     private javax.swing.JTextField berat_badan;
     private javax.swing.JButton cari_obat;
-    private javax.swing.JButton cari_obat1;
     private javax.swing.JTable data_obat;
     private javax.swing.JTextField diagnosa;
     private javax.swing.JTextField diagnosa_1;
     private javax.swing.JTextField distole;
+    private javax.swing.JButton hapus;
     private javax.swing.JTextField harga_obat;
     private javax.swing.JTextField id_pasien;
     private javax.swing.JTextField id_status9;
@@ -365,7 +463,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nama_obat;
+    private javax.swing.JComboBox<String> nama_obat;
     private javax.swing.JTextField penyakit;
     private javax.swing.JTextField sistol;
     private javax.swing.JTextField tinggi_badan;
