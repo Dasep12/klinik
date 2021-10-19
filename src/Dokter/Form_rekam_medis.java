@@ -30,17 +30,37 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        id_status = new javax.swing.JTextField();
-        id_status1 = new javax.swing.JTextField();
+        id_pasien = new javax.swing.JTextField();
+        distole = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        id_status4 = new javax.swing.JTextField();
-        id_status5 = new javax.swing.JTextField();
+        sistol = new javax.swing.JTextField();
+        tinggi_badan = new javax.swing.JTextField();
+        diagnosa = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        diagnosa_1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        amnesa_2 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        amnesa_1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        penyakit = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        id_status9 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        id_status6 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        id_status2 = new javax.swing.JTextField();
+        berat_badan = new javax.swing.JTextField();
+        cari_obat = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        sistol1 = new javax.swing.JTextField();
+        id_status11 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        data_obat = new javax.swing.JTable();
+        input_obat = new javax.swing.JButton();
+        cari_obat1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -49,79 +69,216 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("ID Pasien");
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 90, 33));
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 33));
 
-        id_status.setBackground(new java.awt.Color(149, 72, 91));
-        id_status.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 230, 33));
+        id_pasien.setBackground(new java.awt.Color(149, 72, 91));
+        id_pasien.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 230, 33));
 
-        id_status1.setBackground(new java.awt.Color(149, 72, 91));
-        id_status1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 230, 33));
+        distole.setBackground(new java.awt.Color(149, 72, 91));
+        distole.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(distole, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 230, 33));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("No Antrian");
-        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, 33));
+        jLabel7.setText("Distole");
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 90, 33));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Nama Pasien");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 90, 33));
+        jLabel8.setText("Sistol");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 90, 33));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Tempat Lahir");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 90, 33));
+        jLabel9.setText("Tinggi Badan");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 100, 33));
 
-        id_status4.setBackground(new java.awt.Color(149, 72, 91));
-        id_status4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
+        sistol.setBackground(new java.awt.Color(149, 72, 91));
+        sistol.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(sistol, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
 
-        id_status5.setBackground(new java.awt.Color(149, 72, 91));
-        id_status5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
+        tinggi_badan.setBackground(new java.awt.Color(149, 72, 91));
+        tinggi_badan.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(tinggi_badan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
+
+        diagnosa.setBackground(new java.awt.Color(149, 72, 91));
+        diagnosa.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(diagnosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 230, 33));
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Diagnosa 1");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 33));
+
+        diagnosa_1.setBackground(new java.awt.Color(149, 72, 91));
+        diagnosa_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(diagnosa_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 230, 33));
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Diagnosa 2");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 90, 33));
+
+        amnesa_2.setBackground(new java.awt.Color(149, 72, 91));
+        amnesa_2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(amnesa_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 230, 33));
+
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Amnesa 1");
+        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 90, 33));
+
+        amnesa_1.setBackground(new java.awt.Color(149, 72, 91));
+        amnesa_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(amnesa_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 230, 33));
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Amnesa 2");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, 33));
+
+        penyakit.setBackground(new java.awt.Color(149, 72, 91));
+        penyakit.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 230, 33));
+
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Nama Penyakit");
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 90, 33));
+
+        id_status9.setBackground(new java.awt.Color(149, 72, 91));
+        id_status9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(id_status9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 230, 33));
+
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Tindak Lanjut");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 100, 33));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Tanggal Lahir");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 90, 33));
+        jLabel10.setText("Berat Badan");
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 100, 33));
 
-        id_status6.setBackground(new java.awt.Color(149, 72, 91));
-        id_status6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 230, 33));
+        berat_badan.setBackground(new java.awt.Color(149, 72, 91));
+        berat_badan.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(berat_badan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 230, 33));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("No BPJS");
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 90, 33));
+        cari_obat.setBackground(new java.awt.Color(48, 37, 40));
+        cari_obat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cari_obat.setForeground(new java.awt.Color(255, 255, 255));
+        cari_obat.setText("Simpan Data");
+        cari_obat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cari_obatActionPerformed(evt);
+            }
+        });
+        jPanel5.add(cari_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 130, 40));
 
-        id_status2.setBackground(new java.awt.Color(149, 72, 91));
-        id_status2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 230, 33));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 280));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 390));
+        jPanel6.setBackground(new java.awt.Color(71, 82, 83));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Input Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Harga");
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 90, 33));
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Nama obat");
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 100, 33));
+
+        sistol1.setBackground(new java.awt.Color(149, 72, 91));
+        sistol1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(sistol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 230, 33));
+
+        id_status11.setBackground(new java.awt.Color(149, 72, 91));
+        id_status11.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(id_status11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 230, 33));
+
+        data_obat.setBackground(new java.awt.Color(77, 80, 89));
+        data_obat.setForeground(new java.awt.Color(255, 255, 255));
+        data_obat.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nama Obat", "Harga"
+            }
+        ));
+        data_obat.setRowHeight(20);
+        jScrollPane1.setViewportView(data_obat);
+
+        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 410, 230));
+
+        input_obat.setBackground(new java.awt.Color(48, 37, 40));
+        input_obat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        input_obat.setForeground(new java.awt.Color(255, 255, 255));
+        input_obat.setText("Input");
+        input_obat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_obatActionPerformed(evt);
+            }
+        });
+        jPanel6.add(input_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 100, 40));
+
+        cari_obat1.setBackground(new java.awt.Color(48, 37, 40));
+        cari_obat1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cari_obat1.setForeground(new java.awt.Color(255, 255, 255));
+        cari_obat1.setText("Cari Obat");
+        cari_obat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cari_obat1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(cari_obat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 100, 40));
+
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 830, 280));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void input_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_obatActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_input_obatActionPerformed
+
+    private void cari_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_obatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cari_obatActionPerformed
+
+    private void cari_obat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_obat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cari_obat1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,19 +316,39 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField id_status;
-    private javax.swing.JTextField id_status1;
-    private javax.swing.JTextField id_status2;
-    private javax.swing.JTextField id_status4;
-    private javax.swing.JTextField id_status5;
-    private javax.swing.JTextField id_status6;
+    private javax.swing.JTextField amnesa_1;
+    private javax.swing.JTextField amnesa_2;
+    private javax.swing.JTextField berat_badan;
+    private javax.swing.JButton cari_obat;
+    private javax.swing.JButton cari_obat1;
+    private javax.swing.JTable data_obat;
+    private javax.swing.JTextField diagnosa;
+    private javax.swing.JTextField diagnosa_1;
+    private javax.swing.JTextField distole;
+    private javax.swing.JTextField id_pasien;
+    private javax.swing.JTextField id_status11;
+    private javax.swing.JTextField id_status9;
+    private javax.swing.JButton input_obat;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField penyakit;
+    private javax.swing.JTextField sistol;
+    private javax.swing.JTextField sistol1;
+    private javax.swing.JTextField tinggi_badan;
     // End of variables declaration//GEN-END:variables
 }

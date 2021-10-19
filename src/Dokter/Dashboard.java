@@ -54,16 +54,14 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         id_pasien = new javax.swing.JTextField();
-        id_status1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        id_status4 = new javax.swing.JTextField();
-        id_status5 = new javax.swing.JTextField();
+        nama = new javax.swing.JTextField();
+        tempat_lahir = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        id_status6 = new javax.swing.JTextField();
+        tgl_lahir = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        id_status2 = new javax.swing.JTextField();
+        no_bpjs = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,7 +91,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 100));
 
         jPanel1.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -157,7 +155,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 200, 320));
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "List Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "List Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pasienList.setBackground(new java.awt.Color(77, 80, 89));
@@ -174,6 +172,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         ));
         pasienList.setRowHeight(20);
+        pasienList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pasienListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(pasienList);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 630, 280));
@@ -181,7 +184,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 650, 320));
 
         jPanel5.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,15 +196,6 @@ public class Dashboard extends javax.swing.JFrame {
         id_pasien.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 230, 33));
 
-        id_status1.setBackground(new java.awt.Color(149, 72, 91));
-        id_status1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 230, 33));
-
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("No Antrian");
-        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 90, 33));
-
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nama Pasien");
@@ -212,31 +206,31 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel9.setText("Tempat Lahir");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 90, 33));
 
-        id_status4.setBackground(new java.awt.Color(149, 72, 91));
-        id_status4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 230, 33));
+        nama.setBackground(new java.awt.Color(149, 72, 91));
+        nama.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 230, 33));
 
-        id_status5.setBackground(new java.awt.Color(149, 72, 91));
-        id_status5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 230, 33));
+        tempat_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tempat_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 230, 33));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Tanggal Lahir");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 90, 33));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 90, 33));
 
-        id_status6.setBackground(new java.awt.Color(149, 72, 91));
-        id_status6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 230, 33));
+        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 230, 33));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("No BPJS");
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 90, 33));
 
-        id_status2.setBackground(new java.awt.Color(149, 72, 91));
-        id_status2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(id_status2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 230, 33));
+        no_bpjs.setBackground(new java.awt.Color(149, 72, 91));
+        no_bpjs.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(no_bpjs, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 230, 33));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 850, 170));
 
@@ -294,7 +288,7 @@ public class Dashboard extends javax.swing.JFrame {
        }else {
         Form_rekam_medis a = new Form_rekam_medis();
         a.setVisible(true);
-           
+        
        }
     }//GEN-LAST:event_rekamMedisActionPerformed
 
@@ -317,6 +311,33 @@ public class Dashboard extends javax.swing.JFrame {
          String data = null ;
          loadData(data);
     }//GEN-LAST:event_refreshActionPerformed
+
+    private void pasienListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasienListMouseClicked
+        
+        int baris  = pasienList.rowAtPoint(evt.getPoint());
+        String id = pasienList.getValueAt(baris,1).toString();        // TODO add your handling code here:
+        
+         try {
+            String sql = "Select * from tbl_pasien where id_pasien = '"+ id +"' " ;
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            while(res.next()){
+               id_pasien.setText(res.getString("id_pasien"));
+               nama.setText(res.getString("nama"));
+               no_bpjs.setText(res.getString("no_bpjs"));
+               tempat_lahir.setText(res.getString("tempat_lahir"));
+               tgl_lahir.setText(res.getString("tgl_lahir"));
+               
+               id_pasien.setEditable(false);
+               no_bpjs.setEditable(false);
+               tempat_lahir.setEditable(false);
+               tgl_lahir.setEditable(false);
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_pasienListMouseClicked
 
     /**
      * @param args the command line arguments
@@ -356,11 +377,6 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
     private javax.swing.JTextField id_pasien;
-    private javax.swing.JTextField id_status1;
-    private javax.swing.JTextField id_status2;
-    private javax.swing.JTextField id_status4;
-    private javax.swing.JTextField id_status5;
-    private javax.swing.JTextField id_status6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -369,7 +385,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -380,8 +395,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField key;
     private javax.swing.JButton logout;
+    private javax.swing.JTextField nama;
+    private javax.swing.JTextField no_bpjs;
     private javax.swing.JTable pasienList;
     private javax.swing.JButton refresh;
     private javax.swing.JButton rekamMedis;
+    private javax.swing.JTextField tempat_lahir;
+    private javax.swing.JTextField tgl_lahir;
     // End of variables declaration//GEN-END:variables
 }
