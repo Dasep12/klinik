@@ -62,7 +62,7 @@ public class Master_obat extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -70,11 +70,11 @@ public class Master_obat extends javax.swing.JFrame {
         jLabel10.setText("MASTER OBAT");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 190, 30));
 
-        jPanel2.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(71, 82, 83));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        obat.setBackground(new java.awt.Color(51, 240, 255));
+        obat.setBackground(new java.awt.Color(77, 80, 89));
         obat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -97,14 +97,14 @@ public class Master_obat extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 740, 220));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 760, 250));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 750, 250));
 
         key.setBackground(new java.awt.Color(149, 72, 91));
         key.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 150, 30));
 
-        jPanel3.setBackground(new java.awt.Color(72, 136, 99));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(71, 82, 83));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
@@ -151,7 +151,7 @@ public class Master_obat extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 750, 130));
 
-        jPanel4.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel4.setBackground(new java.awt.Color(71, 82, 83));
 
         ubah.setBackground(new java.awt.Color(48, 37, 40));
         ubah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -231,7 +231,7 @@ public class Master_obat extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 750, 50));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 750, 50));
 
         refresh.setBackground(new java.awt.Color(48, 37, 40));
         refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -259,7 +259,7 @@ public class Master_obat extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

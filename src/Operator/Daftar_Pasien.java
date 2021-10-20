@@ -56,10 +56,11 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         no_bpjs = new javax.swing.JTextField();
         tambah = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -67,7 +68,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel10.setText("PENDAFTARAN PASIEN");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 270, 30));
 
-        jPanel3.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel3.setBackground(new java.awt.Color(71, 82, 83));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
@@ -178,21 +179,34 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jPanel3.add(tambah);
         tambah.setBounds(550, 260, 107, 38);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 750, 320));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 760, 320));
+
+        jPanel2.setBackground(new java.awt.Color(181, 102, 102));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 780, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
 
         pack();
@@ -251,12 +265,18 @@ public class Daftar_Pasien extends javax.swing.JFrame {
                 + "('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"  + tgl_daftar +  "' ,"
                         + " '"+ tempat_lahir.getText()  +"' , '"+ tgl_lahir.getText()  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
                         + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ) " ;
+                
+               String sql2 = "insert into rekam_medis(id_pasien , nama_pasien , jenis_kelamin , tempat_lahir ,"
+                       + " alamat , no_telp , no_bpjs )values ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"+ jenis_kelamin.getSelectedItem() +"' ,  "
+                       + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' ) ";
+                
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                java.sql.PreparedStatement pst2 = conn.prepareStatement(sql2);
                 pst.execute();
+                pst2.execute();
                 JOptionPane.showMessageDialog(null,"Pasien Di Daftarkan");
-//                String data = null ;
-//                loadData(data);
+                idPasien();
                reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
@@ -265,7 +285,6 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     }//GEN-LAST:event_tambahActionPerformed
 
     public void reset(){
-        id_pasien.setText("") ;
         nama_pasien.setText("");
         tgl_lahir.setText("");
         tempat_lahir.setText("") ;
@@ -326,6 +345,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jenis_kelamin;

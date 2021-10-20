@@ -64,6 +64,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         berat_badan = new javax.swing.JTextField();
         simpan_rekam = new javax.swing.JButton();
+        status_periksa = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -203,9 +205,25 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 simpan_rekamActionPerformed(evt);
             }
         });
-        jPanel5.add(simpan_rekam, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 130, 40));
+        jPanel5.add(simpan_rekam, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 130, 40));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 280));
+        status_periksa.setBackground(new java.awt.Color(149, 72, 91));
+        status_periksa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        status_periksa.setForeground(new java.awt.Color(255, 255, 255));
+        status_periksa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Status", "Sudah Periksa", "Belum Periksa" }));
+        status_periksa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                status_periksaActionPerformed(evt);
+            }
+        });
+        jPanel5.add(status_periksa, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 230, 40));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Status Periksa");
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, 33));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 330));
 
         jPanel6.setBackground(new java.awt.Color(71, 82, 83));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Input Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -281,19 +299,19 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         });
         jPanel6.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 100, 40));
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 830, 220));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 830, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
 
         pack();
@@ -375,7 +393,6 @@ public class Form_rekam_medis extends javax.swing.JFrame {
 
     private void simpan_rekamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpan_rekamActionPerformed
         // TODO add your handling code here:
-        String hrg      =  harga_obat.getText();
         String idpasien = id_pasien.getText();
         String dst      = distole.getText();
         String tb       = tinggi_badan.getText();
@@ -387,24 +404,33 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         String nmapenyakit   = penyakit.getText();
         String tindak  =  tindak_lanjut.getText();
         String bb = berat_badan.getText();
-        
-        
-        if(hrg.equals("") || dst.equals("") || tb.equals("") || sistoll.equals("") || diagnos1.equals("") ||
+
+        if(dst.equals("") || tb.equals("") || sistoll.equals("") || diagnos1.equals("") ||
            diagnos2.equals("") || amns1.equals("") || amn2.equals("") || nmapenyakit.equals("") || tindak.equals("")
-           || bb.equals("") ){
+           || bb.equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
             try {
-                String sql = "INSERT INTO  obat_pasien ("
-                        + " id_pasien , obat  , harga) values "
-                        + "('"+ id_pasien.getText() +"' , '"+ nama_obat.getSelectedItem() +"' , '"+ harga_obat.getText() +"'  ) " ;
+                String sql = "update rekam_medis set "
+                        + " sistol = '" + sistoll + "' , "
+                        + " distole = '" + dst + "' , "
+                        + " tinggi = '" + tb + "' , "
+                        + " berat_badan = '" + bb + "' , "
+                        + " diagnosa1 = '" + diagnos1 + "' , "
+                        + " diagnosa2 = '" + diagnos2 + "' , "
+                        + " amnesa1 = '" + amns1 + "' , "
+                        + " amnesa2 = '" + amn2 + "' , "
+                        + " nama_penyakit = '" + nmapenyakit + "' , "
+                        + " tindak_lanjut = '" + tindak + "' , "
+                        + " status_periksa = '" +  status_periksa.getSelectedItem() + "'  "
+                        + " where id_pasien = '" + idpasien + "' " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
-                  JOptionPane.showMessageDialog(null,"Penyimpanan Berhasil");
+                  JOptionPane.showMessageDialog(null,"Rekam Medis di Simpan");
                   loadObat();
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e.getMessage());
+                JOptionPane.showMessageDialog(null,e);
             }
         }
     }//GEN-LAST:event_simpan_rekamActionPerformed
@@ -448,6 +474,10 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                     break ;
             }
     }//GEN-LAST:event_data_obatMouseClicked
+
+    private void status_periksaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_status_periksaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_status_periksaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -496,6 +526,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JTextField id_pasien;
     private javax.swing.JButton input_obat;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -517,6 +548,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JButton reset;
     private javax.swing.JButton simpan_rekam;
     private javax.swing.JTextField sistol;
+    private javax.swing.JComboBox<String> status_periksa;
     private javax.swing.JTextField tindak_lanjut;
     private javax.swing.JTextField tinggi_badan;
     // End of variables declaration//GEN-END:variables
