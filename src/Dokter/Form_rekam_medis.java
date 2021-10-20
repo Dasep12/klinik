@@ -320,6 +320,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
 
     public void loadObat(){
         DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("ID");
         model.addColumn("No");
         model.addColumn("Nama Obat");
         model.addColumn("Harga");
@@ -333,7 +335,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                     java.sql.Statement stm = conn.createStatement();
                     java.sql.ResultSet res = stm.executeQuery(sql);
                     while(res.next()){
-                        model.addRow(new Object[] {no++ , res.getString("obat") ,
+                        model.addRow(new Object[] { res.getString("id") , no++ , res.getString("obat") ,
                             res.getString("harga")   } );
                     }
             data_obat.setModel(model);
