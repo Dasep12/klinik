@@ -320,6 +320,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
 
     public void loadObat(){
         DefaultTableModel model = new DefaultTableModel();
+        String sql = "Select * from obat_pasien where id_pasien='" + id_pasien.getText() +"'  " ;
         
         model.addColumn("ID");
         model.addColumn("No");
@@ -329,16 +330,17 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         //tampilkan data makanan kedalam table 
         try {
             int no = 1 ;
-            String sql = "Select * from obat_pasien where id_pasien='" + id_pasien.getText() +"'  " ;
        
                     java.sql.Connection conn = (Connection)Conn.configDB();
                     java.sql.Statement stm = conn.createStatement();
                     java.sql.ResultSet res = stm.executeQuery(sql);
                     while(res.next()){
-                        model.addRow(new Object[] { res.getString("id") , no++ , res.getString("obat") ,
+                        model.addRow(new Object[] { res.getString("id") , "ab" , res.getString("obat") ,
                             res.getString("harga")   } );
                     }
+               
             data_obat.setModel(model);
+            data_obat.removeColumn(data_obat.getColumnModel().getColumn(0));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         } 
