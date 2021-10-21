@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-
+import Dokter.Dashboard ;
 /**
  *
  * @author dasep
@@ -69,6 +69,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         status_periksa = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         tindak_lanjut = new javax.swing.JComboBox<>();
+        selesai = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -232,6 +233,17 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         });
         jPanel5.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 230, 40));
 
+        selesai.setBackground(new java.awt.Color(48, 37, 40));
+        selesai.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        selesai.setForeground(new java.awt.Color(255, 255, 255));
+        selesai.setText("Selesai");
+        selesai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selesaiActionPerformed(evt);
+            }
+        });
+        jPanel5.add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 100, 40));
+
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 330));
 
         jPanel6.setBackground(new java.awt.Color(71, 82, 83));
@@ -284,7 +296,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 input_obatActionPerformed(evt);
             }
         });
-        jPanel6.add(input_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, 100, 40));
+        jPanel6.add(input_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 100, 40));
 
         nama_obat.setBackground(new java.awt.Color(149, 72, 91));
         nama_obat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -475,9 +487,14 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                         + " tindak_lanjut = '" + tindak + "' , "
                         + " status_periksa = '" +  status_periksa.getSelectedItem() + "'  "
                         + " where id_pasien = '" + idpasien + "' " ;
+                
+                String sql2 = "update tbl_pasien set status='"+ status_periksa.getSelectedItem() +"'"
+                        + " where  id_pasien = '" + idpasien + "' " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                  java.sql.PreparedStatement pst2 = conn.prepareStatement(sql2);
                   pst.execute();
+                  pst2.execute();
                   JOptionPane.showMessageDialog(null,"Rekam Medis di Simpan");
                   loadObat();
             }catch(Exception e){
@@ -521,7 +538,9 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 case  JOptionPane.YES_OPTION : 
                      int baris  = data_obat.rowAtPoint(evt.getPoint());
                      String id = data_obat.getValueAt(baris,0).toString();
-                    JOptionPane.showMessageDialog(null,id);
+                     JOptionPane.showMessageDialog(null,id);
+                     Dashboard b = new Dashboard();
+                     b.setVisible(true);
                     break ;
             }
     }//GEN-LAST:event_data_obatMouseClicked
@@ -533,6 +552,21 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private void tindak_lanjutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tindak_lanjutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tindak_lanjutActionPerformed
+
+    private void selesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selesaiActionPerformed
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null,"Selesai Rekam Medis");
+        switch(a){
+            case JOptionPane.YES_OPTION :
+                this.dispose();
+                Dashboard b = new Dashboard();
+                b.setVisible(true);
+            break ;
+            default :
+                
+            break ;
+        }
+    }//GEN-LAST:event_selesaiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -601,6 +635,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> nama_obat;
     private javax.swing.JTextField penyakit;
     private javax.swing.JButton reset;
+    private javax.swing.JButton selesai;
     private javax.swing.JButton simpan_rekam;
     private javax.swing.JTextField sistol;
     private javax.swing.JComboBox<String> status_periksa;

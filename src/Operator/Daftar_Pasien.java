@@ -277,7 +277,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
                 pst2.execute();
                 JOptionPane.showMessageDialog(null,"Pasien Di Daftarkan");
                 idPasien();
-               reset();
+                reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
@@ -289,8 +289,8 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         tgl_lahir.setText("");
         tempat_lahir.setText("") ;
         alamat.setText("");
-         no_telpon.setText("");
-         no_bpjs.setText("");
+        no_telpon.setText("");
+        no_bpjs.setText("");
     }
     
     private void no_bpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_bpjsActionPerformed

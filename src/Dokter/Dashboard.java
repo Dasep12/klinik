@@ -184,7 +184,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 650, 320));
 
         jPanel5.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -287,6 +287,7 @@ public class Dashboard extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Pilih Pasien Dahulu");
        }else {
         Form_rekam_medis a = new Form_rekam_medis();
+        this.dispose();
         a.idPasien(id_pasien.getText());
         a.setVisible(true);
         
