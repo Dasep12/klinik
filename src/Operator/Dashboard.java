@@ -69,7 +69,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         daftar_pasien.setText("Status");
@@ -80,7 +80,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jPanel1.add(daftar_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 118, 50));
 
-        jPanel2.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel2.setBackground(new java.awt.Color(181, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -140,10 +140,12 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jPanel1.add(data_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
 
-        jPanel3.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel3.setBackground(new java.awt.Color(71, 82, 83));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pasienList.setBackground(new java.awt.Color(77, 80, 89));
+        pasienList.setForeground(new java.awt.Color(255, 255, 255));
         pasienList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -158,9 +160,9 @@ public class Dashboard extends javax.swing.JFrame {
         pasienList.setRowHeight(20);
         jScrollPane1.setViewportView(pasienList);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 270));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 820, 310));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 840, 540));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 840, 530));
 
         daftar_pasien1.setText("Tindak Lanjut");
         daftar_pasien1.addActionListener(new java.awt.event.ActionListener() {
@@ -174,13 +176,11 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(985, 686));

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -28,6 +29,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         FormObat(obt, hrg );
         listObat();
         loadObat();
+        listStatus();
+        listTindakLanjut();
     }
 
     /**
@@ -53,19 +56,19 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         diagnosa_1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        amnesa_2 = new javax.swing.JTextField();
+        anamnesa_2 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        amnesa_1 = new javax.swing.JTextField();
+        anamnesa_1 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         penyakit = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        tindak_lanjut = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         berat_badan = new javax.swing.JTextField();
         simpan_rekam = new javax.swing.JButton();
         status_periksa = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
+        tindak_lanjut = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -83,7 +86,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -146,24 +149,24 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel13.setText("Diagnosa 2");
         jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 90, 33));
 
-        amnesa_2.setBackground(new java.awt.Color(149, 72, 91));
-        amnesa_2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        amnesa_2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(amnesa_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 230, 33));
+        anamnesa_2.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(anamnesa_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 230, 33));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Amnesa 1");
+        jLabel14.setText("Anamnesa 1");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 90, 33));
 
-        amnesa_1.setBackground(new java.awt.Color(149, 72, 91));
-        amnesa_1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        amnesa_1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(amnesa_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 230, 33));
+        anamnesa_1.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(anamnesa_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 230, 33));
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Amnesa 2");
+        jLabel15.setText("Anamnesa 2");
         jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, 33));
 
         penyakit.setBackground(new java.awt.Color(149, 72, 91));
@@ -175,11 +178,6 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Nama Penyakit");
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 90, 33));
-
-        tindak_lanjut.setBackground(new java.awt.Color(149, 72, 91));
-        tindak_lanjut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        tindak_lanjut.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 230, 33));
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +208,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         status_periksa.setBackground(new java.awt.Color(149, 72, 91));
         status_periksa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         status_periksa.setForeground(new java.awt.Color(255, 255, 255));
-        status_periksa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Status", "Sudah Periksa", "Belum Periksa" }));
+        status_periksa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Status" }));
         status_periksa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 status_periksaActionPerformed(evt);
@@ -223,10 +221,21 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel11.setText("Status Periksa");
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, 33));
 
+        tindak_lanjut.setBackground(new java.awt.Color(149, 72, 91));
+        tindak_lanjut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tindak_lanjut.setForeground(new java.awt.Color(255, 255, 255));
+        tindak_lanjut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Tindakan Lanjut" }));
+        tindak_lanjut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tindak_lanjutActionPerformed(evt);
+            }
+        });
+        jPanel5.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 230, 40));
+
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 330));
 
         jPanel6.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Input Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Input Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
@@ -335,12 +344,12 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                     java.sql.Statement stm = conn.createStatement();
                     java.sql.ResultSet res = stm.executeQuery(sql);
                     while(res.next()){
-                        model.addRow(new Object[] { res.getString("id") , "ab" , res.getString("obat") ,
+                        model.addRow(new Object[] { res.getString("id") , no++ ,  res.getString("obat") ,
                             res.getString("harga")   } );
                     }
-               
+            TableColumnModel columnModel = data_obat.getColumnModel();
+            columnModel.getColumn(0).setPreferredWidth(2);
             data_obat.setModel(model);
-            data_obat.removeColumn(data_obat.getColumnModel().getColumn(0));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         } 
@@ -363,6 +372,44 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         }
         
     }
+    
+    public void listStatus(){
+
+        try {
+            String sql  = "SELECT * FROM tbl_status_periksa ";
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            
+            while (rs.next()) {                
+                status_periksa.addItem(rs.getString("jenis_status"));
+            }
+        
+           
+        } catch (SQLException e) {
+            
+        }
+    }
+    
+    public void listTindakLanjut(){
+
+        try {
+            String sql  = "SELECT * FROM tbl_tindaklanjut ";
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            
+            while (rs.next()) {                
+                tindak_lanjut.addItem(rs.getString("jenis_tindaklanjut"));
+            }
+        
+           
+        } catch (SQLException e) {
+            
+        }
+    }     
+
+    
     public void idPasien(String id){
         id_pasien.setText(id);
         id_pasien.setEditable(false);
@@ -403,10 +450,10 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         String sistoll  = sistol.getText();
         String diagnos1  = diagnosa_1.getText();
         String diagnos2  = diagnosa_2.getText();
-        String amns1     = amnesa_1.getText();
-        String amn2     = amnesa_2.getText();
+        String amns1     = anamnesa_1.getText();
+        String amn2     = anamnesa_2.getText();
         String nmapenyakit   = penyakit.getText();
-        String tindak  =  tindak_lanjut.getText();
+        String tindak  = (String) tindak_lanjut.getSelectedItem();
         String bb = berat_badan.getText();
 
         if(dst.equals("") || tb.equals("") || sistoll.equals("") || diagnos1.equals("") ||
@@ -422,8 +469,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                         + " berat_badan = '" + bb + "' , "
                         + " diagnosa1 = '" + diagnos1 + "' , "
                         + " diagnosa2 = '" + diagnos2 + "' , "
-                        + " amnesa1 = '" + amns1 + "' , "
-                        + " amnesa2 = '" + amn2 + "' , "
+                        + " anamnesa1 = '" + amns1 + "' , "
+                        + " anamnesa2 = '" + amn2 + "' , "
                         + " nama_penyakit = '" + nmapenyakit + "' , "
                         + " tindak_lanjut = '" + tindak + "' , "
                         + " status_periksa = '" +  status_periksa.getSelectedItem() + "'  "
@@ -483,6 +530,10 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_status_periksaActionPerformed
 
+    private void tindak_lanjutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tindak_lanjutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tindak_lanjutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -519,8 +570,8 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amnesa_1;
-    private javax.swing.JTextField amnesa_2;
+    private javax.swing.JTextField anamnesa_1;
+    private javax.swing.JTextField anamnesa_2;
     private javax.swing.JTextField berat_badan;
     private javax.swing.JTable data_obat;
     private javax.swing.JTextField diagnosa_1;
@@ -553,7 +604,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JButton simpan_rekam;
     private javax.swing.JTextField sistol;
     private javax.swing.JComboBox<String> status_periksa;
-    private javax.swing.JTextField tindak_lanjut;
+    private javax.swing.JComboBox<String> tindak_lanjut;
     private javax.swing.JTextField tinggi_badan;
     // End of variables declaration//GEN-END:variables
 }

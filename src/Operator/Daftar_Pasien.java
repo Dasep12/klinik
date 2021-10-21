@@ -267,8 +267,8 @@ public class Daftar_Pasien extends javax.swing.JFrame {
                         + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ) " ;
                 
                String sql2 = "insert into rekam_medis(id_pasien , nama_pasien , jenis_kelamin , tempat_lahir ,"
-                       + " alamat , no_telp , no_bpjs )values ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"+ jenis_kelamin.getSelectedItem() +"' ,  "
-                       + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' ) ";
+                       + " alamat , no_telp , no_bpjs , tgl_lahir )values ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"+ jenis_kelamin.getSelectedItem() +"' ,  "
+                       + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tgl_lahir.getText() +"' ) ";
                 
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
