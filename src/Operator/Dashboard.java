@@ -54,6 +54,8 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pasienList = new javax.swing.JTable();
+        daftar_obat = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         daftar_pasien1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -158,9 +160,35 @@ public class Dashboard extends javax.swing.JFrame {
             }
         ));
         pasienList.setRowHeight(20);
+        pasienList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pasienListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(pasienList);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 820, 310));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        javax.swing.GroupLayout daftar_obatLayout = new javax.swing.GroupLayout(daftar_obat);
+        daftar_obat.setLayout(daftar_obatLayout);
+        daftar_obatLayout.setHorizontalGroup(
+            daftar_obatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(daftar_obatLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        daftar_obatLayout.setVerticalGroup(
+            daftar_obatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(daftar_obatLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(daftar_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 130, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 840, 530));
 
@@ -260,6 +288,11 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cariActionPerformed
 
+    private void pasienListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasienListMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_pasienListMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -297,12 +330,14 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
+    private javax.swing.JPanel daftar_obat;
     private javax.swing.JButton daftar_pasien;
     private javax.swing.JButton daftar_pasien1;
     private javax.swing.JButton data_obat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
