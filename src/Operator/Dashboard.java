@@ -140,7 +140,7 @@ public class Dashboard extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "No Antrian", "Nama Pasien", "Alamat", "No.Hp", "Status"
+                "ID Pasien", "Nama Pasien", "Alamat", "No.Hp", "Status"
             }
         ));
         pasienList.setRowHeight(20);
@@ -188,7 +188,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Alamat");
-        daftar_obat.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 90, 33));
+        daftar_obat.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 80, 33));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -451,9 +451,14 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         String stat = status.getText();
         if(stat.equals("SUDAH DI PERIKSA")){
-            
+            this.dispose();
+            Transaksi a  = new Transaksi();
+            a.getID(stat);
+            a.setVisible(true);
         }else if(stat.equals("BELUM DI PERIKSA")) {
             JOptionPane.showMessageDialog(null,"Pasien Belum di periksa");
+        }else if(stat.equals("")) {
+            JOptionPane.showMessageDialog(null,"Pilih Pasien");
         }
     }//GEN-LAST:event_transaksiActionPerformed
 

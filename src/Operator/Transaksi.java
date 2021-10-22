@@ -10,12 +10,13 @@ package Operator;
  * @author cad-server
  */
 public class Transaksi extends javax.swing.JFrame {
-
+public String idPasien ;
     /**
      * Creates new form Transaksi
-     */
+     */ 
     public Transaksi() {
         initComponents();
+        System.out.print(getID(idPasien));
     }
 
     /**
@@ -39,6 +40,9 @@ public class Transaksi extends javax.swing.JFrame {
         nama = new javax.swing.JTextField();
         nama1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        print = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        save = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -112,6 +116,7 @@ public class Transaksi extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Total Biaya Obat");
 
+        nama.setEditable(false);
         nama.setBackground(new java.awt.Color(149, 72, 91));
         nama.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -122,6 +127,36 @@ public class Transaksi extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Jasa Medis");
 
+        print.setBackground(new java.awt.Color(48, 37, 40));
+        print.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        print.setForeground(new java.awt.Color(255, 255, 255));
+        print.setText("Print");
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
+
+        back.setBackground(new java.awt.Color(48, 37, 40));
+        back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+
+        save.setBackground(new java.awt.Color(48, 37, 40));
+        save.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        save.setForeground(new java.awt.Color(255, 255, 255));
+        save.setText("Save");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -129,13 +164,21 @@ public class Transaksi extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nama1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nama)))
+                        .addComponent(nama))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nama1))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 6, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -148,7 +191,12 @@ public class Transaksi extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 76, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 280, 170));
@@ -281,12 +329,30 @@ public class Transaksi extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public String getID(String idpas){
+        return this.idPasien ;
+    }
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_printActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Dashboard a = new Dashboard();
+        a.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,6 +392,7 @@ public class Transaksi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anamnesa_1;
     private javax.swing.JTextField anamnesa_2;
+    private javax.swing.JButton back;
     private javax.swing.JTextField diagnosa_1;
     private javax.swing.JTextField diagnosa_2;
     private javax.swing.JTextField distole;
@@ -356,6 +423,8 @@ public class Transaksi extends javax.swing.JFrame {
     private javax.swing.JTextField nama1;
     private javax.swing.JTextField penyakit;
     private javax.swing.JTextField penyakit1;
+    private javax.swing.JButton print;
+    private javax.swing.JButton save;
     private javax.swing.JTextField sistol;
     private javax.swing.JTextField sistol1;
     // End of variables declaration//GEN-END:variables

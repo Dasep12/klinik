@@ -22,7 +22,7 @@ public class Conn {
             String pass=""; //password database
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             mysqlconfig=DriverManager.getConnection(url, user, pass);  
-            System.out.println("koneksi berhasil");
+            //System.out.println("koneksi berhasil");
         } catch (Exception e) {
             System.err.println("koneksi gagal "+e.getMessage()); //perintah menampilkan error pada koneksi
         }
