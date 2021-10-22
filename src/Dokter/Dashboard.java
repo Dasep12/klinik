@@ -113,7 +113,7 @@ public class Dashboard extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 180, 50));
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 180, 50));
 
         rekamMedis.setBackground(new java.awt.Color(48, 37, 40));
         rekamMedis.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -124,7 +124,7 @@ public class Dashboard extends javax.swing.JFrame {
                 rekamMedisActionPerformed(evt);
             }
         });
-        jPanel1.add(rekamMedis, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 180, 50));
+        jPanel1.add(rekamMedis, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 180, 50));
 
         refresh.setBackground(new java.awt.Color(48, 37, 40));
         refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -135,7 +135,7 @@ public class Dashboard extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 180, 50));
+        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 180, 50));
 
         key.setBackground(new java.awt.Color(149, 72, 91));
         key.setForeground(new java.awt.Color(255, 255, 255));
