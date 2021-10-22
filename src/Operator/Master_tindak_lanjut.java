@@ -37,11 +37,9 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tindak_lanjut = new javax.swing.JTable();
-        key = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         id_tindaklanjut = new javax.swing.JTextField();
@@ -51,26 +49,25 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         tambah = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
         reset = new javax.swing.JButton();
-        refresh = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        refresh1 = new javax.swing.JButton();
+        key = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("MASTER TINDAK LANJUT");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 240, 30));
-
-        jPanel2.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel2.setBackground(new java.awt.Color(71, 82, 83));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tindak_lanjut.setBackground(new java.awt.Color(51, 240, 255));
+        tindak_lanjut.setAutoCreateRowSorter(true);
+        tindak_lanjut.setBackground(new java.awt.Color(77, 80, 89));
+        tindak_lanjut.setForeground(new java.awt.Color(255, 255, 255));
         tindak_lanjut.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -82,7 +79,7 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
                 "ID Tindak Lanjut", "Status Tindak Lanjut "
             }
         ));
-        tindak_lanjut.setGridColor(new java.awt.Color(51, 102, 255));
+        tindak_lanjut.setGridColor(new java.awt.Color(255, 255, 255));
         tindak_lanjut.setRowHeight(18);
         tindak_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,15 +88,11 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tindak_lanjut);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 770, 220));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 720, 220));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 780, 250));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 750, 260));
 
-        key.setBackground(new java.awt.Color(149, 72, 91));
-        key.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 150, 30));
-
-        jPanel3.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel3.setBackground(new java.awt.Color(71, 82, 83));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
@@ -125,9 +118,9 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         jPanel3.add(status_tindak_lanjut);
         status_tindak_lanjut.setBounds(490, 40, 180, 33);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 770, 100));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 750, 90));
 
-        jPanel4.setBackground(new java.awt.Color(72, 136, 99));
+        jPanel4.setBackground(new java.awt.Color(71, 82, 83));
 
         ubah.setBackground(new java.awt.Color(48, 37, 40));
         ubah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -159,11 +152,6 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(48, 37, 40));
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText("Tambah");
-
         reset.setBackground(new java.awt.Color(48, 37, 40));
         reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,10 +166,6 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(142, Short.MAX_VALUE)
                 .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,23 +186,29 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
                     .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 750, 50));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 750, 70));
 
-        refresh.setBackground(new java.awt.Color(48, 37, 40));
-        refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        refresh.setForeground(new java.awt.Color(255, 255, 255));
-        refresh.setText("Refresh");
-        refresh.addActionListener(new java.awt.event.ActionListener() {
+        jPanel6.setBackground(new java.awt.Color(181, 102, 102));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        refresh1.setBackground(new java.awt.Color(48, 37, 40));
+        refresh1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        refresh1.setForeground(new java.awt.Color(255, 255, 255));
+        refresh1.setText("Refresh");
+        refresh1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshActionPerformed(evt);
+                refresh1ActionPerformed(evt);
             }
         });
-        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 107, 38));
+        jPanel6.add(refresh1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 107, 38));
+
+        key.setBackground(new java.awt.Color(149, 72, 91));
+        key.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 150, 30));
 
         cari.setBackground(new java.awt.Color(48, 37, 40));
         cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -229,17 +219,28 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
                 cariActionPerformed(evt);
             }
         });
-        jPanel1.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 70, 30));
+        jPanel6.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 70, 30));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("MASTER OBAT");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 190, 30));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         pack();
@@ -342,21 +343,21 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_hapusActionPerformed
 
+    private void refresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh1ActionPerformed
+        // TODO add your handling code here:
+        String data = null ;
+        loadData(data);
+    }//GEN-LAST:event_refresh1ActionPerformed
+
     private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
         // TODO add your handling code here:
-         if(key.getText().equals("")){
+        if(key.getText().equals("")){
             JOptionPane.showMessageDialog(null,"keyword kosong");
         }else {
             String data = key.getText();
             loadData(data);
         }
     }//GEN-LAST:event_cariActionPerformed
-
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        // TODO add your handling code here:
-        String data = null ;
-                   loadData(data);
-    }//GEN-LAST:event_refreshActionPerformed
 
         public void reset(){
             id_tindaklanjut.setText("");
@@ -442,7 +443,6 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
     private javax.swing.JButton cari;
     private javax.swing.JButton hapus;
     private javax.swing.JTextField id_tindaklanjut;
-    private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -450,9 +450,12 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField key;
     private javax.swing.JButton refresh;
+    private javax.swing.JButton refresh1;
     private javax.swing.JButton reset;
     private javax.swing.JTextField status_tindak_lanjut;
     private javax.swing.JButton tambah;

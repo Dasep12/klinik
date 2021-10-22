@@ -37,11 +37,9 @@ public class Master_obat extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         obat = new javax.swing.JTable();
-        key = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         id_obat = new javax.swing.JTextField();
@@ -55,26 +53,24 @@ public class Master_obat extends javax.swing.JFrame {
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         tambah = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
         reset = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
         refresh = new javax.swing.JButton();
+        key = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(225, 225, 225));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("MASTER OBAT");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 190, 30));
-
         jPanel2.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         obat.setBackground(new java.awt.Color(77, 80, 89));
+        obat.setForeground(new java.awt.Color(255, 255, 255));
         obat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -86,7 +82,7 @@ public class Master_obat extends javax.swing.JFrame {
                 "No", "ID Obat", "Nama Obat", "Expired Date"
             }
         ));
-        obat.setGridColor(new java.awt.Color(51, 102, 255));
+        obat.setGridColor(new java.awt.Color(255, 255, 255));
         obat.setRowHeight(18);
         obat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -95,16 +91,12 @@ public class Master_obat extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(obat);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 740, 220));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 220));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 750, 250));
-
-        key.setBackground(new java.awt.Color(149, 72, 91));
-        key.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 150, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 750, 250));
 
         jPanel3.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
@@ -149,7 +141,7 @@ public class Master_obat extends javax.swing.JFrame {
         jPanel3.add(supplier);
         supplier.setBounds(450, 80, 180, 33);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 750, 130));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 750, 130));
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
 
@@ -183,11 +175,6 @@ public class Master_obat extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(48, 37, 40));
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText("Tambah");
-
         reset.setBackground(new java.awt.Color(48, 37, 40));
         reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,10 +189,6 @@ public class Master_obat extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(142, Short.MAX_VALUE)
                 .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,12 +209,14 @@ public class Master_obat extends javax.swing.JFrame {
                     .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 750, 50));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 750, 70));
+
+        jPanel5.setBackground(new java.awt.Color(181, 102, 102));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         refresh.setBackground(new java.awt.Color(48, 37, 40));
         refresh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -242,7 +227,11 @@ public class Master_obat extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 107, 38));
+        jPanel5.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 107, 38));
+
+        key.setBackground(new java.awt.Color(149, 72, 91));
+        key.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(key, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 150, 30));
 
         cari.setBackground(new java.awt.Color(48, 37, 40));
         cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -253,7 +242,14 @@ public class Master_obat extends javax.swing.JFrame {
                 cariActionPerformed(evt);
             }
         });
-        jPanel1.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 70, 30));
+        jPanel5.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 70, 30));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("MASTER OBAT");
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 190, 30));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,7 +259,7 @@ public class Master_obat extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
         );
 
         pack();
@@ -374,21 +370,21 @@ public class Master_obat extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_hapusActionPerformed
 
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+        String data = null ;
+        loadData(data);
+    }//GEN-LAST:event_refreshActionPerformed
+
     private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
         // TODO add your handling code here:
-         if(key.getText().equals("")){
+        if(key.getText().equals("")){
             JOptionPane.showMessageDialog(null,"keyword kosong");
         }else {
             String data = key.getText();
             loadData(data);
         }
     }//GEN-LAST:event_cariActionPerformed
-
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        // TODO add your handling code here:
-        String data = null ;
-                   loadData(data);
-    }//GEN-LAST:event_refreshActionPerformed
         
         public void reset(){
             id_obat.setText("");
@@ -474,7 +470,6 @@ public class Master_obat extends javax.swing.JFrame {
     private javax.swing.JTextField expired;
     private javax.swing.JButton hapus;
     private javax.swing.JTextField id_obat;
-    private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -484,6 +479,7 @@ public class Master_obat extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField key;
     private javax.swing.JTextField nama_obat;
