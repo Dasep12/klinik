@@ -25,11 +25,11 @@ CREATE TABLE `obat_pasien` (
   `obat` varchar(255) DEFAULT NULL,
   `harga` int(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `obat_pasien` */
 
-insert  into `obat_pasien`(`id`,`id_pasien`,`obat`,`harga`) values (1,'PSN0001','Oskadon',12000),(2,'PSN0001','Bodrex',15000);
+insert  into `obat_pasien`(`id`,`id_pasien`,`obat`,`harga`) values (6,'PSN0001','Oskadon',12000),(7,'PSN0001','Oskadon',12000),(9,'PSN0003','Oskadon',12000),(10,'PSN0003','Konimex',30000);
 
 /*Table structure for table `rekam_medis` */
 
@@ -61,7 +61,7 @@ CREATE TABLE `rekam_medis` (
 
 /*Data for the table `rekam_medis` */
 
-insert  into `rekam_medis`(`id_pasien`,`jasa_medis`,`nama_pasien`,`jenis_kelamin`,`tempat_lahir`,`tgl_lahir`,`alamat`,`no_telp`,`no_bpjs`,`status_periksa`,`sistol`,`distole`,`tinggi`,`berat_badan`,`diagnosa1`,`diagnosa2`,`anamnesa1`,`anamnesa2`,`nama_penyakit`,`tindak_lanjut`) values ('PSN0001',23,'Andi','Laki-Laki','Lampung',NULL,'Jl Lodan dalam II','0838214556','0245454545454','SUDAH DI PERIKSA','1','1','1','1','1','1','1','1','1','Rujukan');
+insert  into `rekam_medis`(`id_pasien`,`jasa_medis`,`nama_pasien`,`jenis_kelamin`,`tempat_lahir`,`tgl_lahir`,`alamat`,`no_telp`,`no_bpjs`,`status_periksa`,`sistol`,`distole`,`tinggi`,`berat_badan`,`diagnosa1`,`diagnosa2`,`anamnesa1`,`anamnesa2`,`nama_penyakit`,`tindak_lanjut`) values ('PSN0001',10000,'Adien','Laki-Laki','Bandung','1999-04-12','Jl Lodan Dalam II C','081809987878','098989787878','SUDAH DI PERIKSA','Sistol','Distole','170','60','Diagnosa 1','Diagnosa 2','Anamnesa 1','Anamnesa 2','Nama Penyakit','TIDAK ADA'),('PSN0002',NULL,'Ahmad Saripai','Laki-Laki','Bandung','1999-12-12','Cicangkang','09898989','12313',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('PSN0003',NULL,'Febrianto','Laki-Laki','Rembang','1999-03-12','Lodan Dalam	','098989891','8989898','SUDAH DI PERIKSA','Sistol','Distole','160','70','Diagnosa 1','Diagnosa 2','Anamnesa 1','Anamnesa 2','Diabetes','TIDAK ADA');
 
 /*Table structure for table `tbl_obat` */
 
@@ -101,7 +101,7 @@ CREATE TABLE `tbl_pasien` (
 
 /*Data for the table `tbl_pasien` */
 
-insert  into `tbl_pasien`(`id_pasien`,`tgl_daftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`status`,`transaksi`) values ('PSN0001','2021-10-20','Andi','Lampung','1999-05-13','Laki-Laki','Jl Lodan dalam II','0838214556','0245454545454','SUDAH DI PERIKSA','NOK');
+insert  into `tbl_pasien`(`id_pasien`,`tgl_daftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`status`,`transaksi`) values ('PSN0001','2021-10-24','Adien','Bandung','1999-04-12','Laki-Laki','Jl Lodan Dalam II C','081809987878','098989787878','SUDAH DI PERIKSA','OK'),('PSN0002','2021-10-24','Ahmad Saripai','Bandung','1999-12-12','Laki-Laki','Cicangkang','09898989','12313','BELUM DI PERIKSA','NOK'),('PSN0003','2021-10-24','Febrianto','Rembang','1999-03-12','Laki-Laki','Lodan Dalam	','098989891','8989898','SUDAH DI PERIKSA','NOK');
 
 /*Table structure for table `tbl_penyakit` */
 
@@ -129,7 +129,7 @@ CREATE TABLE `tbl_status_periksa` (
 
 /*Data for the table `tbl_status_periksa` */
 
-insert  into `tbl_status_periksa`(`id_status`,`jenis_status`) values ('1','SUDAH DI PERIKSA');
+insert  into `tbl_status_periksa`(`id_status`,`jenis_status`) values ('1','SUDAH DI PERIKSA'),('2','BELUM DI PERIKSA');
 
 /*Table structure for table `tbl_tindaklanjut` */
 
@@ -143,7 +143,7 @@ CREATE TABLE `tbl_tindaklanjut` (
 
 /*Data for the table `tbl_tindaklanjut` */
 
-insert  into `tbl_tindaklanjut`(`id_tindaklanjut`,`jenis_tindaklanjut`) values ('01','Rujukan');
+insert  into `tbl_tindaklanjut`(`id_tindaklanjut`,`jenis_tindaklanjut`) values ('01','RUJUKAN'),('02','TIDAK ADA');
 
 /*Table structure for table `transaksi` */
 
@@ -168,7 +168,7 @@ CREATE TABLE `transaksi` (
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`idpassien`,`tgldaftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`jasa_medis`,`lain_lain`,`biaya_obat`,`total`) values ('PSN0001','2021-10-20','Andi','Lampung','1999-05-13','Laki-Laki','Jl Lodan dalam II','0838214556','0245454545454',23,80,27000,90);
+insert  into `transaksi`(`idpassien`,`tgldaftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`jasa_medis`,`lain_lain`,`biaya_obat`,`total`) values ('PSN0001','2021-10-24','Adien','Bandung','1999-04-12','Laki-Laki','Jl Lodan Dalam II C','081809987878','098989787878',200000,10000,24000,0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
