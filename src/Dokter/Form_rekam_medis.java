@@ -538,9 +538,16 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 case  JOptionPane.YES_OPTION : 
                      int baris  = data_obat.rowAtPoint(evt.getPoint());
                      String id = data_obat.getValueAt(baris,0).toString();
-                     JOptionPane.showMessageDialog(null,id);
-                     Dashboard b = new Dashboard();
-                     b.setVisible(true);
+                     try {
+                         java.sql.Connection conn = (Connection)Conn.configDB();
+                         String sql = "delete from obat_pasien where id = '"+ id +"' " ;
+                         java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                         pst.execute();
+                         loadObat();
+                     }catch(Exception e){
+                         JOptionPane.showMessageDialog(null,e);
+                     }
+                     
                     break ;
             }
     }//GEN-LAST:event_data_obatMouseClicked

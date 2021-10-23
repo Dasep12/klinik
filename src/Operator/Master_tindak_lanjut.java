@@ -62,7 +62,7 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tindak_lanjut.setAutoCreateRowSorter(true);
@@ -93,7 +93,7 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 750, 260));
 
         jPanel3.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
@@ -223,8 +223,8 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("MASTER OBAT");
-        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 190, 30));
+        jLabel10.setText("MASTER TINDAK LANJUT");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 250, 30));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 80));
 
@@ -450,11 +450,9 @@ public class Master_tindak_lanjut extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField key;
-    private javax.swing.JButton refresh;
     private javax.swing.JButton refresh1;
     private javax.swing.JButton reset;
     private javax.swing.JTextField status_tindak_lanjut;

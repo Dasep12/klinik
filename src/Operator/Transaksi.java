@@ -394,6 +394,7 @@ private String id ;
     }
     private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_printActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -413,7 +414,7 @@ private String id ;
                   String id = id_pasien.getText();
                  
                   //update jasa medis di form rekam_medis
-                  String sql = "update rekam_medis set jasa_medis= '"+ lain_lain.getText() +"'"
+                  String sql = "update rekam_medis set jasa_medis= '"+ jasa_medis.getText() +"'"
                           + "where id_pasien='"+ id +"' " ;
                   
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);

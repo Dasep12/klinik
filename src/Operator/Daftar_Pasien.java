@@ -261,10 +261,10 @@ public class Daftar_Pasien extends javax.swing.JFrame {
             try {
                 String sql = "INSERT INTO  tbl_pasien ("
                 + " id_pasien , nama , tgl_daftar ,  tempat_lahir ,tgl_lahir , jenis_kelamin ,"
-                        + "alamat , no_telp , no_bpjs , status) values "
+                        + "alamat , no_telp , no_bpjs , status ,transaksi) values "
                 + "('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"  + tgl_daftar +  "' ,"
                         + " '"+ tempat_lahir.getText()  +"' , '"+ tgl_lahir.getText()  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
-                        + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ) " ;
+                        + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ,'NOK') " ;
                 
                String sql2 = "insert into rekam_medis(id_pasien , nama_pasien , jenis_kelamin , tempat_lahir ,"
                        + " alamat , no_telp , no_bpjs , tgl_lahir )values ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"+ jenis_kelamin.getSelectedItem() +"' ,  "

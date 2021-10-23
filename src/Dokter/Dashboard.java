@@ -91,7 +91,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 100));
 
         jPanel1.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Dokter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -155,7 +155,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 200, 320));
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "List Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "List Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pasienList.setBackground(new java.awt.Color(77, 80, 89));
@@ -179,12 +179,12 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(pasienList);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 630, 280));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 630, 290));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 650, 320));
 
         jPanel5.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,7 +263,8 @@ public class Dashboard extends javax.swing.JFrame {
             String sql = "" ;
             int no = 1 ;
             if(data == null ){
-                sql = "Select id_pasien , nama , jenis_kelamin,tgl_daftar , status from tbl_pasien  " ;
+                sql = "Select id_pasien , nama , jenis_kelamin,tgl_daftar , status from tbl_pasien "
+                        + "where status='BELUM DI PERIKSA'  " ;
             }else {
                     sql = "Select id_pasien , nama , jenis_kelamin,tgl_daftar , status from tbl_pasien where " 
                             + "id_pasien like  '%"+ data +"%' or nama like '%"+ data +"%'"
