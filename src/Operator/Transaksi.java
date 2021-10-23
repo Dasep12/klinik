@@ -47,11 +47,13 @@ private String id ;
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         total_obat = new javax.swing.JTextField();
-        jasa_medis = new javax.swing.JTextField();
+        lain_lain = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         print = new javax.swing.JButton();
         back = new javax.swing.JButton();
         save = new javax.swing.JButton();
+        jasa_medis = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -100,9 +102,9 @@ private String id ;
         ));
         jScrollPane1.setViewportView(load_obat);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 22, -1, 140));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 22, -1, 190));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 477, 170));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 477, 220));
 
         jPanel3.setBackground(new java.awt.Color(181, 102, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,16 +132,16 @@ private String id ;
         total_obat.setEditable(false);
         total_obat.setBackground(new java.awt.Color(149, 72, 91));
         total_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(total_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 18, 162, 33));
+        jPanel5.add(total_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 18, 160, 33));
 
-        jasa_medis.setBackground(new java.awt.Color(149, 72, 91));
-        jasa_medis.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jasa_medis, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 57, 162, 33));
+        lain_lain.setBackground(new java.awt.Color(149, 72, 91));
+        lain_lain.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(lain_lain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 160, 33));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Jasa Medis");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 57, 90, 33));
+        jLabel9.setText("Lain-Lain");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 33));
 
         print.setBackground(new java.awt.Color(48, 37, 40));
         print.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -150,7 +152,7 @@ private String id ;
                 printActionPerformed(evt);
             }
         });
-        jPanel5.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 102, 74, 40));
+        jPanel5.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 74, 40));
 
         back.setBackground(new java.awt.Color(48, 37, 40));
         back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -161,7 +163,7 @@ private String id ;
                 backActionPerformed(evt);
             }
         });
-        jPanel5.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 102, 74, 40));
+        jPanel5.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 74, 40));
 
         save.setBackground(new java.awt.Color(48, 37, 40));
         save.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -172,9 +174,23 @@ private String id ;
                 saveActionPerformed(evt);
             }
         });
-        jPanel5.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 102, 74, 40));
+        jPanel5.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 74, 40));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 280, 170));
+        jasa_medis.setBackground(new java.awt.Color(149, 72, 91));
+        jasa_medis.setForeground(new java.awt.Color(255, 255, 255));
+        jasa_medis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jasa_medisActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jasa_medis, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 160, 33));
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Jasa Medis");
+        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 90, 33));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 280, 220));
 
         jPanel7.setBackground(new java.awt.Color(71, 82, 83));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -296,7 +312,7 @@ private String id ;
         jLabel17.setText("Sistol");
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 90, 33));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 760, 250));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 760, 240));
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
@@ -309,7 +325,7 @@ private String id ;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
         );
 
         pack();
@@ -389,7 +405,7 @@ private String id ;
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
-        if(jasa_medis.getText().equals("")){
+        if(lain_lain.getText().equals("")){
             JOptionPane.showMessageDialog(null,"masukan jasa medis");
         }else {
             try {
@@ -397,11 +413,16 @@ private String id ;
                   String id = id_pasien.getText();
                  
                   //update jasa medis di form rekam_medis
-                  String sql = "update rekam_medis set jasa_medis= '"+ jasa_medis.getText() +"'"
+                  String sql = "update rekam_medis set jasa_medis= '"+ lain_lain.getText() +"'"
                           + "where id_pasien='"+ id +"' " ;
                   
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
+                  
+                  //update status transaksi
+                  String updateStat = "update tbl_pasien set transaksi='OK' where id_pasien='"+ id +"' " ;
+                  java.sql.PreparedStatement pst2 = conn.prepareStatement(updateStat);
+                  pst2.execute();
                   
                   //ambil data pasien   
                   String sql2 = "select * from tbl_pasien where id_pasien='"+ id_pasien.getText() +"'" ;
@@ -410,6 +431,10 @@ private String id ;
                   res.next();
                   
                   //input dt
+                  int lain = Integer.parseInt(lain_lain.getText());
+                  int jasaMed = Integer.parseInt(jasa_medis.getText()) ;
+                  int totObat = Integer.parseInt(total_obat.getText()) ;
+                  int total = 0 ;
                   String inputTransaksi = "insert into transaksi "
                           + "(idpassien , tgldaftar , nama , tempat_lahir, tgl_lahir , jenis_kelamin , alamat ,"
                           + " no_telp , no_bpjs , jasa_medis , lain_lain , total , biaya_obat )"
@@ -418,7 +443,7 @@ private String id ;
                           + " '"+ res.getString("tempat_lahir") +"' , '"+ res.getString("tgl_lahir") +"' , "
                           + " '"+ res.getString("jenis_kelamin") +"' , '"+ res.getString("alamat") +"' ,"
                           + " '"+ res.getString("no_telp") +"' , '"+ res.getString("no_bpjs") +"' , "
-                          + " '"+ jasa_medis.getText() +"' , '80' , '90' , '"+ total_obat.getText() +"'   ) " ;
+                          + " '"+ jasaMed +"' , '"+ lain +"' , '"+ total +"' , '"+ totObat +"'   ) " ;
                   java.sql.PreparedStatement pst3 = conn.prepareStatement(inputTransaksi);
                   pst3.execute();
                   
@@ -432,6 +457,10 @@ private String id ;
     private void diagnosa_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosa_1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_diagnosa_1ActionPerformed
+
+    private void jasa_medisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jasa_medisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jasa_medisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -485,6 +514,7 @@ private String id ;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -498,6 +528,7 @@ private String id ;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jasa_medis;
+    private javax.swing.JTextField lain_lain;
     private javax.swing.JTable load_obat;
     private javax.swing.JTextField nama_pasien;
     private javax.swing.JTextField penyakit;

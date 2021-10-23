@@ -355,10 +355,11 @@ public class Dashboard extends javax.swing.JFrame {
             String sql = "" ;
             int no = 1 ;
             if(data == null ){
-                sql = "Select id_pasien , nama , jenis_kelamin,tgl_daftar , status from tbl_pasien  " ;
+                sql = "Select id_pasien , nama , jenis_kelamin,tgl_daftar , status from tbl_pasien where"
+                        + " status='BELUM DI PERIKSA' or transaksi='NOK' " ;
             }else {
                     sql = "Select id_pasien , nama , jenis_kelamin,tgl_daftar , status from tbl_pasien where " 
-                            + "id_pasien like  '%"+ data +"%' or nama like '%"+ data +"%'"
+                            + " transaksi='NOK'  and id_pasien like  '%"+ data +"%' or nama like '%"+ data +"%'"
                             + "or tgl_daftar like '%"+ data +"%'  " ;
             }
                     java.sql.Connection conn = (Connection)Conn.configDB();
