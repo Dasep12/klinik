@@ -151,10 +151,10 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(pasienList);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 820, 320));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 810, 320));
 
         daftar_obat.setBackground(new java.awt.Color(71, 82, 83));
-        daftar_obat.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Form Transaksi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        daftar_obat.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Form Transaksi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         daftar_obat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -333,7 +333,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(985, 686));
@@ -401,7 +401,6 @@ public class Dashboard extends javax.swing.JFrame {
                 nama.setText(res.getString("nama"));
                 no_hp.setText(res.getString("no_telp"));
                 status.setText(res.getString("status"));
-                
             }
         }catch(Exception e){
             
@@ -453,7 +452,9 @@ public class Dashboard extends javax.swing.JFrame {
         if(stat.equals("SUDAH DI PERIKSA")){
             this.dispose();
             Transaksi a  = new Transaksi();
-            a.getID(stat);
+            a.getID(id_pasien.getText());
+            a.setTotalObat(id_pasien.getText());
+            a.loadObat(id_pasien.getText());
             a.setVisible(true);
         }else if(stat.equals("BELUM DI PERIKSA")) {
             JOptionPane.showMessageDialog(null,"Pasien Belum di periksa");

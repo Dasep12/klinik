@@ -1,6 +1,6 @@
 /*
 SQLyog Enterprise - MySQL GUI v8.05 
-MySQL - 5.5.5-10.1.28-MariaDB : Database - klinik
+MySQL - 5.5.5-10.4.20-MariaDB : Database - klinik
 *********************************************************************
 */
 
@@ -11,7 +11,7 @@ MySQL - 5.5.5-10.1.28-MariaDB : Database - klinik
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`klinik` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`klinik` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `klinik`;
 
@@ -20,14 +20,16 @@ USE `klinik`;
 DROP TABLE IF EXISTS `obat_pasien`;
 
 CREATE TABLE `obat_pasien` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_pasien` varchar(20) NOT NULL,
   `obat` varchar(255) DEFAULT NULL,
-  `harga` int(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `harga` int(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `obat_pasien` */
 
-insert  into `obat_pasien`(`id_pasien`,`obat`,`harga`) values ('PSN0001','Bodrex',15000),('PSN0002','Oskadon',12000),('PSN0002','Bodrex',15000),('PSN0002','Bodrex',15000);
+insert  into `obat_pasien`(`id`,`id_pasien`,`obat`,`harga`) values (1,'PSN0001','Oskadon',12000),(2,'PSN0001','Bodrex',15000);
 
 /*Table structure for table `rekam_medis` */
 
@@ -40,7 +42,7 @@ CREATE TABLE `rekam_medis` (
   `jenis_kelamin` varchar(14) DEFAULT NULL,
   `tempat_lahir` varchar(60) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `no_telp` varchar(14) DEFAULT NULL,
   `no_bpjs` varchar(29) DEFAULT NULL,
   `status_periksa` varchar(20) DEFAULT NULL,
@@ -48,16 +50,18 @@ CREATE TABLE `rekam_medis` (
   `distole` varchar(255) DEFAULT NULL,
   `tinggi` varchar(10) DEFAULT NULL,
   `berat_badan` varchar(10) DEFAULT NULL,
-  `diagnosa1` text,
-  `diagnosa2` text,
-  `anamnesa1` text,
-  `anamnesa2` text,
+  `diagnosa1` text DEFAULT NULL,
+  `diagnosa2` text DEFAULT NULL,
+  `anamnesa1` text DEFAULT NULL,
+  `anamnesa2` text DEFAULT NULL,
   `nama_penyakit` varchar(255) DEFAULT NULL,
-  `tidak_lanjut` varchar(100) DEFAULT NULL,
+  `tindak_lanjut` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_pasien`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `rekam_medis` */
+
+insert  into `rekam_medis`(`id_pasien`,`jasa_medis`,`nama_pasien`,`jenis_kelamin`,`tempat_lahir`,`tgl_lahir`,`alamat`,`no_telp`,`no_bpjs`,`status_periksa`,`sistol`,`distole`,`tinggi`,`berat_badan`,`diagnosa1`,`diagnosa2`,`anamnesa1`,`anamnesa2`,`nama_penyakit`,`tindak_lanjut`) values ('PSN0001',23,'Andi','Laki-Laki','Lampung',NULL,'Jl Lodan dalam II','0838214556','0245454545454','SUDAH DI PERIKSA','1','1','1','1','1','1','1','1','1','Rujukan');
 
 /*Table structure for table `tbl_obat` */
 
@@ -87,16 +91,17 @@ CREATE TABLE `tbl_pasien` (
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
   `jenis_kelamin` varchar(20) DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `no_telp` varchar(15) DEFAULT NULL,
   `no_bpjs` varchar(30) DEFAULT NULL,
   `status` varchar(30) DEFAULT NULL,
+  `transaksi` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id_pasien`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_pasien` */
 
-insert  into `tbl_pasien`(`id_pasien`,`tgl_daftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`status`) values ('PSN0001','2021-10-18','Dasep','Bandung','1998-04-16','Laki-Laki','Jl Lodan 	','2342423414','5468945','BELUM DI PERIKSA'),('PSN0002','2021-10-18','Adin','Bandung','1999-05-31','Laki-Laki','Jl Lodan','085656','545554546','BELUM DI PERIKSA');
+insert  into `tbl_pasien`(`id_pasien`,`tgl_daftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`status`,`transaksi`) values ('PSN0001','2021-10-20','Andi','Lampung','1999-05-13','Laki-Laki','Jl Lodan dalam II','0838214556','0245454545454','SUDAH DI PERIKSA','NOK');
 
 /*Table structure for table `tbl_penyakit` */
 
@@ -150,17 +155,20 @@ CREATE TABLE `transaksi` (
   `nama` varchar(100) DEFAULT NULL,
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
-  `jenis_kelmin` varchar(100) DEFAULT NULL,
-  `alamat` text,
+  `jenis_kelamin` varchar(100) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
   `no_telp` varchar(20) DEFAULT NULL,
   `no_bpjs` varchar(40) DEFAULT NULL,
   `jasa_medis` int(60) DEFAULT NULL,
   `lain_lain` int(60) DEFAULT NULL,
+  `biaya_obat` int(20) DEFAULT NULL,
   `total` int(30) DEFAULT NULL,
   PRIMARY KEY (`idpassien`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `transaksi` */
+
+insert  into `transaksi`(`idpassien`,`tgldaftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`jasa_medis`,`lain_lain`,`biaya_obat`,`total`) values ('PSN0001','2021-10-20','Andi','Lampung','1999-05-13','Laki-Laki','Jl Lodan dalam II','0838214556','0245454545454',23,80,27000,90);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
