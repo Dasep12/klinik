@@ -185,7 +185,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jPanel3.add(tgl_lahir);
         tgl_lahir.setBounds(120, 180, 180, 30);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 760, 370));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 760, 330));
 
         jPanel2.setBackground(new java.awt.Color(181, 102, 102));
 
@@ -210,7 +210,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

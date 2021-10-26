@@ -57,11 +57,13 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         nama = new javax.swing.JTextField();
-        tempat_lahir = new javax.swing.JTextField();
+        no_telp = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         tgl_lahir = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         no_bpjs = new javax.swing.JTextField();
+        tempat_lahir = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,13 +77,13 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("KLINIK INDOMARET PRISMATAMA");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 340, 30));
+        jLabel1.setText("KLINIK BU ITA");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 150, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pusat Pelayanan Masyarakat");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 300, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 300, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,16 +205,16 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Tempat Lahir");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 90, 33));
+        jLabel9.setText("No.Telpon");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 90, 33));
 
         nama.setBackground(new java.awt.Color(149, 72, 91));
         nama.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 230, 33));
 
-        tempat_lahir.setBackground(new java.awt.Color(149, 72, 91));
-        tempat_lahir.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 230, 33));
+        no_telp.setBackground(new java.awt.Color(149, 72, 91));
+        no_telp.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(no_telp, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 230, 33));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -231,6 +233,15 @@ public class Dashboard extends javax.swing.JFrame {
         no_bpjs.setBackground(new java.awt.Color(149, 72, 91));
         no_bpjs.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(no_bpjs, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 230, 33));
+
+        tempat_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tempat_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 230, 33));
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Tempat Lahir");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 90, 33));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 850, 170));
 
@@ -330,11 +341,12 @@ public class Dashboard extends javax.swing.JFrame {
                nama.setText(res.getString("nama"));
                no_bpjs.setText(res.getString("no_bpjs"));
                tempat_lahir.setText(res.getString("tempat_lahir"));
+               no_telp.setText(res.getString("no_telp"));
                tgl_lahir.setText(res.getString("tgl_lahir"));
                
                id_pasien.setEditable(false);
                no_bpjs.setEditable(false);
-               tempat_lahir.setEditable(false);
+               no_telp.setEditable(false);
                tgl_lahir.setEditable(false);
                nama.setEditable(false);
             }
@@ -384,6 +396,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -401,6 +414,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton logout;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField no_bpjs;
+    private javax.swing.JTextField no_telp;
     private javax.swing.JTable pasienList;
     private javax.swing.JButton refresh;
     private javax.swing.JButton rekamMedis;

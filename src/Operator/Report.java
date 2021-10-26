@@ -15,6 +15,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.AcroFields;
+import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfReader;
@@ -25,6 +26,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.util.Date;
+import javafx.scene.control.Cell;
 import javafx.scene.layout.Border;
 import javax.swing.JOptionPane;
 
@@ -122,10 +124,12 @@ public class Report extends javax.swing.JFrame {
                     + "KLINIK BU ITA"
                     + "                                      "
                     + "",FontFactory.getFont(FontFactory.TIMES_BOLD, 14, Font.BOLD)));
-    
+            
+            document.add(new Paragraph("Nama : "));
             document.addTitle("Hallo");
             //we have four columns in our table
             PdfPTable my_report_table = new PdfPTable(2);
+            
             //create a cell object
             PdfPCell table_cell;
             
@@ -135,7 +139,7 @@ public class Report extends javax.swing.JFrame {
           //  cell.setBorder(Border.NO_BORDER);
             
             
-            my_report_table.addCell("Jenis Tagihan");
+          //  my_report_table.addCell(new Cell().add("Jenis Tagihan"));
             my_report_table.addCell("Biaya");
             my_report_table.setHeaderRows(1);
             
@@ -181,7 +185,9 @@ public class Report extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        String path = "C:\\Backup File\\tes.pdf" ;
+        PdfWriter pdfWriter = new PdfWriter(path);
+        PdfDocument pdfDocument = new PdfDocument(pdfWriter);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
