@@ -11,6 +11,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import com.raven.datechooser.SelectedDate;
+import com.toedter.calendar.JCalendar;
+import java.awt.Color;
 /**
  *
  * @author cad-server
@@ -24,6 +27,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         initComponents();
         idPasien();
         id_pasien.setEditable(false);
+        
     }
 
     /**
@@ -35,6 +39,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        selectedDate1 = new com.raven.datechooser.SelectedDate();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -43,7 +48,6 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         nama_pasien = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tgl_lahir = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         tempat_lahir = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -56,6 +60,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         no_bpjs = new javax.swing.JTextField();
         tambah = new javax.swing.JButton();
+        tgl_lahir = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -66,7 +71,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("PENDAFTARAN PASIEN");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 270, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 270, 20));
 
         jPanel3.setBackground(new java.awt.Color(71, 82, 83));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -98,11 +103,6 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel4.setText("Tanggal Lahir");
         jPanel3.add(jLabel4);
         jLabel4.setBounds(30, 180, 100, 33);
-
-        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
-        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(tgl_lahir);
-        tgl_lahir.setBounds(120, 180, 180, 33);
 
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("Tempat Lahir");
@@ -177,9 +177,15 @@ public class Daftar_Pasien extends javax.swing.JFrame {
             }
         });
         jPanel3.add(tambah);
-        tambah.setBounds(550, 260, 107, 38);
+        tambah.setBounds(540, 240, 107, 38);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 760, 320));
+        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        tgl_lahir.setDateFormatString("yyyy-MM-dd");
+        jPanel3.add(tgl_lahir);
+        tgl_lahir.setBounds(120, 180, 180, 30);
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 760, 370));
 
         jPanel2.setBackground(new java.awt.Color(181, 102, 102));
 
@@ -200,13 +206,11 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
         );
 
         pack();
@@ -253,7 +257,9 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         // TODO add your handling code here:
         Daftar_Pasien a = new Daftar_Pasien();
         String tgl_daftar =  a.getTanggal();
-        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")|| tgl_lahir.getText().equals("")
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggal_lahir = format1.format(tgl_lahir.getDate());
+        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")|| tgl_lahir.getDate().equals("")
             || tempat_lahir.getText().equals("") || alamat.getText().equals("")
                 || no_telpon.getText().equals("") || no_bpjs.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
@@ -263,12 +269,12 @@ public class Daftar_Pasien extends javax.swing.JFrame {
                 + " id_pasien , nama , tgl_daftar ,  tempat_lahir ,tgl_lahir , jenis_kelamin ,"
                         + "alamat , no_telp , no_bpjs , status ,transaksi) values "
                 + "('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"  + tgl_daftar +  "' ,"
-                        + " '"+ tempat_lahir.getText()  +"' , '"+ tgl_lahir.getText()  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
+                        + " '"+ tempat_lahir.getText()  +"' , '"+ tanggal_lahir  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
                         + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ,'NOK') " ;
                 
                String sql2 = "insert into rekam_medis(id_pasien , nama_pasien , jenis_kelamin , tempat_lahir ,"
                        + " alamat , no_telp , no_bpjs , tgl_lahir )values ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"+ jenis_kelamin.getSelectedItem() +"' ,  "
-                       + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tgl_lahir.getText() +"' ) ";
+                       + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tanggal_lahir +"' ) ";
                 
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
@@ -286,7 +292,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
 
     public void reset(){
         nama_pasien.setText("");
-        tgl_lahir.setText("");
+        //tgl_lahir.setText("");
         tempat_lahir.setText("") ;
         alamat.setText("");
         no_telpon.setText("");
@@ -331,7 +337,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alamat;
     private javax.swing.JTextField id_pasien;
@@ -352,8 +358,9 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     private javax.swing.JTextField nama_pasien;
     private javax.swing.JTextField no_bpjs;
     private javax.swing.JTextField no_telpon;
+    private com.raven.datechooser.SelectedDate selectedDate1;
     private javax.swing.JButton tambah;
     private javax.swing.JTextField tempat_lahir;
-    private javax.swing.JTextField tgl_lahir;
+    private com.toedter.calendar.JDateChooser tgl_lahir;
     // End of variables declaration//GEN-END:variables
 }

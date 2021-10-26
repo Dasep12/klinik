@@ -27,7 +27,7 @@ import java.sql.Connection;
 import java.util.Date;
 import javafx.scene.layout.Border;
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
+
 
 /**
  *
@@ -132,6 +132,7 @@ public class Report extends javax.swing.JFrame {
             PdfPCell cell = new PdfPCell();
             cell.setMinimumHeight(50);
             cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+          //  cell.setBorder(Border.NO_BORDER);
             
             
             my_report_table.addCell("Jenis Tagihan");
@@ -140,7 +141,6 @@ public class Report extends javax.swing.JFrame {
             
              while (res.next()) {                
                   String obat         = res.getString("obat");
-                  //cell.setBorder(Border.NO_BORDER);
                   cell                = new PdfPCell(new Phrase(obat));
                   my_report_table.addCell(cell);
                   
