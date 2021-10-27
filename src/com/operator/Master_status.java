@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Operator;
+package com.operator;
 import Conection.Conn ;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
@@ -13,13 +13,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author dasep
  */
-public class Master_obat extends javax.swing.JFrame {
+public class Master_status extends javax.swing.JFrame {
 
     /**
      * Creates new form Master_obat
      */
     private String id ;
-    public Master_obat() {
+    public Master_status() {
         initComponents();
         loadData(this.id);
         reset.setEnabled(false);
@@ -39,16 +39,12 @@ public class Master_obat extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        obat = new javax.swing.JTable();
+        status = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        id_obat = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        nama_obat = new javax.swing.JTextField();
+        id_status = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        expired = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        supplier = new javax.swing.JTextField();
+        jenis_status = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
@@ -62,86 +58,66 @@ public class Master_obat extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(225, 225, 225));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        obat.setBackground(new java.awt.Color(77, 80, 89));
-        obat.setForeground(new java.awt.Color(255, 255, 255));
-        obat.setModel(new javax.swing.table.DefaultTableModel(
+        status.setBackground(new java.awt.Color(77, 80, 89));
+        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "No", "ID Obat", "Nama Obat", "Expired Date"
+                "ID Status", "Status "
             }
         ));
-        obat.setGridColor(new java.awt.Color(255, 255, 255));
-        obat.setRowHeight(18);
-        obat.addMouseListener(new java.awt.event.MouseAdapter() {
+        status.setGridColor(new java.awt.Color(255, 255, 255));
+        status.setRowHeight(18);
+        status.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                obatMouseClicked(evt);
+                statusMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(obat);
+        jScrollPane1.setViewportView(status);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 220));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 740, 220));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 750, 250));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 760, 270));
 
         jPanel3.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID Obat");
+        jLabel2.setText("ID Status");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(110, 40, 49, 33);
+        jLabel2.setBounds(110, 40, 90, 33);
 
-        id_obat.setBackground(new java.awt.Color(149, 72, 91));
-        id_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(id_obat);
-        id_obat.setBounds(180, 40, 180, 33);
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nama  Obat");
-        jPanel3.add(jLabel3);
-        jLabel3.setBounds(90, 80, 100, 33);
-
-        nama_obat.setBackground(new java.awt.Color(149, 72, 91));
-        nama_obat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(nama_obat);
-        nama_obat.setBounds(180, 80, 180, 33);
+        id_status.setBackground(new java.awt.Color(149, 72, 91));
+        id_status.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(id_status);
+        id_status.setBounds(180, 40, 180, 33);
 
         jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("Tanggal Exp");
+        jLabel4.setText("Jenis Status");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(370, 40, 100, 33);
+        jLabel4.setBounds(390, 40, 110, 33);
 
-        expired.setBackground(new java.awt.Color(149, 72, 91));
-        expired.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(expired);
-        expired.setBounds(450, 40, 180, 33);
+        jenis_status.setBackground(new java.awt.Color(149, 72, 91));
+        jenis_status.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(jenis_status);
+        jenis_status.setBounds(480, 40, 180, 33);
 
-        jLabel5.setForeground(java.awt.Color.white);
-        jLabel5.setText("Supplier");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(380, 80, 100, 33);
-
-        supplier.setBackground(new java.awt.Color(149, 72, 91));
-        supplier.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(supplier);
-        supplier.setBounds(450, 80, 180, 33);
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 750, 130));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 750, 100));
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
 
@@ -212,7 +188,7 @@ public class Master_obat extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 750, 70));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, 60));
 
         jPanel5.setBackground(new java.awt.Color(181, 102, 102));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -246,7 +222,7 @@ public class Master_obat extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("MASTER OBAT");
+        jLabel10.setText("MASTER STATUS");
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 190, 30));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 80));
@@ -255,11 +231,11 @@ public class Master_obat extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
 
         pack();
@@ -268,16 +244,13 @@ public class Master_obat extends javax.swing.JFrame {
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
-        if(id_obat.getText().equals("") || nama_obat.getText().equals("")|| expired.getText().equals("")
-                || supplier.getText().equals("")){
+        if(id_status.getText().equals("") || jenis_status.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
             try {
-                String sql = "INSERT INTO  tbl_obat ("
-                        + " id_obat , nama_obat , expired , "
-                        + "supplier) values "
-                        + "('"+ id_obat.getText() +"' , '"+ nama_obat.getText() +"' , '"+ expired.getText() +"' , "
-                        + "'"+ supplier.getText() +"' ) " ;
+                String sql = "INSERT INTO  tbl_status_periksa ("
+                        + " id_status , jenis_status ) values "
+                        + "('"+ id_status.getText() +"' , '"+ jenis_status.getText() +"' ) " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
@@ -296,43 +269,38 @@ public class Master_obat extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_resetActionPerformed
 
-    private void obatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obatMouseClicked
+    private void statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statusMouseClicked
         // TODO add your handling code here:
-         int baris  = obat.rowAtPoint(evt.getPoint());
-        String id = obat.getValueAt(baris,0).toString();
-        id_obat.setText(id);
-        id_obat.setEditable(false);
+         int baris  = status.rowAtPoint(evt.getPoint());
+        String id = status.getValueAt(baris,0).toString();
+        id_status.setText(id);
+        id_status.setEditable(false);
         tambah.setEnabled(false);
         ubah.setEnabled(true);
         hapus.setEnabled(true);
         reset.setEnabled(true);
         try {
-            String sql = "Select * from tbl_obat where id_obat = '"+ id +"' " ;
+            String sql = "Select * from tbl_status_periksa where id_status  = '"+ id +"' " ;
             java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             while(res.next()){
-                nama_obat.setText(res.getString("nama_obat"));
-                supplier.setText(res.getString("supplier"));
-                expired.setText(res.getString("expired"));
+                jenis_status.setText(res.getString("jenis_status"));
             }
         }catch(Exception e){
-            
+
         }
-    }//GEN-LAST:event_obatMouseClicked
+    }//GEN-LAST:event_statusMouseClicked
 
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
-        if(id_obat.getText().equals("") || nama_obat.getText().equals("")|| expired.getText().equals("")
-                || supplier.getText().equals("")){
+        if(jenis_status.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
             try {
-                String sql = "update tbl_obat  set"
-                        + " nama_obat = '"+ nama_obat.getText() +"' ,"
-                        + " expired = '"+ expired.getText() + "' , " 
-                        + " supplier = '"+ supplier.getText() + "' "
-                                + " where id_obat='"+ id_obat.getText() +"' " ;
+                String sql = "update tbl_status_periksa  set"
+                        + " jenis_status = '"+ jenis_status.getText() + "' "
+                                + " where id_status='"+ id_status.getText() +"'  " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();
@@ -350,9 +318,9 @@ public class Master_obat extends javax.swing.JFrame {
         // TODO add your handling code here:
      int option =    JOptionPane.showConfirmDialog(null, "Hapus ? ");
         switch(option){
-            case JOptionPane.YES_OPTION : 
+            case JOptionPane.YES_OPTION :
                 try {
-                    String sql = "delete from tbl_obat where id_obat = '"+ id_obat.getText() +"' " ;
+                    String sql = "delete from tbl_status_periksa where id_status = '"+ id_status.getText() +"' " ;
                     java.sql.Connection conn = (Connection)Conn.configDB();
                     java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                     pst.execute();
@@ -365,7 +333,7 @@ public class Master_obat extends javax.swing.JFrame {
                 }
                 break ;
             default :
-                
+
                 break ;
         }
     }//GEN-LAST:event_hapusActionPerformed
@@ -385,51 +353,45 @@ public class Master_obat extends javax.swing.JFrame {
             loadData(data);
         }
     }//GEN-LAST:event_cariActionPerformed
-        
+
         public void reset(){
-            id_obat.setText("");
-            nama_obat.setText("");
-            expired.setText("");
-            supplier.setText("");
-            id_obat.setEditable(true);
+            id_status.setText("");
+            jenis_status.setText("");
+            id_status.setEditable(true);
             tambah.setEnabled(true);
             ubah.setEnabled(false);
             reset.setEnabled(false);
             hapus.setEnabled(false);
 
         }
-    
-    public void loadData(String data){
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID Obat");
-        model.addColumn("Nama Obat");
-        model.addColumn("Tanggal Exp");
-        model.addColumn("Supplier");
-        
-        //tampilkan data makanan kedalam table 
+
+       public void loadData(String data){
+       DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID Status");
+        model.addColumn("Status");
+
+        //tampilkan data makanan kedalam table
         try {
             String sql = "" ;
-            
+
             if(data == null ){
-                sql = "Select * from tbl_obat  " ;
+                sql = "Select * from tbl_status_periksa  " ;
             }else {
-                    sql = "Select * from tbl_obat where " 
-                            + "id_obat like  '%"+ data +"%' or nama_obat like '%"+ data +"%'"
-                            + "or supplier like '%"+ data +"%'  " ;
+                    sql = "Select * from tbl_status_periksa where "
+                            + "id_status like  '%"+ data +"%' or jenis_status like '%"+ data +"%'" ;
             }
                     java.sql.Connection conn = (Connection)Conn.configDB();
                     java.sql.Statement stm = conn.createStatement();
                     java.sql.ResultSet res = stm.executeQuery(sql);
                     while(res.next()){
-                        model.addRow(new Object[] {res.getString("id_obat") ,  res.getString("nama_obat") ,
-                            res.getString("expired") ,  res.getString("supplier") } );
+                        model.addRow(new Object[] {res.getString("id_status") ,  res.getString("jenis_status") } );
                     }
-            obat.setModel(model);
+            status.setModel(model);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
-        } 
+        }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -437,7 +399,7 @@ public class Master_obat extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -447,46 +409,45 @@ public class Master_obat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Master_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Master_status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Master_obat().setVisible(true);
+                new Master_status().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
-    private javax.swing.JTextField expired;
     private javax.swing.JButton hapus;
-    private javax.swing.JTextField id_obat;
+    private javax.swing.JTextField id_status;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jenis_status;
     private javax.swing.JTextField key;
-    private javax.swing.JTextField nama_obat;
-    private javax.swing.JTable obat;
     private javax.swing.JButton refresh;
     private javax.swing.JButton reset;
-    private javax.swing.JTextField supplier;
+    private javax.swing.JTable status;
     private javax.swing.JButton tambah;
     private javax.swing.JButton ubah;
     // End of variables declaration//GEN-END:variables
