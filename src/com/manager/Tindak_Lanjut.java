@@ -5,6 +5,8 @@
  */
 package com.manager;
 
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author dasep
@@ -85,6 +87,12 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
 
     private void rekamMedis2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis2ActionPerformed
         // TODO add your handling code here:
+        
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        String tgl1 = format1.format(tgl_awal.getDate());
+        String tgl2 = format1.format(tgl_akhir.getDate());
+        
+        
     }//GEN-LAST:event_rekamMedis2ActionPerformed
 
     /**
