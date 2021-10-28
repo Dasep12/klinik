@@ -5,7 +5,23 @@
  */
 package com.manager;
 
+import Conection.Conn;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import javafx.scene.control.Cell;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,8 +49,7 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         rekamMedis2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        tgl_awal = new com.toedter.calendar.JDateChooser();
-        tgl_akhir = new com.toedter.calendar.JDateChooser();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -43,7 +58,7 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rekamMedis2.setBackground(new java.awt.Color(48, 37, 40));
@@ -62,11 +77,13 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         jLabel4.setText("S/D");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 40, -1));
 
-        tgl_awal.setDateFormatString("yyyy-MM-dd");
-        jPanel4.add(tgl_awal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 59, 180, 40));
-
-        tgl_akhir.setDateFormatString("yyyy-MM-dd");
-        jPanel4.add(tgl_akhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 180, 40));
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 120, 60));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 320));
 
@@ -89,11 +106,99 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        String tgl1 = format1.format(tgl_awal.getDate());
-        String tgl2 = format1.format(tgl_akhir.getDate());
+      //  String tgl1 = format1.format(tgl_awal.getDate());
+       // String tgl2 = format1.format(tgl_akhir.getDate());
         
+        try {
+            File theDir = new File("C:/Backup File/");
+                if (!theDir.exists()){
+                    theDir.mkdirs();
+                }
+            String path  = "C://Backup File//Laporan Tindak Lanjut.pdf" ;
+            String  sql = "SELECT * FROM tbl_pasien JOIN rekam_medis"
+                    + " WHERE tbl_pasien.id_pasien = rekam_medis.id_pasien "
+                    + "AND STATUS='SUDAH DI PERIKSA' " 
+                    + " AND tgl_daftar BETWEEN '2021-10-20' AND '2021-10-24' "
+                    + "AND transaksi='OK' " ;
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            /* Step-2: Initialize PDF documents - logical objects */
+        Document my_pdf_report = new Document();
+        PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
+        my_pdf_report.open();            
+        my_pdf_report.add(new Paragraph("Laporan Tindak Lanjut",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
+        my_pdf_report.add(new Paragraph(new Date().toString()));
+        my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
+                + "--------------------------------------------------------------"));
+        my_pdf_report.add(new Paragraph("\n"));
+        //we have four columns in our table
+        PdfPTable my_report_table = new PdfPTable(5);
+       // Cell cell = new PDf;
         
+        my_report_table.setWidthPercentage(100);
+        //create a cell object
+        PdfPCell table_cell;
+        PdfPCell table_cell2;
+        
+        Font F = FontFactory.getFont(FontFactory.COURIER, 9 , Font.NORMAL, BaseColor.WHITE) ;
+        Font F2 = FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL, BaseColor.BLACK);
+        table_cell2 = new PdfPCell(new Phrase("Nama Pasien",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Jenis Kelamin",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Tempat,Tanggal Lahir",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Tanggal Daftar",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Tindak Lanjut",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+       
+        my_report_table.setHeaderRows(1);
+       
+        while (res.next()) {                
+            String id           = res.getString("nama");
+            table_cell          = new PdfPCell(new Phrase(id , F2));
+            my_report_table.addCell(table_cell);
+            
+            String tempat       = res.getString("tempat_lahir");
+            String lahir        = res.getString("tgl_lahir");
+            table_cell          = new PdfPCell(new Phrase(tempat + "," + lahir , F2 ));
+            my_report_table.addCell(table_cell);
+            
+            String nohp        = res.getString("jenis_kelamin");
+            table_cell          = new PdfPCell(new Phrase(nohp , F2));
+            my_report_table.addCell(table_cell);
+            
+            String alamat     = res.getString("tgl_daftar");
+            table_cell          = new PdfPCell(new Phrase(alamat , F2 ));
+            my_report_table.addCell(table_cell);
+            
+            String makanan         = res.getString("tindak_lanjut");
+            table_cell          = new PdfPCell(new Phrase(makanan , F2));
+            my_report_table.addCell(table_cell);            
+         }
+        /* Attach report table to PDF */
+        my_pdf_report.add(my_report_table);                       
+        my_pdf_report.close();
+            JOptionPane.showMessageDialog(null,"Sukses");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
     }//GEN-LAST:event_rekamMedis2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,11 +236,10 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton rekamMedis2;
-    private com.toedter.calendar.JDateChooser tgl_akhir;
-    private com.toedter.calendar.JDateChooser tgl_awal;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,8 +11,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import com.raven.datechooser.SelectedDate;
-import com.toedter.calendar.JCalendar;
+//import com.raven.datechooser.SelectedDate;
+//import com.toedter.calendar.JCalendar;
 import java.awt.Color;
 /**
  *
@@ -39,7 +39,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        selectedDate1 = new com.raven.datechooser.SelectedDate();
+        selectedDate1 = new org.netbeans.modules.form.InvalidComponent();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -60,7 +60,6 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         no_bpjs = new javax.swing.JTextField();
         tambah = new javax.swing.JButton();
-        tgl_lahir = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -74,7 +73,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 270, 20));
 
         jPanel3.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Data Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(java.awt.Color.white);
         jPanel3.setLayout(null);
 
@@ -140,7 +139,7 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         jScrollPane1.setViewportView(alamat);
 
         jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(420, 140, 230, 83);
+        jScrollPane1.setBounds(420, 140, 230, 96);
 
         no_telpon.setBackground(new java.awt.Color(149, 72, 91));
         no_telpon.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,12 +177,6 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         });
         jPanel3.add(tambah);
         tambah.setBounds(540, 240, 107, 38);
-
-        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
-        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
-        tgl_lahir.setDateFormatString("yyyy-MM-dd");
-        jPanel3.add(tgl_lahir);
-        tgl_lahir.setBounds(120, 180, 180, 30);
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 760, 330));
 
@@ -258,9 +251,8 @@ public class Daftar_Pasien extends javax.swing.JFrame {
         Daftar_Pasien a = new Daftar_Pasien();
         String tgl_daftar =  a.getTanggal();
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggal_lahir = format1.format(tgl_lahir.getDate());
-        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")|| tgl_lahir.getDate().equals("")
-            || tempat_lahir.getText().equals("") || alamat.getText().equals("")
+        String tanggal_lahir = "d" ; //format1.format(tgl_lahir.getDate());
+        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")||  tempat_lahir.getText().equals("") || alamat.getText().equals("")
                 || no_telpon.getText().equals("") || no_bpjs.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
@@ -358,9 +350,8 @@ public class Daftar_Pasien extends javax.swing.JFrame {
     private javax.swing.JTextField nama_pasien;
     private javax.swing.JTextField no_bpjs;
     private javax.swing.JTextField no_telpon;
-    private com.raven.datechooser.SelectedDate selectedDate1;
+    private org.netbeans.modules.form.InvalidComponent selectedDate1;
     private javax.swing.JButton tambah;
     private javax.swing.JTextField tempat_lahir;
-    private com.toedter.calendar.JDateChooser tgl_lahir;
     // End of variables declaration//GEN-END:variables
 }
