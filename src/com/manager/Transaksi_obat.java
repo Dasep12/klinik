@@ -27,12 +27,12 @@ import javax.swing.JOptionPane;
  *
  * @author dasep
  */
-public class Tindak_Lanjut extends javax.swing.JFrame {
+public class Transaksi_obat extends javax.swing.JFrame {
 
     /**
      * Creates new form Tindak_Lanjut
      */
-    public Tindak_Lanjut() {
+    public Transaksi_obat() {
         initComponents();
     }
 
@@ -57,7 +57,7 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report Transaksi Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rekamMedis2.setBackground(new java.awt.Color(48, 37, 40));
@@ -105,12 +105,10 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
                 if (!theDir.exists()){
                     theDir.mkdirs();
                 }
-            String path  = "C://Backup File//Laporan Tindak Lanjut.pdf" ;
-            String  sql = "SELECT * FROM tbl_pasien JOIN rekam_medis"
-                    + " WHERE tbl_pasien.id_pasien = rekam_medis.id_pasien "
-                    + "AND STATUS='SUDAH DI PERIKSA' " 
-                    + " AND tgl_daftar BETWEEN '2021-10-20' AND '2021-10-24' "
-                    + "AND transaksi='OK' " ;
+            String path  = "C://Backup File//Laporan Transaksi Obat.pdf" ;
+            String  sql = "SELECT * FROM obat_pasien JOIN tbl_pasien WHERE\n" +
+                        "obat_pasien.id_pasien = tbl_pasien.id_pasien AND\n" +
+                        "tbl_pasien.tgl_daftar BETWEEN '2021-10-20' AND '2021-10-26'" ;
             java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -118,13 +116,13 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         Document my_pdf_report = new Document();
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
-        my_pdf_report.add(new Paragraph("Laporan Tindak Lanjut",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("Senin,12 Agustus 2021"));
+        my_pdf_report.add(new Paragraph("Laporan Transaki Obat",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
+        my_pdf_report.add(new Paragraph("Senin,12 Agutstus 2021 14:00:23"));
         my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
                 + "--------------------------------------------------------------"));
         my_pdf_report.add(new Paragraph("\n"));
         //we have four columns in our table
-        PdfPTable my_report_table = new PdfPTable(5);
+        PdfPTable my_report_table = new PdfPTable(3);
        // Cell cell = new PDf;
         
         my_report_table.setWidthPercentage(100);
@@ -134,49 +132,34 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         
         Font F = FontFactory.getFont(FontFactory.COURIER, 9 , Font.NORMAL, BaseColor.WHITE) ;
         Font F2 = FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL, BaseColor.BLACK);
-        table_cell2 = new PdfPCell(new Phrase("Nama Pasien",F));
+        table_cell2 = new PdfPCell(new Phrase("Jenis Obat",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Jenis Kelamin",F));
+        table_cell2 = new PdfPCell(new Phrase("Harga",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Tempat,Tanggal Lahir",F));
+        table_cell2 = new PdfPCell(new Phrase("Pembeli",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
-        
-        table_cell2 = new PdfPCell(new Phrase("Tanggal Daftar",F));
-        table_cell2.setBackgroundColor(BaseColor.BLUE);
-        my_report_table.addCell(table_cell2);
-        
-        table_cell2 = new PdfPCell(new Phrase("Tindak Lanjut",F));
-        table_cell2.setBackgroundColor(BaseColor.BLUE);
-        my_report_table.addCell(table_cell2);
+
        
         my_report_table.setHeaderRows(1);
        
         while (res.next()) {                
-            String id           = res.getString("nama");
+            String id           = res.getString("obat");
             table_cell          = new PdfPCell(new Phrase(id , F2));
             my_report_table.addCell(table_cell);
             
-            String tempat       = res.getString("tempat_lahir");
-            String lahir        = res.getString("tgl_lahir");
-            table_cell          = new PdfPCell(new Phrase(tempat + "," + lahir , F2 ));
+            String lahir        = res.getString("harga");
+            table_cell          = new PdfPCell(new Phrase(lahir, F2 ));
             my_report_table.addCell(table_cell);
             
-            String nohp        = res.getString("jenis_kelamin");
+            String nohp        = res.getString("nama");
             table_cell          = new PdfPCell(new Phrase(nohp , F2));
             my_report_table.addCell(table_cell);
-            
-            String alamat     = res.getString("tgl_daftar");
-            table_cell          = new PdfPCell(new Phrase(alamat , F2 ));
-            my_report_table.addCell(table_cell);
-            
-            String makanan         = res.getString("tindak_lanjut");
-            table_cell          = new PdfPCell(new Phrase(makanan , F2));
-            my_report_table.addCell(table_cell);            
+         
          }
         /* Attach report table to PDF */
         my_pdf_report.add(my_report_table);                       
@@ -204,20 +187,21 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Transaksi_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Transaksi_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Transaksi_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Transaksi_obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tindak_Lanjut().setVisible(true);
+                new Transaksi_obat().setVisible(true);
             }
         });
     }
