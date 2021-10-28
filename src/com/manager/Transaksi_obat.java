@@ -15,6 +15,7 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
@@ -99,7 +100,7 @@ public class Transaksi_obat extends javax.swing.JFrame {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
       //  String tgl1 = format1.format(tgl_awal.getDate());
        // String tgl2 = format1.format(tgl_akhir.getDate());
-        
+       // String tgl3 = format1.format(new Date().toString() );
         try {
             File theDir = new File("C:/Backup File/");
                 if (!theDir.exists()){
@@ -117,7 +118,7 @@ public class Transaksi_obat extends javax.swing.JFrame {
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
         my_pdf_report.add(new Paragraph("Laporan Transaki Obat",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("Senin,12 Agutstus 2021 14:00:23"));
+        my_pdf_report.add(new Paragraph("SENIN 12 Oktober 2021"));
         my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
                 + "--------------------------------------------------------------"));
         my_pdf_report.add(new Paragraph("\n"));
@@ -164,7 +165,8 @@ public class Transaksi_obat extends javax.swing.JFrame {
         /* Attach report table to PDF */
         my_pdf_report.add(my_report_table);                       
         my_pdf_report.close();
-            JOptionPane.showMessageDialog(null,"Sukses");
+             JOptionPane.showMessageDialog(null,"Sukses");
+             Desktop.getDesktop().open(new File(path));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }

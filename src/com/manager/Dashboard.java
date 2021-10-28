@@ -72,7 +72,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 100));
 
         jPanel1.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Info", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Info", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -99,7 +99,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 200, 320));
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rekamMedis.setBackground(new java.awt.Color(48, 37, 40));
@@ -160,7 +160,7 @@ public class Dashboard extends javax.swing.JFrame {
         rekamMedis1.setBackground(new java.awt.Color(48, 37, 40));
         rekamMedis1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rekamMedis1.setForeground(new java.awt.Color(255, 255, 255));
-        rekamMedis1.setText("Tambah Akun");
+        rekamMedis1.setText("TAMBAH AKUN");
         rekamMedis1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rekamMedis1ActionPerformed(evt);
@@ -196,18 +196,26 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void rekamMedis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis1ActionPerformed
         // TODO add your handling code here:
+        Transaksi_obat a  = new Transaksi_obat();
+        a.setVisible(true);
     }//GEN-LAST:event_rekamMedis1ActionPerformed
 
     private void rekamMedis2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis2ActionPerformed
         // TODO add your handling code here:
+        Tindak_Lanjut a  = new Tindak_Lanjut();
+        a.setVisible(true);
     }//GEN-LAST:event_rekamMedis2ActionPerformed
 
     private void rekamMedis3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis3ActionPerformed
         // TODO add your handling code here:
+        Rekam_Medis a  = new Rekam_Medis();
+        a.setVisible(true);
     }//GEN-LAST:event_rekamMedis3ActionPerformed
 
     private void rekamMedis4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis4ActionPerformed
         // TODO add your handling code here:
+        Transaksi_obat a  = new Transaksi_obat();
+        a.setVisible(true);
     }//GEN-LAST:event_rekamMedis4ActionPerformed
 
     private void rekamMedis5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis5ActionPerformed

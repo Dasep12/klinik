@@ -28,12 +28,12 @@ import javax.swing.JOptionPane;
  *
  * @author dasep
  */
-public class Tindak_Lanjut extends javax.swing.JFrame {
+public class Rekam_Medis extends javax.swing.JFrame {
 
     /**
      * Creates new form Tindak_Lanjut
      */
-    public Tindak_Lanjut() {
+    public Rekam_Medis() {
         initComponents();
     }
 
@@ -58,7 +58,7 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(71, 82, 83));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report Tindak Lanjut", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report Rekam Medis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rekamMedis2.setBackground(new java.awt.Color(48, 37, 40));
@@ -100,13 +100,13 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
       //  String tgl1 = format1.format(tgl_awal.getDate());
        // String tgl2 = format1.format(tgl_akhir.getDate());
-        
+        //String tgl3 = format1.format(new Date().toString() );
         try {
             File theDir = new File("C:/Backup File/");
                 if (!theDir.exists()){
                     theDir.mkdirs();
                 }
-            String path  = "C://Backup File//Laporan Tindak Lanjut.pdf" ;
+            String path  = "C://Backup File//Laporan Rekam Medis.pdf" ;
             String  sql = "SELECT * FROM tbl_pasien JOIN rekam_medis"
                     + " WHERE tbl_pasien.id_pasien = rekam_medis.id_pasien "
                     + "AND STATUS='SUDAH DI PERIKSA' " 
@@ -119,13 +119,13 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         Document my_pdf_report = new Document();
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
-        my_pdf_report.add(new Paragraph("Laporan Tindak Lanjut",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("Senin,12 Agustus 2021"));
+        my_pdf_report.add(new Paragraph("Laporan Rekam Medis",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
+        my_pdf_report.add(new Paragraph("SENIN 12 Oktober 2021 14:00:30") );
         my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
                 + "--------------------------------------------------------------"));
         my_pdf_report.add(new Paragraph("\n"));
         //we have four columns in our table
-        PdfPTable my_report_table = new PdfPTable(5);
+        PdfPTable my_report_table = new PdfPTable(8);
        // Cell cell = new PDf;
         
         my_report_table.setWidthPercentage(100);
@@ -139,45 +139,71 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Jenis Kelamin",F));
+        table_cell2 = new PdfPCell(new Phrase("Sistol",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Tempat,Tanggal Lahir",F));
+        table_cell2 = new PdfPCell(new Phrase("Distol",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Tanggal Daftar",F));
+        
+        table_cell2 = new PdfPCell(new Phrase("Diagnosa 1 ",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Tindak Lanjut",F));
+        table_cell2 = new PdfPCell(new Phrase("Diagnosa 2",F));
         table_cell2.setBackgroundColor(BaseColor.BLUE);
         my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Anamnesa 1",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Anamnesa 2",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Nama Penyakit",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+
        
         my_report_table.setHeaderRows(1);
        
         while (res.next()) {                
-            String id           = res.getString("nama");
-            table_cell          = new PdfPCell(new Phrase(id , F2));
+            String nama           = res.getString("nama");
+            table_cell          = new PdfPCell(new Phrase(nama , F2));
             my_report_table.addCell(table_cell);
             
-            String tempat       = res.getString("tempat_lahir");
-            String lahir        = res.getString("tgl_lahir");
-            table_cell          = new PdfPCell(new Phrase(tempat + "," + lahir , F2 ));
+            String sistol        = res.getString("sistol");
+            table_cell          = new PdfPCell(new Phrase(sistol, F2 ));
             my_report_table.addCell(table_cell);
             
-            String nohp        = res.getString("jenis_kelamin");
-            table_cell          = new PdfPCell(new Phrase(nohp , F2));
+            String distol        = res.getString("distole");
+            table_cell          = new PdfPCell(new Phrase(distol , F2));
             my_report_table.addCell(table_cell);
             
-            String alamat     = res.getString("tgl_daftar");
-            table_cell          = new PdfPCell(new Phrase(alamat , F2 ));
+            String dia1        = res.getString("diagnosa1");
+            table_cell          = new PdfPCell(new Phrase(dia1 , F2));
             my_report_table.addCell(table_cell);
             
-            String makanan         = res.getString("tindak_lanjut");
-            table_cell          = new PdfPCell(new Phrase(makanan , F2));
-            my_report_table.addCell(table_cell);            
+            String dia2        = res.getString("diagnosa2");
+            table_cell          = new PdfPCell(new Phrase(dia2 , F2));
+            my_report_table.addCell(table_cell);
+            
+            String anam1        = res.getString("anamnesa1");
+            table_cell          = new PdfPCell(new Phrase(anam1 , F2));
+            my_report_table.addCell(table_cell);
+            
+            String anam2        = res.getString("anamnesa2");
+            table_cell          = new PdfPCell(new Phrase(anam2 , F2));
+            my_report_table.addCell(table_cell);
+            
+            String namaP        = res.getString("nama_penyakit");
+            table_cell          = new PdfPCell(new Phrase(namaP , F2));
+            my_report_table.addCell(table_cell);
+         
          }
         /* Attach report table to PDF */
         my_pdf_report.add(my_report_table);                       
@@ -206,20 +232,23 @@ public class Tindak_Lanjut extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Rekam_Medis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Rekam_Medis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Rekam_Medis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tindak_Lanjut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Rekam_Medis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tindak_Lanjut().setVisible(true);
+                new Rekam_Medis().setVisible(true);
             }
         });
     }
