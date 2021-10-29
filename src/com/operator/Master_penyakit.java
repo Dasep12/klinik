@@ -303,7 +303,7 @@ public class Master_penyakit extends javax.swing.JFrame {
             try {
                 String sql = "update tbl_penyakit  set"
                         + " nama_penyakit = '"+ nama_penyakit.getText() + "' " 
-                                + " where id_obat='"+ id_penyakit.getText() +"' " ;
+                                + " where id_penyakit='"+ id_penyakit.getText() +"' " ;
                   java.sql.Connection conn = (Connection)Conn.configDB();
                   java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                   pst.execute();

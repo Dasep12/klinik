@@ -8,7 +8,9 @@ package Main;
 import Conection.Conn;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
-
+import com.operator.HomeOperator;
+import com.manager.HomeManager;
+import com.dokter.HomeDokter ;
 /**
  *
  * @author cad-server
@@ -164,25 +166,32 @@ public class Login extends javax.swing.JFrame {
            try {
                  String   sql = "Select * from akun  where "
                             + "nama = '"+ name  +
-                         "'and password='"+ pwd +"' limit 1 "  ;                
+                         "'and password='"+ pwd +"' and role='"+ role +"' limit 1 "  ;                
 
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.Statement stm = conn.createStatement();
                 java.sql.ResultSet res = stm.executeQuery(sql);
 
                 if(res.next()){
-                   String level = res.getString("role");
-                   if(level.equals(1)){
+                   String level = res.getString("role"); 
+                   //role operator 
+                   if(level.equals("1")){
                       // Session.nama = res.getString("nama") ;
                         this.dispose();
+                        HomeOperator a = new HomeOperator();
+                        a.setVisible(true);
                    }else if (level.equals("2")){
+                       //role dokter
                        this.dispose();
+                       HomeDokter a = new HomeDokter();
+                       a.setVisible(true);
                    }else if(level.equals("3")){
+                       //role manager 
                        this.dispose();
 //                       Session.nama = res.getString("nama") ;
 //                       Session.nohp = res.getString("nohp") ;
-//                       daftar_menu a = new daftar_menu();
-//                       a.setVisible(true);
+                        HomeManager a = new HomeManager();
+                        a.setVisible(true);
                    }
                 }else {
                     JOptionPane.showMessageDialog(null,"akun tidak ditemukan");

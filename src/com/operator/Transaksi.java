@@ -400,7 +400,7 @@ private String id ;
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Dashboard a = new Dashboard();
+        HomeOperator a = new HomeOperator();
         a.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 

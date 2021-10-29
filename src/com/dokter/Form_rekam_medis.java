@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-import com.dokter.Dashboard ;
+import com.dokter.HomeDokter ;
 /**
  *
  * @author dasep
@@ -566,7 +566,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         switch(a){
             case JOptionPane.YES_OPTION :
                 this.dispose();
-                Dashboard b = new Dashboard();
+                HomeDokter b = new HomeDokter();
                 b.setVisible(true);
             break ;
             default :
