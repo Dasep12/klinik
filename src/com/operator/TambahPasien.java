@@ -74,21 +74,17 @@ public class TambahPasien extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(260, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(295, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(281, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(274, 274, 274))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(19, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addContainerGap(19, Short.MAX_VALUE)))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 60));
@@ -266,12 +262,15 @@ public class TambahPasien extends javax.swing.JFrame {
                 + " id_pasien , nama , tgl_daftar ,  tempat_lahir ,tgl_lahir , jenis_kelamin ,"
                 + "alamat , no_telp , no_bpjs , status ,transaksi) values "
                 + "('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"  + tgl_daftar +  "' ,"
-                + " '"+ tgl_lahir.getText()  +"' , '"+ tanggal_lahir  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
+                + " '"+ tempat_lahir.getText()  +"' , '"+ tgl_lahir.getText()  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
                 + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ,'NOK') " ;
 
                 String sql2 = "insert into rekam_medis(id_pasien , nama_pasien , jenis_kelamin , tempat_lahir ,"
-                + " alamat , no_telp , no_bpjs , tgl_lahir )values ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"+ jenis_kelamin.getSelectedItem() +"' ,  "
-                + " '"+ tgl_lahir.getText() +"' , '"+ alamat.getText() +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tanggal_lahir +"' ) ";
+                + " alamat , no_telp , no_bpjs , tgl_lahir )values"
+                + " ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , "
+                        + "'"+ jenis_kelamin.getSelectedItem() +"' ,  "
+                + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , "
+                        + "'"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tgl_lahir.getText() +"' ) ";
 
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
