@@ -5,6 +5,10 @@
  */
 package Main;
 
+import Conection.Conn;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cad-server
@@ -29,13 +33,13 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        id_pasien = new javax.swing.JTextField();
+        user = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        tgl_lahir = new javax.swing.JTextField();
-        jenis_kelamin = new javax.swing.JComboBox<>();
+        level = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         tambah = new javax.swing.JButton();
+        password = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,9 +51,9 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(71, 82, 83));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        id_pasien.setBackground(new java.awt.Color(149, 72, 91));
-        id_pasien.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 230, 33));
+        user.setBackground(new java.awt.Color(149, 72, 91));
+        user.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 230, 33));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -61,15 +65,11 @@ public class Login extends javax.swing.JFrame {
         jLabel10.setText("level");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 60, 33));
 
-        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
-        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 230, 33));
-
-        jenis_kelamin.setBackground(new java.awt.Color(149, 72, 91));
-        jenis_kelamin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jenis_kelamin.setForeground(new java.awt.Color(255, 255, 255));
-        jenis_kelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operator", "Dokter", "Manager" }));
-        jPanel2.add(jenis_kelamin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 230, 40));
+        level.setBackground(new java.awt.Color(149, 72, 91));
+        level.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        level.setForeground(new java.awt.Color(255, 255, 255));
+        level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operator", "Dokter", "Manager" }));
+        jPanel2.add(level, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 230, 40));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,6 +86,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel2.add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, 40));
+
+        password.setBackground(new java.awt.Color(149, 72, 91));
+        password.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 230, 30));
 
         jPanel3.setBackground(new java.awt.Color(181, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -140,6 +144,53 @@ public class Login extends javax.swing.JFrame {
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
        
+        String role = (String) level.getSelectedItem();
+        String pwd  = password.getText();
+        String name = user.getText();
+        if(name.equals("")){
+            JOptionPane.showMessageDialog(null,"user name kosong");
+        }else if(pwd.equals("")){
+            JOptionPane.showMessageDialog(null,"password kosong");
+        }else {
+            
+            if(role == "Operator"){
+                role = "1" ;
+            }else if(role == "Dokter"){
+                role = "2" ;
+            }else if(role == "Manager"){
+                role = "3" ;
+            }
+            
+           try {
+                 String   sql = "Select * from akun  where "
+                            + "nama = '"+ name  +
+                         "'and password='"+ pwd +"' limit 1 "  ;                
+
+                java.sql.Connection conn = (Connection)Conn.configDB();
+                java.sql.Statement stm = conn.createStatement();
+                java.sql.ResultSet res = stm.executeQuery(sql);
+
+                if(res.next()){
+                   String level = res.getString("role");
+                   if(level.equals(1)){
+                      // Session.nama = res.getString("nama") ;
+                        this.dispose();
+                   }else if (level.equals("2")){
+                       this.dispose();
+                   }else if(level.equals("3")){
+                       this.dispose();
+//                       Session.nama = res.getString("nama") ;
+//                       Session.nohp = res.getString("nohp") ;
+//                       daftar_menu a = new daftar_menu();
+//                       a.setVisible(true);
+                   }
+                }else {
+                    JOptionPane.showMessageDialog(null,"akun tidak ditemukan");
+                }
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e.getMessage());
+            }
+        }
     }//GEN-LAST:event_tambahActionPerformed
 
     /**
@@ -178,7 +229,6 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField id_pasien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -187,10 +237,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JComboBox<String> jenis_kelamin;
-    private javax.swing.JButton logout;
-    private javax.swing.JButton logout1;
+    private javax.swing.JComboBox<String> level;
+    private javax.swing.JPasswordField password;
     private javax.swing.JButton tambah;
-    private javax.swing.JTextField tgl_lahir;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }
