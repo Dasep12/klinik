@@ -47,7 +47,6 @@ public class TambahPasien extends javax.swing.JFrame {
         jenis_kelamin = new javax.swing.JComboBox<>();
         no_bpjs = new javax.swing.JTextField();
         nama_pasien = new javax.swing.JTextField();
-        tgl_lahir = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -58,6 +57,7 @@ public class TambahPasien extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tambah = new javax.swing.JButton();
         tempat_lahir = new javax.swing.JTextField();
+        tgl_lahir = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -130,10 +130,6 @@ public class TambahPasien extends javax.swing.JFrame {
         nama_pasien.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(nama_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 68, 180, 33));
 
-        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
-        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 180, 33));
-
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nama Pasien");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 68, 100, 33));
@@ -183,6 +179,11 @@ public class TambahPasien extends javax.swing.JFrame {
         tempat_lahir.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 180, 33));
 
+        tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
+        tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
+        tgl_lahir.setDateFormatString("yyyy-MM-dd");
+        jPanel3.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 180, 30));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 720, 280));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,8 +211,6 @@ public class TambahPasien extends javax.swing.JFrame {
     }
     public void reset(){
         nama_pasien.setText("");
-        //tgl_lahir.setText("");
-        tgl_lahir.setText("") ;
         alamat.setText("");
         no_telpon.setText("");
         no_bpjs.setText("");
@@ -252,8 +251,8 @@ public class TambahPasien extends javax.swing.JFrame {
         TambahPasien a = new TambahPasien();
         String tgl_daftar =  a.getTanggal();
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggal_lahir = "d" ; //format1.format(tgl_lahir.getDate());
-        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")||  tgl_lahir.getText().equals("") || alamat.getText().equals("")
+        String tanggal_lahir =format1.format(tgl_lahir.getDate());
+        if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")|| alamat.getText().equals("")
             || no_telpon.getText().equals("") || no_bpjs.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
         }else {
@@ -262,7 +261,7 @@ public class TambahPasien extends javax.swing.JFrame {
                 + " id_pasien , nama , tgl_daftar ,  tempat_lahir ,tgl_lahir , jenis_kelamin ,"
                 + "alamat , no_telp , no_bpjs , status ,transaksi) values "
                 + "('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , '"  + tgl_daftar +  "' ,"
-                + " '"+ tempat_lahir.getText()  +"' , '"+ tgl_lahir.getText()  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
+                + " '"+ tempat_lahir.getText()  +"' , '"+ tanggal_lahir  +"' , '"+ jenis_kelamin.getSelectedItem()  +"' ,"
                 + " '"+ alamat.getText()  +"' , '"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText()  +"' , 'BELUM DI PERIKSA' ,'NOK') " ;
 
                 String sql2 = "insert into rekam_medis(id_pasien , nama_pasien , jenis_kelamin , tempat_lahir ,"
@@ -270,7 +269,7 @@ public class TambahPasien extends javax.swing.JFrame {
                 + " ('"+ id_pasien.getText() +"' , '"+ nama_pasien.getText() +"' , "
                         + "'"+ jenis_kelamin.getSelectedItem() +"' ,  "
                 + " '"+ tempat_lahir.getText() +"' , '"+ alamat.getText() +"' , "
-                        + "'"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tgl_lahir.getText() +"' ) ";
+                        + "'"+ no_telpon.getText()  +"' , '"+ no_bpjs.getText() +"' , '"+ tanggal_lahir +"' ) ";
 
                 java.sql.Connection conn = (Connection)Conn.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
@@ -343,6 +342,6 @@ public class TambahPasien extends javax.swing.JFrame {
     private javax.swing.JTextField no_telpon;
     private javax.swing.JButton tambah;
     private javax.swing.JTextField tempat_lahir;
-    private javax.swing.JTextField tgl_lahir;
+    private com.toedter.calendar.JDateChooser tgl_lahir;
     // End of variables declaration//GEN-END:variables
 }
