@@ -415,7 +415,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void tambah_pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambah_pasienActionPerformed
         // TODO add your handling code here:
-        Daftar_Pasien a = new Daftar_Pasien();
+        TambahPasien a = new TambahPasien();
         a.setVisible(true);
     }//GEN-LAST:event_tambah_pasienActionPerformed
 
