@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.manager;
-
+import Main.Login;
 /**
  *
  * @author dasep
@@ -187,6 +187,9 @@ public class HomeManager extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        Login a = new Login();
+        a.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
 
     private void rekamMedis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis1ActionPerformed

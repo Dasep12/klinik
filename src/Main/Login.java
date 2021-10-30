@@ -176,17 +176,19 @@ public class Login extends javax.swing.JFrame {
                    String level = res.getString("role"); 
                    //role operator 
                    if(level.equals("1")){
-                      // Session.nama = res.getString("nama") ;
+                        Session.nama = res.getString("nama") ;
                         this.dispose();
                         HomeOperator a = new HomeOperator();
                         a.setVisible(true);
                    }else if (level.equals("2")){
                        //role dokter
+                       Session.nama = res.getString("nama") ;
                        this.dispose();
                        HomeDokter a = new HomeDokter();
                        a.setVisible(true);
                    }else if(level.equals("3")){
                        //role manager 
+                       Session.nama = res.getString("nama") ;
                         this.dispose();
 //                       Session.nama = res.getString("nama") ;
 //                       Session.nohp = res.getString("nohp") ;

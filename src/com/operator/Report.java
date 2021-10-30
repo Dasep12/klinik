@@ -55,6 +55,8 @@ public class Report extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        id_pasien = new javax.swing.JTextField();
+        name1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +74,15 @@ public class Report extends javax.swing.JFrame {
             }
         });
 
+        id_pasien.setText("PSN001154");
+        id_pasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_pasienActionPerformed(evt);
+            }
+        });
+
+        name1.setText("Dasep");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,6 +93,15 @@ public class Report extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(id_pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(210, Short.MAX_VALUE)
+                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(76, 76, 76)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +110,14 @@ public class Report extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(id_pasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(199, Short.MAX_VALUE)
+                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(72, 72, 72)))
         );
 
         pack();
@@ -100,8 +127,13 @@ public class Report extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            String  sql = "select * from obat_pasien where id_pasien='PSN0001' " ;
-            java.sql.Connection conn = (Connection)Conn.configDB();
+           // String  sql = "select * from obat_pasien where id_pasien='"+ id_pasien.getText() +"' " ;
+           String sql = "SELECT  tbl_pasien.tgl_daftar , tbl_pasien.nama  , tbl_pasien.id_pasien , obat_pasien.obat ," +
+                        "transaksi.jasa_medis , transaksi.lain_lain , transaksi.biaya_obat FROM tbl_pasien " +
+                        "LEFT JOIN transaksi ON tbl_pasien.id_pasien = transaksi.idpassien " +
+                        "LEFT JOIN obat_pasien ON tbl_pasien.id_pasien = obat_pasien.id_pasien" +
+                        "WHERE tbl_pasien.id_pasien='PSN0001' "; 
+           java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             /* Step-2: Initialize PDF documents - logical objects */
@@ -112,7 +144,9 @@ public class Report extends javax.swing.JFrame {
                 // use directory.mkdirs(); here instead.
             }
 
-            String idTrans = "PSN0012021";
+            Font F = FontFactory.getFont(FontFactory.COURIER, 9 , Font.NORMAL, BaseColor.BLACK) ;
+            Font F2 = FontFactory.getFont(FontFactory.COURIER, 10 , Font.NORMAL, BaseColor.BLACK) ;
+            String idTrans  = id_pasien.getText();
             String path = "C://Backup File//" + idTrans + ".pdf" ;
             Document document = new Document();
             document.setPageSize(PageSize.A5);
@@ -121,12 +155,13 @@ public class Report extends javax.swing.JFrame {
             document.add(new Paragraph("\n"));
             document.add(new Paragraph(""
                     + "                                      "
-                    + "KLINIK BU ITA"
+                    + "TAGIHAN PEMBAYARAN KLINIK BU ITA"
                     + "                                      "
-                    + "",FontFactory.getFont(FontFactory.TIMES_BOLD, 14, Font.BOLD)));
+                    + "",FontFactory.getFont(FontFactory.TIMES_BOLD, 10, Font.BOLD)));
             
-            document.add(new Paragraph("Nama : "));
-            document.addTitle("Hallo");
+            document.add(new Paragraph("    Nama Pasien : " + id_pasien.getText() , F2));
+            document.add(new Paragraph("    ID Pasien : " + id_pasien.getText() , F2));
+            document.add(new Paragraph("\n"));
             //we have four columns in our table
             PdfPTable my_report_table = new PdfPTable(2);
             
@@ -139,36 +174,41 @@ public class Report extends javax.swing.JFrame {
           //  cell.setBorder(Border.NO_BORDER);
             
             
-          //  my_report_table.addCell(new Cell().add("Jenis Tagihan"));
+            my_report_table.addCell("Jenis Tagihan");
             my_report_table.addCell("Biaya");
             my_report_table.setHeaderRows(1);
             
              while (res.next()) {                
                   String obat         = res.getString("obat");
-                  cell                = new PdfPCell(new Phrase(obat));
+                  cell                = new PdfPCell(new Phrase(obat , F));
                   my_report_table.addCell(cell);
                   
                   String harga           = res.getString("harga");
-                  cell                = new PdfPCell(new Phrase(harga));
+                  cell                = new PdfPCell(new Phrase(harga , F));
                   my_report_table.addCell(cell);
              }
              //biaya medis
-            cell                = new PdfPCell(new Phrase("JASA MEDIS"));
+            cell                = new PdfPCell(new Phrase("Jasa Medis"  , F));
             my_report_table.addCell(cell);
-            cell                = new PdfPCell(new Phrase("109090"));
+            cell                = new PdfPCell(new Phrase("109090" , F));
             my_report_table.addCell(cell);
-            //end of biaya medis
+            //end
             
-            //biaya medis
-            cell                = new PdfPCell(new Phrase("LAIN LAIN"));
+            //biaya lain
+            cell                = new PdfPCell(new Phrase("Lain-Lain" , F));
             my_report_table.addCell(cell);
-            cell                = new PdfPCell(new Phrase("109090"));
+            cell                = new PdfPCell(new Phrase("109090" , F));
             my_report_table.addCell(cell);
-            //end of biaya medis
+            //end
+            
+            //total
+            cell                = new PdfPCell(new Phrase("Total" , F));
+            my_report_table.addCell(cell);
+            cell                = new PdfPCell(new Phrase("109090" , F));
+            my_report_table.addCell(cell);
+            //end
              
-            
-            //terimakasih
-            document.add(new Paragraph("---------------TERIMA KASIH-------------"));
+          
              
             /* Attach report table to PDF */
            document.add(my_report_table);    
@@ -189,6 +229,10 @@ public class Report extends javax.swing.JFrame {
       //PdfWriter pdfWriter = new PdfWriter(path);
       //PdfDocument pdfDocument = new PdfDocument(pdfWriter);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void id_pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_pasienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id_pasienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,7 +270,9 @@ public class Report extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField id_pasien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JTextField name1;
     // End of variables declaration//GEN-END:variables
 }

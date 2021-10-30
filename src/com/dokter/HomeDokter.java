@@ -10,6 +10,7 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Main.Login ;
+import Main.Session ;
 /**
  *
  * @author dasep
@@ -24,6 +25,7 @@ public class HomeDokter extends javax.swing.JFrame {
     public HomeDokter() {
         initComponents();
         loadData(this.id);
+        info.setText(Session.nama);
     }
 
     /**
@@ -42,7 +44,7 @@ public class HomeDokter extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        info = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         rekamMedis = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
@@ -101,10 +103,10 @@ public class HomeDokter extends javax.swing.JFrame {
         jLabel4.setText("Selamat Datang");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 126, -1));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Dokter Dasep Depiyawan");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        info.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        info.setForeground(new java.awt.Color(255, 255, 255));
+        info.setText("Dokter Dasep Depiyawan");
+        jPanel1.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         logout.setBackground(new java.awt.Color(48, 37, 40));
         logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -397,6 +399,7 @@ public class HomeDokter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
     private javax.swing.JTextField id_pasien;
+    private javax.swing.JLabel info;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -404,7 +407,6 @@ public class HomeDokter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
