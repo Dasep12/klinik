@@ -50,6 +50,7 @@ public class HomeDokter extends javax.swing.JFrame {
         refresh = new javax.swing.JButton();
         key = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
+        info1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pasienList = new javax.swing.JTable();
@@ -105,8 +106,8 @@ public class HomeDokter extends javax.swing.JFrame {
 
         info.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         info.setForeground(new java.awt.Color(255, 255, 255));
-        info.setText("Dokter Dasep Depiyawan");
-        jPanel1.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        info.setText("Dokter");
+        jPanel1.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         logout.setBackground(new java.awt.Color(48, 37, 40));
         logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -155,6 +156,11 @@ public class HomeDokter extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 80, 40));
+
+        info1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        info1.setForeground(new java.awt.Color(255, 255, 255));
+        info1.setText("Dokter");
+        jPanel1.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 200, 320));
 
@@ -400,6 +406,7 @@ public class HomeDokter extends javax.swing.JFrame {
     private javax.swing.JButton cari;
     private javax.swing.JTextField id_pasien;
     private javax.swing.JLabel info;
+    private javax.swing.JLabel info1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

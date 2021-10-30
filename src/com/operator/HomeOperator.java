@@ -74,6 +74,7 @@ public class HomeOperator extends javax.swing.JFrame {
         tindak_lanjut = new javax.swing.JButton();
         transaksi = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
+        Histori = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -278,7 +279,7 @@ public class HomeOperator extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 120, 40));
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 120, 40));
 
         data_status.setBackground(new java.awt.Color(48, 37, 40));
         data_status.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -323,6 +324,17 @@ public class HomeOperator extends javax.swing.JFrame {
             }
         });
         jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 120, 40));
+
+        Histori.setBackground(new java.awt.Color(48, 37, 40));
+        Histori.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Histori.setForeground(new java.awt.Color(255, 255, 255));
+        Histori.setText("Histori");
+        Histori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistoriActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Histori, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -474,6 +486,12 @@ public class HomeOperator extends javax.swing.JFrame {
         loadData(data);
     }//GEN-LAST:event_refreshActionPerformed
 
+    private void HistoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoriActionPerformed
+        // TODO add your handling code here:
+        Histori a  = new Histori();
+        a.setVisible(true);
+    }//GEN-LAST:event_HistoriActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -511,6 +529,7 @@ public class HomeOperator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Histori;
     private javax.swing.JTextField alamat;
     private javax.swing.JButton cari;
     private javax.swing.JPanel daftar_obat;
