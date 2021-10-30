@@ -36,11 +36,11 @@ public class HomeManager extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        rekamMedis = new javax.swing.JButton();
-        rekamMedis2 = new javax.swing.JButton();
+        daftarpasien = new javax.swing.JButton();
+        tindaklanjut = new javax.swing.JButton();
         rekamMedis3 = new javax.swing.JButton();
-        rekamMedis4 = new javax.swing.JButton();
-        rekamMedis5 = new javax.swing.JButton();
+        transaksi = new javax.swing.JButton();
+        biaya = new javax.swing.JButton();
         rekamMedis1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,27 +96,27 @@ public class HomeManager extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Report", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rekamMedis.setBackground(new java.awt.Color(48, 37, 40));
-        rekamMedis.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rekamMedis.setForeground(new java.awt.Color(255, 255, 255));
-        rekamMedis.setText("PENDAFTARAN PASIEN");
-        rekamMedis.addActionListener(new java.awt.event.ActionListener() {
+        daftarpasien.setBackground(new java.awt.Color(48, 37, 40));
+        daftarpasien.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        daftarpasien.setForeground(new java.awt.Color(255, 255, 255));
+        daftarpasien.setText("PENDAFTARAN PASIEN");
+        daftarpasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rekamMedisActionPerformed(evt);
+                daftarpasienActionPerformed(evt);
             }
         });
-        jPanel4.add(rekamMedis, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 180, 50));
+        jPanel4.add(daftarpasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 180, 50));
 
-        rekamMedis2.setBackground(new java.awt.Color(48, 37, 40));
-        rekamMedis2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rekamMedis2.setForeground(new java.awt.Color(255, 255, 255));
-        rekamMedis2.setText("TINDAK LANJUT");
-        rekamMedis2.addActionListener(new java.awt.event.ActionListener() {
+        tindaklanjut.setBackground(new java.awt.Color(48, 37, 40));
+        tindaklanjut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tindaklanjut.setForeground(new java.awt.Color(255, 255, 255));
+        tindaklanjut.setText("TINDAK LANJUT");
+        tindaklanjut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rekamMedis2ActionPerformed(evt);
+                tindaklanjutActionPerformed(evt);
             }
         });
-        jPanel4.add(rekamMedis2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 180, 50));
+        jPanel4.add(tindaklanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 180, 50));
 
         rekamMedis3.setBackground(new java.awt.Color(48, 37, 40));
         rekamMedis3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -129,27 +129,27 @@ public class HomeManager extends javax.swing.JFrame {
         });
         jPanel4.add(rekamMedis3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 180, 50));
 
-        rekamMedis4.setBackground(new java.awt.Color(48, 37, 40));
-        rekamMedis4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rekamMedis4.setForeground(new java.awt.Color(255, 255, 255));
-        rekamMedis4.setText("TRANSAKSI OBAT");
-        rekamMedis4.addActionListener(new java.awt.event.ActionListener() {
+        transaksi.setBackground(new java.awt.Color(48, 37, 40));
+        transaksi.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        transaksi.setForeground(new java.awt.Color(255, 255, 255));
+        transaksi.setText("TRANSAKSI OBAT");
+        transaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rekamMedis4ActionPerformed(evt);
+                transaksiActionPerformed(evt);
             }
         });
-        jPanel4.add(rekamMedis4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 180, 50));
+        jPanel4.add(transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 180, 50));
 
-        rekamMedis5.setBackground(new java.awt.Color(48, 37, 40));
-        rekamMedis5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rekamMedis5.setForeground(new java.awt.Color(255, 255, 255));
-        rekamMedis5.setText("BIAYA PASIEN ");
-        rekamMedis5.addActionListener(new java.awt.event.ActionListener() {
+        biaya.setBackground(new java.awt.Color(48, 37, 40));
+        biaya.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        biaya.setForeground(new java.awt.Color(255, 255, 255));
+        biaya.setText("BIAYA PASIEN ");
+        biaya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rekamMedis5ActionPerformed(evt);
+                biayaActionPerformed(evt);
             }
         });
-        jPanel4.add(rekamMedis5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 180, 50));
+        jPanel4.add(biaya, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 180, 50));
 
         rekamMedis1.setBackground(new java.awt.Color(48, 37, 40));
         rekamMedis1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -179,10 +179,11 @@ public class HomeManager extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rekamMedisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedisActionPerformed
+    private void daftarpasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarpasienActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_rekamMedisActionPerformed
+       Pendaftaran_Pasien a = new Pendaftaran_Pasien();
+       a.setVisible(true);
+    }//GEN-LAST:event_daftarpasienActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
@@ -194,11 +195,11 @@ public class HomeManager extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_rekamMedis1ActionPerformed
 
-    private void rekamMedis2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis2ActionPerformed
+    private void tindaklanjutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tindaklanjutActionPerformed
         // TODO add your handling code here:
         Tindak_Lanjut a  = new Tindak_Lanjut();
         a.setVisible(true);
-    }//GEN-LAST:event_rekamMedis2ActionPerformed
+    }//GEN-LAST:event_tindaklanjutActionPerformed
 
     private void rekamMedis3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis3ActionPerformed
         // TODO add your handling code here:
@@ -206,15 +207,17 @@ public class HomeManager extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_rekamMedis3ActionPerformed
 
-    private void rekamMedis4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis4ActionPerformed
+    private void transaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transaksiActionPerformed
         // TODO add your handling code here:
         Transaksi_obat a  = new Transaksi_obat();
         a.setVisible(true);
-    }//GEN-LAST:event_rekamMedis4ActionPerformed
+    }//GEN-LAST:event_transaksiActionPerformed
 
-    private void rekamMedis5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis5ActionPerformed
+    private void biayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biayaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rekamMedis5ActionPerformed
+        Transaksi_obat a  = new Transaksi_obat();
+        a.setVisible(true);
+    }//GEN-LAST:event_biayaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,6 +256,8 @@ public class HomeManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton biaya;
+    private javax.swing.JButton daftarpasien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -262,11 +267,9 @@ public class HomeManager extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton logout;
-    private javax.swing.JButton rekamMedis;
     private javax.swing.JButton rekamMedis1;
-    private javax.swing.JButton rekamMedis2;
     private javax.swing.JButton rekamMedis3;
-    private javax.swing.JButton rekamMedis4;
-    private javax.swing.JButton rekamMedis5;
+    private javax.swing.JButton tindaklanjut;
+    private javax.swing.JButton transaksi;
     // End of variables declaration//GEN-END:variables
 }

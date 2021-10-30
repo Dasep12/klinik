@@ -28,12 +28,12 @@ import javax.swing.JOptionPane;
  *
  * @author dasep
  */
-public class Pendataran_Pasien extends javax.swing.JFrame {
+public class Pendaftaran_Pasien extends javax.swing.JFrame {
 
     /**
      * Creates new form Tindak_Lanjut
      */
-    public Pendataran_Pasien() {
+    public Pendaftaran_Pasien() {
         initComponents();
     }
 
@@ -237,21 +237,23 @@ public class Pendataran_Pasien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pendataran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pendaftaran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pendataran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pendaftaran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pendataran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pendaftaran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pendataran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pendaftaran_Pasien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pendataran_Pasien().setVisible(true);
+                new Pendaftaran_Pasien().setVisible(true);
             }
         });
     }
