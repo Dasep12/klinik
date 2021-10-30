@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" min="-2" pref="580" max="-2" attributes="0"/>
+          <Component id="jPanel3" min="-2" pref="472" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" alignment="0" pref="339" max="32767" attributes="0"/>
+          <Component id="jPanel3" min="-2" pref="303" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -66,7 +66,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="10" width="560" height="320"/>
+              <AbsoluteConstraints x="10" y="10" width="450" height="280"/>
             </Constraint>
           </Constraints>
 
@@ -92,7 +92,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="180" y="200" width="180" height="50"/>
+                  <AbsoluteConstraints x="130" y="200" width="180" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -108,7 +108,39 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="250" y="110" width="40" height="-1"/>
+                  <AbsoluteConstraints x="200" y="110" width="40" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="tgl_akhir">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="5b" green="48" red="95" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="130" y="140" width="180" height="40"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="tgl_awal">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="5b" green="48" red="95" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="130" y="60" width="180" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>

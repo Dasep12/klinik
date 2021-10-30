@@ -212,6 +212,7 @@ public class TambahPasien extends javax.swing.JFrame {
     public void reset(){
         nama_pasien.setText("");
         alamat.setText("");
+        tempat_lahir.setText("");
         no_telpon.setText("");
         no_bpjs.setText("");
     }

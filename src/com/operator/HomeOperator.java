@@ -6,6 +6,7 @@
 package com.operator;
 
 import Conection.Conn;
+import Main.Login;
 import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -433,6 +434,9 @@ public class HomeOperator extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        Login a = new Login();
+        a.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
 
     private void data_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_statusActionPerformed

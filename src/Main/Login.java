@@ -187,7 +187,7 @@ public class Login extends javax.swing.JFrame {
                        a.setVisible(true);
                    }else if(level.equals("3")){
                        //role manager 
-                       this.dispose();
+                        this.dispose();
 //                       Session.nama = res.getString("nama") ;
 //                       Session.nohp = res.getString("nohp") ;
                         HomeManager a = new HomeManager();

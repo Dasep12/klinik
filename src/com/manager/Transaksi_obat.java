@@ -49,7 +49,9 @@ public class Transaksi_obat extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         rekamMedis2 = new javax.swing.JButton();
+        tgl_awal = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
+        tgl_akhir = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -72,10 +74,20 @@ public class Transaksi_obat extends javax.swing.JFrame {
         });
         jPanel4.add(rekamMedis2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 180, 50));
 
+        tgl_awal.setBackground(new java.awt.Color(149, 72, 91));
+        tgl_awal.setForeground(new java.awt.Color(255, 255, 255));
+        tgl_awal.setDateFormatString("yyyy-MM-dd");
+        jPanel4.add(tgl_awal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 40));
+
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("S/D");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 40, -1));
+
+        tgl_akhir.setBackground(new java.awt.Color(149, 72, 91));
+        tgl_akhir.setForeground(new java.awt.Color(255, 255, 255));
+        tgl_akhir.setDateFormatString("yyyy-MM-dd");
+        jPanel4.add(tgl_akhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 180, 40));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 320));
 
@@ -98,9 +110,8 @@ public class Transaksi_obat extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-      //  String tgl1 = format1.format(tgl_awal.getDate());
-       // String tgl2 = format1.format(tgl_akhir.getDate());
-       // String tgl3 = format1.format(new Date().toString() );
+        String tgl1 = format1.format(tgl_awal.getDate());
+        String tgl2 = format1.format(tgl_akhir.getDate());
         try {
             File theDir = new File("C:/Backup File/");
                 if (!theDir.exists()){
@@ -109,7 +120,7 @@ public class Transaksi_obat extends javax.swing.JFrame {
             String path  = "C://Backup File//Laporan Transaksi Obat.pdf" ;
             String  sql = "SELECT * FROM obat_pasien JOIN tbl_pasien WHERE\n" +
                         "obat_pasien.id_pasien = tbl_pasien.id_pasien AND\n" +
-                        "tbl_pasien.tgl_daftar BETWEEN '2021-10-20' AND '2021-10-26'" ;
+                        "tbl_pasien.tgl_daftar BETWEEN '"+ tgl1 +"' AND '"+ tgl2 +"'" ;
             java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -213,5 +224,7 @@ public class Transaksi_obat extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton rekamMedis2;
+    private com.toedter.calendar.JDateChooser tgl_akhir;
+    private com.toedter.calendar.JDateChooser tgl_awal;
     // End of variables declaration//GEN-END:variables
 }
