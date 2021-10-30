@@ -9,7 +9,7 @@ import Conection.Conn;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import Main.Login ;
 /**
  *
  * @author dasep
@@ -318,6 +318,9 @@ public class HomeDokter extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        Login a = new Login();
+        a.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed

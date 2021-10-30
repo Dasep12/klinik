@@ -215,7 +215,7 @@ public class HomeManager extends javax.swing.JFrame {
 
     private void biayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biayaActionPerformed
         // TODO add your handling code here:
-        Transaksi_obat a  = new Transaksi_obat();
+        Biaya_pasien a  = new Biaya_pasien();
         a.setVisible(true);
     }//GEN-LAST:event_biayaActionPerformed
 
