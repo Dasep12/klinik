@@ -58,6 +58,8 @@ public class TambahPasien extends javax.swing.JFrame {
         tambah = new javax.swing.JButton();
         tempat_lahir = new javax.swing.JTextField();
         tgl_lahir = new com.toedter.calendar.JDateChooser();
+        no_antrian = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,7 +77,7 @@ public class TambahPasien extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(281, Short.MAX_VALUE)
+                .addContainerGap(301, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(274, 274, 274))
         );
@@ -87,7 +89,7 @@ public class TambahPasien extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 60));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
 
         jPanel3.setBackground(new java.awt.Color(71, 82, 83));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tambah Pasien", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -128,27 +130,27 @@ public class TambahPasien extends javax.swing.JFrame {
 
         nama_pasien.setBackground(new java.awt.Color(149, 72, 91));
         nama_pasien.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(nama_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 68, 180, 33));
+        jPanel3.add(nama_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 180, 33));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nama Pasien");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 68, 100, 33));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 100, 33));
 
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("Tempat Lahir");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 118, 100, 33));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 100, 33));
 
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("Tanggal Lahir");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 168, 100, 33));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 100, 33));
 
         jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("No Telpon");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 218, 100, 33));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 33));
 
         no_telpon.setBackground(new java.awt.Color(149, 72, 91));
         no_telpon.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(no_telpon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 180, 33));
+        jPanel3.add(no_telpon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 180, 33));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,24 +179,33 @@ public class TambahPasien extends javax.swing.JFrame {
 
         tempat_lahir.setBackground(new java.awt.Color(149, 72, 91));
         tempat_lahir.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 180, 33));
+        jPanel3.add(tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 180, 33));
 
         tgl_lahir.setBackground(new java.awt.Color(149, 72, 91));
         tgl_lahir.setForeground(new java.awt.Color(255, 255, 255));
         tgl_lahir.setDateFormatString("yyyy-MM-dd");
-        jPanel3.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 180, 30));
+        jPanel3.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 720, 280));
+        no_antrian.setBackground(new java.awt.Color(149, 72, 91));
+        no_antrian.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(no_antrian, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 180, 33));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("No Antrian");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 80, 33));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 740, 360));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
         );
 
         pack();
@@ -325,6 +336,7 @@ public class TambahPasien extends javax.swing.JFrame {
     private javax.swing.JTextArea alamat;
     private javax.swing.JTextField id_pasien;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -339,6 +351,7 @@ public class TambahPasien extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jenis_kelamin;
     private javax.swing.JTextField nama_pasien;
+    private javax.swing.JTextField no_antrian;
     private javax.swing.JTextField no_bpjs;
     private javax.swing.JTextField no_telpon;
     private javax.swing.JButton tambah;

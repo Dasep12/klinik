@@ -64,6 +64,8 @@ public class HomeOperator extends javax.swing.JFrame {
         no_hp = new javax.swing.JTextField();
         status = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         simpan_rekam = new javax.swing.JButton();
         tambah_pasien = new javax.swing.JButton();
         data_obat = new javax.swing.JButton();
@@ -164,17 +166,17 @@ public class HomeOperator extends javax.swing.JFrame {
         id_pasien.setEditable(false);
         id_pasien.setBackground(new java.awt.Color(149, 72, 91));
         id_pasien.setForeground(new java.awt.Color(255, 255, 255));
-        daftar_obat.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 230, 33));
+        daftar_obat.add(id_pasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 190, 33));
 
         alamat.setEditable(false);
         alamat.setBackground(new java.awt.Color(149, 72, 91));
         alamat.setForeground(new java.awt.Color(255, 255, 255));
-        daftar_obat.add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 230, 33));
+        daftar_obat.add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 190, 33));
 
         no_bpjs.setEditable(false);
         no_bpjs.setBackground(new java.awt.Color(149, 72, 91));
         no_bpjs.setForeground(new java.awt.Color(255, 255, 255));
-        daftar_obat.add(no_bpjs, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 230, 33));
+        daftar_obat.add(no_bpjs, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 190, 33));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,32 +191,54 @@ public class HomeOperator extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("No Hp");
-        daftar_obat.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 90, 33));
+        daftar_obat.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 90, 33));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nama Pasien");
-        daftar_obat.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 90, 33));
+        daftar_obat.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 90, 33));
 
         nama.setEditable(false);
         nama.setBackground(new java.awt.Color(149, 72, 91));
         nama.setForeground(new java.awt.Color(255, 255, 255));
-        daftar_obat.add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 33));
+        daftar_obat.add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 190, 33));
 
         no_hp.setEditable(false);
         no_hp.setBackground(new java.awt.Color(149, 72, 91));
         no_hp.setForeground(new java.awt.Color(255, 255, 255));
-        daftar_obat.add(no_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 230, 33));
+        daftar_obat.add(no_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 190, 33));
 
         status.setEditable(false);
         status.setBackground(new java.awt.Color(149, 72, 91));
         status.setForeground(new java.awt.Color(255, 255, 255));
-        daftar_obat.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 230, 33));
+        daftar_obat.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 190, 33));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Status");
-        daftar_obat.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 90, 33));
+        daftar_obat.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 90, 33));
+
+        jButton1.setBackground(new java.awt.Color(48, 37, 40));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("NO ANTRIAN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        daftar_obat.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 120, 30));
+
+        jButton2.setBackground(new java.awt.Color(48, 37, 40));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CETAK KARTU");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        daftar_obat.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 120, 30));
 
         jPanel3.add(daftar_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 820, 180));
 
@@ -486,6 +510,14 @@ public class HomeOperator extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_HistoriActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -531,6 +563,8 @@ public class HomeOperator extends javax.swing.JFrame {
     private javax.swing.JButton data_penyakit;
     private javax.swing.JButton data_status;
     private javax.swing.JTextField id_pasien;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

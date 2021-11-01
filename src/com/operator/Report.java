@@ -129,13 +129,15 @@ public class Report extends javax.swing.JFrame {
         try {
            // String  sql = "select * from obat_pasien where id_pasien='"+ id_pasien.getText() +"' " ;
            String sql = "SELECT  tbl_pasien.tgl_daftar , tbl_pasien.nama  , tbl_pasien.id_pasien , obat_pasien.obat ," +
-                        "transaksi.jasa_medis , transaksi.lain_lain , transaksi.biaya_obat FROM tbl_pasien " +
-                        "LEFT JOIN transaksi ON tbl_pasien.id_pasien = transaksi.idpassien " +
-                        "LEFT JOIN obat_pasien ON tbl_pasien.id_pasien = obat_pasien.id_pasien" +
-                        "WHERE tbl_pasien.id_pasien='PSN0001' "; 
+                        " transaksi.jasa_medis , transaksi.lain_lain , transaksi.biaya_obat , obat_pasien.harga FROM tbl_pasien " +
+                        " LEFT JOIN transaksi ON tbl_pasien.id_pasien = transaksi.idpassien " +
+                        " LEFT JOIN obat_pasien ON tbl_pasien.id_pasien = obat_pasien.id_pasien" +
+                        " WHERE tbl_pasien.id_pasien='PSN0001' "; 
            java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.Statement stm = conn.createStatement();
+            java.sql.Statement stm2 = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
+            java.sql.ResultSet res2 = stm2.executeQuery(sql);
             /* Step-2: Initialize PDF documents - logical objects */
             File directory = new File("C://Backup File");
             if (! directory.exists()){
@@ -180,7 +182,7 @@ public class Report extends javax.swing.JFrame {
             
              while (res.next()) {                
                   String obat         = res.getString("obat");
-                  cell                = new PdfPCell(new Phrase(obat , F));
+                  cell                = new PdfPCell(new Phrase(obat + (" (obat)") , F));
                   my_report_table.addCell(cell);
                   
                   String harga           = res.getString("harga");
@@ -188,23 +190,24 @@ public class Report extends javax.swing.JFrame {
                   my_report_table.addCell(cell);
              }
              //biaya medis
+            res2.next();
             cell                = new PdfPCell(new Phrase("Jasa Medis"  , F));
             my_report_table.addCell(cell);
-            cell                = new PdfPCell(new Phrase("109090" , F));
+            cell                = new PdfPCell(new Phrase(res2.getString("jasa_medis") , F));
             my_report_table.addCell(cell);
             //end
             
             //biaya lain
             cell                = new PdfPCell(new Phrase("Lain-Lain" , F));
             my_report_table.addCell(cell);
-            cell                = new PdfPCell(new Phrase("109090" , F));
+            cell                = new PdfPCell(new Phrase(res2.getString("lain_lain") , F));
             my_report_table.addCell(cell);
             //end
             
             //total
             cell                = new PdfPCell(new Phrase("Total" , F));
             my_report_table.addCell(cell);
-            cell                = new PdfPCell(new Phrase("109090" , F));
+            cell                = new PdfPCell(new Phrase("10000", F));
             my_report_table.addCell(cell);
             //end
              
