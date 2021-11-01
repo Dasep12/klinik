@@ -25,6 +25,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.Date;
 import javafx.scene.control.Cell;
 import javafx.scene.layout.Border;
@@ -42,6 +43,7 @@ public class Report extends javax.swing.JFrame {
      */
     public Report() {
         initComponents();
+        antrian();
     }
 
     /**
@@ -123,7 +125,38 @@ public class Report extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public static void antrian(){
+        try {
+            String sql  = "SELECT max(no_antrian) as total FROM tbl_pasien ";
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            
+            if(rs.next()){
+                String nofak = rs.getString("total").substring(0);
+                String AN    = "" + (Integer.parseInt(nofak) + 1 );
+                String nol   = "" ;
+                
+                if(AN.length() == 1){
+                    nol = "00" ;
+                }else if(AN.length() == 2){
+                    nol = "0" ;
+                }else if(AN.length() == 3){
+                    nol = "" ;
+                }
+                System.out.println(nol  + AN );
+            }else {
+                //id_pasien.setText("PSN0001");
+                System.out.print("001");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+           
+    }
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
