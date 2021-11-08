@@ -25,6 +25,7 @@ public class TambahPasien extends javax.swing.JFrame {
     public TambahPasien() {
         initComponents();
         idPasien();
+        antrian();
     }
 
     /**
@@ -228,6 +229,44 @@ public class TambahPasien extends javax.swing.JFrame {
         no_telpon.setText("");
         no_bpjs.setText("");
     }
+    
+    public  void antrian(){
+        try {
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+            String tgl1 = format1.format(new Date());
+            //System.out.println(tgl1);
+
+            String sql  = "SELECT max(no_antrian) as total FROM tbl_pasien where tgl_daftar ='" + tgl1 +"'  ";
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            
+            rs.next();
+            System.out.println(rs.getString("total"));
+            
+            if(rs.getString("total") == null ){
+                no_antrian.setText("001");
+            }else {
+                String nofak = rs.getString("total").substring(0);
+                String AN    = "" + (Integer.parseInt(nofak) + 1 );
+                String nol   = "" ;
+                
+                if(AN.length() == 1){
+                    nol = "00" ;
+                }else if(AN.length() == 2){
+                    nol = "0" ;
+                }else if(AN.length() == 3){
+                    nol = "" ;
+                }
+                no_antrian.setText(nol + AN);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+           
+    }
+    
     public void idPasien(){
         try {
             String sql  = "SELECT * FROM tbl_pasien order by id_pasien desc ";

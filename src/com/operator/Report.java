@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javafx.scene.control.Cell;
 import javafx.scene.layout.Border;
@@ -59,6 +60,7 @@ public class Report extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         id_pasien = new javax.swing.JTextField();
         name1 = new javax.swing.JTextField();
+        antri = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,20 +87,27 @@ public class Report extends javax.swing.JFrame {
 
         name1.setText("Dasep");
 
+        antri.setText("textField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(id_pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(antri, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(210, Short.MAX_VALUE)
@@ -108,7 +117,9 @@ public class Report extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(59, 59, 59)
+                .addComponent(antri, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -126,14 +137,23 @@ public class Report extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    public static void antrian(){
+    public  void antrian(){
         try {
-            String sql  = "SELECT max(no_antrian) as total FROM tbl_pasien ";
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+            String tgl1 = format1.format(new Date());
+            System.out.println(tgl1);
+
+            String sql  = "SELECT max(no_antrian) as total FROM tbl_pasien where tgl_daftar ='2021-10-31'  ";
             java.sql.Connection conn = (Connection)Conn.configDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery(sql);
             
-            if(rs.next()){
+            rs.next();
+            System.out.println(rs.getString("total"));
+            
+            if(rs.getString("total") == null ){
+                antri.setText("001");
+            }else {
                 String nofak = rs.getString("total").substring(0);
                 String AN    = "" + (Integer.parseInt(nofak) + 1 );
                 String nol   = "" ;
@@ -145,14 +165,12 @@ public class Report extends javax.swing.JFrame {
                 }else if(AN.length() == 3){
                     nol = "" ;
                 }
-                System.out.println(nol  + AN );
-            }else {
-                //id_pasien.setText("PSN0001");
-                System.out.print("001");
+                antri.setText(nol + AN);
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
+        
            
     }
     
@@ -306,6 +324,7 @@ public class Report extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.TextField antri;
     private javax.swing.JTextField id_pasien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
