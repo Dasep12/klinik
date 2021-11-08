@@ -186,6 +186,7 @@ public class TambahPasien extends javax.swing.JFrame {
         tgl_lahir.setDateFormatString("yyyy-MM-dd");
         jPanel3.add(tgl_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, 30));
 
+        no_antrian.setEditable(false);
         no_antrian.setBackground(new java.awt.Color(149, 72, 91));
         no_antrian.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(no_antrian, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 180, 33));
