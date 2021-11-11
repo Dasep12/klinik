@@ -5,6 +5,22 @@
  */
 package com.operator;
 
+import Conection.Conn;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cad-server
@@ -43,24 +59,82 @@ public class KartuPasien extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(148, 148, 148)
                 .addComponent(klik, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(122, 122, 122)
                 .addComponent(klik, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void klikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_klikActionPerformed
         // TODO add your handling code here:
+        try {
+            File theDir = new File("C:/Backup File/");
+                if (!theDir.exists()){
+                    theDir.mkdirs();
+                }
+            String path  = "C://Backup File//Kartu Pasien.pdf" ;
+            String  sql = "SELECT * from  tbl_pasien where id_pasien='PSN0001' " ;
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            /* Step-2: Initialize PDF documents - logical objects */
+        Document my_pdf_report = new Document();
+        PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
+        my_pdf_report.open();            
+        my_pdf_report.add(new Paragraph("KARTU BEROBAT PASIEN KLINIK BIDAN IT",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
+        my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
+                + "--------------------------------------------------------------"));
+        my_pdf_report.add(new Paragraph("\n"));
+        //we have four columns in our table
+        PdfPTable my_report_table = new PdfPTable(2);
+       // Cell cell = new PDf;
         
+        my_report_table.setWidthPercentage(100);
+        //create a cell object
+        PdfPCell table_cell;
+        PdfPCell table_cell2;
+        
+        Font F = FontFactory.getFont(FontFactory.COURIER, 9 , Font.NORMAL, BaseColor.WHITE) ;
+        Font F2 = FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL, BaseColor.BLACK);
+        table_cell2 = new PdfPCell(new Phrase("ID Pasien",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase("Nama",F));
+        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        my_report_table.addCell(table_cell2);
+        
+       
+        my_report_table.setHeaderRows(1);
+       
+        while (res.next()) {                
+            String id           = res.getString("id_pasien");
+            table_cell          = new PdfPCell(new Phrase(id , F2));
+            my_report_table.addCell(table_cell);
+            
+            String lahir        = res.getString("nama");
+            table_cell          = new PdfPCell(new Phrase(lahir , F2 ));
+            my_report_table.addCell(table_cell);
+             
+         }
+        /* Attach report table to PDF */
+        my_pdf_report.add(my_report_table);                       
+        my_pdf_report.close();
+             //JOptionPane.showMessageDialog(null,"Sukses");
+             Desktop.getDesktop().open(new File(path));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
         
     }//GEN-LAST:event_klikActionPerformed
 
