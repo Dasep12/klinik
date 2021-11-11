@@ -12,7 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
-
+import com.operator.no_antri;
 /**
  *
  * @author cad-server
@@ -26,6 +26,7 @@ public class TambahPasien extends javax.swing.JFrame {
         initComponents();
         idPasien();
         antrian();
+        setTgl();
     }
 
     /**
@@ -230,6 +231,12 @@ public class TambahPasien extends javax.swing.JFrame {
         no_bpjs.setText("");
     }
     
+    public void setTgl(){
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        String tgl1 = format1.format(new Date());
+        tgl_lahir.setDate(new Date());
+    }
+    
     public  void antrian(){
         try {
             SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
@@ -307,6 +314,10 @@ public class TambahPasien extends javax.swing.JFrame {
         if(id_pasien.getText().equals("") || nama_pasien.getText().equals("")|| alamat.getText().equals("")
             || no_telpon.getText().equals("") || no_bpjs.getText().equals("")){
             JOptionPane.showMessageDialog(null,"field kosong");
+            
+            //print langsung no antrian jika daftar sudah selesai
+            no_antri b = new no_antri();
+            b.antri(no_antrian.getText());
         }else {
             try {
                 String sql = "INSERT INTO  tbl_pasien ("
@@ -333,6 +344,7 @@ public class TambahPasien extends javax.swing.JFrame {
                 reset();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
+               
             }
         }
     }//GEN-LAST:event_tambahActionPerformed
