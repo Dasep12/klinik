@@ -10,8 +10,10 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -20,6 +22,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
 /**
  *
@@ -88,15 +91,19 @@ public class KartuPasien extends javax.swing.JFrame {
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             /* Step-2: Initialize PDF documents - logical objects */
-        Document my_pdf_report = new Document();
+        Rectangle pagesize = new Rectangle(350, 350);
+        pagesize.setBackgroundColor(new BaseColor(0xFF, 0xFF, 0xDE));
+        Document my_pdf_report = new Document(pagesize);
+        Font F3 = FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE) ;
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
-        my_pdf_report.add(new Paragraph("KARTU BEROBAT PASIEN KLINIK BIDAN IT",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
-                + "--------------------------------------------------------------"));
-        my_pdf_report.add(new Paragraph("\n"));
+        my_pdf_report.add(new Paragraph("      "
+                + "             KARTU BEROBAT PASIEN",F3));
         //we have four columns in our table
-        PdfPTable my_report_table = new PdfPTable(2);
+        my_pdf_report.add(new Paragraph("\n"));
+        
+        float[] columnWidths = {9 , 1  , 7};
+        PdfPTable my_report_table = new PdfPTable(columnWidths);
        // Cell cell = new PDf;
         
         my_report_table.setWidthPercentage(100);
@@ -104,29 +111,67 @@ public class KartuPasien extends javax.swing.JFrame {
         PdfPCell table_cell;
         PdfPCell table_cell2;
         
-        Font F = FontFactory.getFont(FontFactory.COURIER, 9 , Font.NORMAL, BaseColor.WHITE) ;
-        Font F2 = FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL, BaseColor.BLACK);
-        table_cell2 = new PdfPCell(new Phrase("ID Pasien",F));
-        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        //  Font F = FontFactory.getFont(FontFactory.COURIER, 5 , Font.NORMAL, BaseColor.WHITE) ;
+        Font F2 = FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, BaseColor.BLACK);
+        res.next();                
+
+            //my_report_table.setHeaderRows(1);       
+
+        //kolom 1
+        table_cell2 = new PdfPCell(new Phrase("Nama Pasien" , F2));
+        // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+       
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+       //  table_cell2.setBorder(0);
         my_report_table.addCell(table_cell2);
         
-        table_cell2 = new PdfPCell(new Phrase("Nama",F));
-        table_cell2.setBackgroundColor(BaseColor.BLUE);
+        table_cell2 = new PdfPCell(new Phrase(res.getString("nama") , F2));
+       // table_cell2.setBorder(0);
         my_report_table.addCell(table_cell2);
         
+        //kolom 2
+        table_cell2 = new PdfPCell(new Phrase("ID Pasien" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("id_pasien") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        
+        //kolom 3
+        table_cell2 = new PdfPCell(new Phrase("Tempat, Tanggal Lahir" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("tempat_lahir") + "," + res.getString("tgl_lahir")  , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        
+        //kolom 3
+        table_cell2 = new PdfPCell(new Phrase("Alamat" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("alamat") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
        
-        my_report_table.setHeaderRows(1);
-       
-        while (res.next()) {                
-            String id           = res.getString("id_pasien");
-            table_cell          = new PdfPCell(new Phrase(id , F2));
-            my_report_table.addCell(table_cell);
-            
-            String lahir        = res.getString("nama");
-            table_cell          = new PdfPCell(new Phrase(lahir , F2 ));
-            my_report_table.addCell(table_cell);
              
-         }
         /* Attach report table to PDF */
         my_pdf_report.add(my_report_table);                       
         my_pdf_report.close();
