@@ -25,6 +25,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -79,6 +80,8 @@ public class HomeOperator extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        no_antrian = new javax.swing.JLabel();
         simpan_rekam = new javax.swing.JButton();
         tambah_pasien = new javax.swing.JButton();
         data_obat = new javax.swing.JButton();
@@ -252,6 +255,16 @@ public class HomeOperator extends javax.swing.JFrame {
             }
         });
         daftar_obat.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 120, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("No ANTRIAN :");
+        daftar_obat.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 110, 30));
+
+        no_antrian.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        no_antrian.setForeground(new java.awt.Color(255, 255, 255));
+        no_antrian.setText("0");
+        daftar_obat.add(no_antrian, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 40, -1));
 
         jPanel3.add(daftar_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 820, 180));
 
@@ -446,6 +459,7 @@ public class HomeOperator extends javax.swing.JFrame {
                 nama.setText(res.getString("nama"));
                 no_hp.setText(res.getString("no_telp"));
                 status.setText(res.getString("status"));
+                no_antrian.setText(res.getString("no_antrian"));
             }
         }catch(Exception e){
             
@@ -525,6 +539,16 @@ public class HomeOperator extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        JTextPane textPane = new JTextPane();
+        String no = no_antrian.getText();
+        textPane.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        textPane.setText(no);
+        try {
+            System.out.println(no);
+            textPane.print();
+        }catch(Exception e){
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -733,6 +757,7 @@ public class HomeOperator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -745,6 +770,7 @@ public class HomeOperator extends javax.swing.JFrame {
     private javax.swing.JTextField key;
     private javax.swing.JButton logout;
     private javax.swing.JTextField nama;
+    private javax.swing.JLabel no_antrian;
     private javax.swing.JTextField no_bpjs;
     private javax.swing.JTextField no_hp;
     private javax.swing.JTable pasienList;
