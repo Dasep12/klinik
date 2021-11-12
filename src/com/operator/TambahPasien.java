@@ -64,6 +64,8 @@ public class TambahPasien extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(    new javax.swing.ImageIcon(getClass().getResource("/image/icon.png")).getImage());
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -204,7 +206,7 @@ public class TambahPasien extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +319,7 @@ public class TambahPasien extends javax.swing.JFrame {
             
             //print langsung no antrian jika daftar sudah selesai
             no_antri b = new no_antri();
-            b.antri(no_antrian.getText());
+          //  b.antri(no_antrian.getText());
         }else {
             try {
                 String sql = "INSERT INTO  tbl_pasien ("

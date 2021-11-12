@@ -105,6 +105,7 @@ public class HomeOperator extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -264,7 +265,7 @@ public class HomeOperator extends javax.swing.JFrame {
         no_antrian.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         no_antrian.setForeground(new java.awt.Color(255, 255, 255));
         no_antrian.setText("0");
-        daftar_obat.add(no_antrian, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 40, -1));
+        daftar_obat.add(no_antrian, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 40, -1));
 
         jPanel3.add(daftar_obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 820, 180));
 
@@ -384,13 +385,11 @@ public class HomeOperator extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 977, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(985, 686));
