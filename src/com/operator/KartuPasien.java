@@ -144,6 +144,20 @@ public class KartuPasien extends javax.swing.JFrame {
         my_report_table.addCell(table_cell2);
         
         
+        //kolom 2
+        table_cell2 = new PdfPCell(new Phrase("Jenis Kelamin" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("jenis_kelamin") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        
         //kolom 3
         table_cell2 = new PdfPCell(new Phrase("Tempat, Tanggal Lahir" , F2));
        // table_cell2.setBorder(0);
@@ -158,9 +172,10 @@ public class KartuPasien extends javax.swing.JFrame {
         my_report_table.addCell(table_cell2);
         
         
-        //kolom 3
+        //kolom 4
         table_cell2 = new PdfPCell(new Phrase("Alamat" , F2));
-       // table_cell2.setBorder(0);
+        //table_cell2.setBorder(0);
+        table_cell2.setBorderColor(BaseColor.DARK_GRAY);
         my_report_table.addCell(table_cell2);
         
         table_cell2 = new PdfPCell(new Phrase(":" , F2));
@@ -170,7 +185,37 @@ public class KartuPasien extends javax.swing.JFrame {
         table_cell2 = new PdfPCell(new Phrase(res.getString("alamat") , F2));
        // table_cell2.setBorder(0);
         my_report_table.addCell(table_cell2);
+        
+        
+        //kolom 4
+        table_cell2 = new PdfPCell(new Phrase("No Telpon" , F2));
+        //table_cell2.setBorder(0);
+        table_cell2.setBorderColor(BaseColor.DARK_GRAY);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("no_telp") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
        
+        
+        //kolom 4
+        table_cell2 = new PdfPCell(new Phrase("No BPJS" , F2));
+        //table_cell2.setBorder(0);
+        table_cell2.setBorderColor(BaseColor.DARK_GRAY);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("no_bpjs") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
              
         /* Attach report table to PDF */
         my_pdf_report.add(my_report_table);                       

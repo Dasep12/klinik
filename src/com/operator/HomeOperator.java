@@ -565,6 +565,7 @@ public class HomeOperator extends javax.swing.JFrame {
         
         //  Font F = FontFactory.getFont(FontFactory.COURIER, 5 , Font.NORMAL, BaseColor.WHITE) ;
         Font F2 = FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, BaseColor.BLACK);
+        Font F4 = FontFactory.getFont(FontFactory.COURIER, 8, Font.ITALIC, BaseColor.BLACK);
         res.next();                
 
             //my_report_table.setHeaderRows(1);       
@@ -595,6 +596,18 @@ public class HomeOperator extends javax.swing.JFrame {
        // table_cell2.setBorder(0);
         my_report_table.addCell(table_cell2);
         
+         //kolom 2
+        table_cell2 = new PdfPCell(new Phrase("Jenis Kelamin" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("jenis_kelamin") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
         
         //kolom 3
         table_cell2 = new PdfPCell(new Phrase("Tempat, Tanggal Lahir" , F2));
@@ -623,16 +636,49 @@ public class HomeOperator extends javax.swing.JFrame {
        // table_cell2.setBorder(0);
         my_report_table.addCell(table_cell2);
        
-             
+        
+        //kolom 4
+        table_cell2 = new PdfPCell(new Phrase("No Telpon" , F2));
+        //table_cell2.setBorder(0);
+        table_cell2.setBorderColor(BaseColor.DARK_GRAY);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("no_telp") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        //kolom 4
+        table_cell2 = new PdfPCell(new Phrase("No BPJS" , F2));
+        //table_cell2.setBorder(0);
+        table_cell2.setBorderColor(BaseColor.DARK_GRAY);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("no_bpjs") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2); 
+        
+        
         /* Attach report table to PDF */
-        my_pdf_report.add(my_report_table);                       
+        my_pdf_report.add(my_report_table);    
+        my_pdf_report.add(new Paragraph("*harap bawa kartu ini setiap kali berobat*" , F4));
+        my_pdf_report.add(new Paragraph("*simpan dan jangan hilangkan kartu ini*" , F4));
+        
         my_pdf_report.close();
-             //JOptionPane.showMessageDialog(null,"Sukses");
-             Desktop.getDesktop().open(new File(path));
-        }catch(Exception e){
+        
+          //JOptionPane.showMessageDialog(null,"Sukses");
+          Desktop.getDesktop().open(new File(path));
+         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
-        }
-        }
+         }
+      }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
