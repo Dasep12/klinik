@@ -7,6 +7,19 @@ package com.operator;
 
 import Conection.Conn;
 import Main.Login;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -516,6 +529,110 @@ public class HomeOperator extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String id = id_pasien.getText();
+        if(id.equals("")){
+            JOptionPane.showMessageDialog(null,"Pilih Pasien");
+        }else {
+            try {
+            File theDir = new File("C:/Backup File/");
+                if (!theDir.exists()){
+                    theDir.mkdirs();
+                }
+            String path  = "C://Backup File//Kartu Pasien.pdf" ;
+            String  sql = "SELECT * from  tbl_pasien where id_pasien='"+ id+"' " ;
+            java.sql.Connection conn = (Connection)Conn.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            /* Step-2: Initialize PDF documents - logical objects */
+        Rectangle pagesize = new Rectangle(350, 350);
+        pagesize.setBackgroundColor(new BaseColor(0xFF, 0xFF, 0xDE));
+        Document my_pdf_report = new Document(pagesize);
+        Font F3 = FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE) ;
+        PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
+        my_pdf_report.open();            
+        my_pdf_report.add(new Paragraph("  KARTU BEROBAT PASIEN KLINIK BIDAN ITA",F3));
+        //we have four columns in our table
+        my_pdf_report.add(new Paragraph("\n"));
+        
+        float[] columnWidths = {9 , 1  , 7};
+        PdfPTable my_report_table = new PdfPTable(columnWidths);
+       // Cell cell = new PDf;
+        
+        my_report_table.setWidthPercentage(100);
+        //create a cell object
+        PdfPCell table_cell;
+        PdfPCell table_cell2;
+        
+        //  Font F = FontFactory.getFont(FontFactory.COURIER, 5 , Font.NORMAL, BaseColor.WHITE) ;
+        Font F2 = FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, BaseColor.BLACK);
+        res.next();                
+
+            //my_report_table.setHeaderRows(1);       
+
+        //kolom 1
+        table_cell2 = new PdfPCell(new Phrase("Nama Pasien" , F2));
+        // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+       
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+       //  table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("nama") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        //kolom 2
+        table_cell2 = new PdfPCell(new Phrase("ID Pasien" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("id_pasien") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        
+        //kolom 3
+        table_cell2 = new PdfPCell(new Phrase("Tempat, Tanggal Lahir" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("tempat_lahir") + "," + res.getString("tgl_lahir")  , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        
+        //kolom 3
+        table_cell2 = new PdfPCell(new Phrase("Alamat" , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(":" , F2));
+         //table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+        
+        table_cell2 = new PdfPCell(new Phrase(res.getString("alamat") , F2));
+       // table_cell2.setBorder(0);
+        my_report_table.addCell(table_cell2);
+       
+             
+        /* Attach report table to PDF */
+        my_pdf_report.add(my_report_table);                       
+        my_pdf_report.close();
+             //JOptionPane.showMessageDialog(null,"Sukses");
+             Desktop.getDesktop().open(new File(path));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
