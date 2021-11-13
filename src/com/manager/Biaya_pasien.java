@@ -134,7 +134,7 @@ public class Biaya_pasien extends javax.swing.JFrame {
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
         my_pdf_report.add(new Paragraph("Laporan Biaya Pasien",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("Senin,12 Agustus 2021"));
+        my_pdf_report.add(new Paragraph( "Tanggal Penarikan : "  + tgl1 + " s/d " + tgl2 ));
         my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
                 + "--------------------------------------------------------------"));
         my_pdf_report.add(new Paragraph("\n"));

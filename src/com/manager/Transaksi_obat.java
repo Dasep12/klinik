@@ -131,7 +131,7 @@ public class Transaksi_obat extends javax.swing.JFrame {
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
         my_pdf_report.add(new Paragraph("Laporan Transaki Obat",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("SENIN 12 Oktober 2021"));
+        my_pdf_report.add(new Paragraph( "Tanggal Penarikan : "  + tgl1 + " s/d " + tgl2 ));
         my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
                 + "--------------------------------------------------------------"));
         my_pdf_report.add(new Paragraph("\n"));

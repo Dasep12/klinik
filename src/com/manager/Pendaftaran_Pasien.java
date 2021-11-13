@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.manager;
-
+import java.util.* ;
 import Conection.Conn;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -107,13 +107,15 @@ public class Pendaftaran_Pasien extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+   
+    
     private void rekamMedis2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rekamMedis2ActionPerformed
         // TODO add your handling code here:
         
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        String tgl1 = format1.format(tgl_awal.getDate());
-        String tgl2 = format1.format(tgl_akhir.getDate());
+        String tgl1  = format1.format(tgl_awal.getDate());
+        String tgl2  = format1.format(tgl_akhir.getDate());
        
         try {
             File theDir = new File("C:/Backup File/");
@@ -134,7 +136,7 @@ public class Pendaftaran_Pasien extends javax.swing.JFrame {
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream(path));
         my_pdf_report.open();            
         my_pdf_report.add(new Paragraph("Laporan Pendaftaran Pasien",FontFactory.getFont(FontFactory.TIMES_BOLD, 12, Font.BOLD, BaseColor.BLUE)));
-        my_pdf_report.add(new Paragraph("Senin,12 Agustus 2021"));
+        my_pdf_report.add(new Paragraph( "Tanggal Penarikan : "  + tgl1 + " s/d " + tgl2 ));
         my_pdf_report.add(new Paragraph("-------------------------------------------------------------------"
                 + "--------------------------------------------------------------"));
         my_pdf_report.add(new Paragraph("\n"));
