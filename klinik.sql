@@ -41,11 +41,11 @@ CREATE TABLE `obat_pasien` (
   `obat` varchar(255) DEFAULT NULL,
   `harga` int(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `obat_pasien` */
 
-insert  into `obat_pasien`(`id`,`id_pasien`,`obat`,`harga`) values (16,'PSN0001','Oskadon',12000),(17,'PSN0001','Konimex',30000);
+insert  into `obat_pasien`(`id`,`id_pasien`,`obat`,`harga`) values (16,'PSN0001','Oskadon',12000),(17,'PSN0001','Konimex',30000),(18,'PSN0002','Oskadon',12000),(19,'PSN0002','Konidril',5000);
 
 /*Table structure for table `rekam_medis` */
 
@@ -70,6 +70,9 @@ CREATE TABLE `rekam_medis` (
   `diagnosa2` text,
   `anamnesa1` text,
   `anamnesa2` text,
+  `anamnesa3` text,
+  `anamnesa4` text,
+  `anamnesa5` text,
   `nama_penyakit` varchar(255) DEFAULT NULL,
   `tindak_lanjut` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_pasien`)
@@ -77,7 +80,7 @@ CREATE TABLE `rekam_medis` (
 
 /*Data for the table `rekam_medis` */
 
-insert  into `rekam_medis`(`id_pasien`,`jasa_medis`,`nama_pasien`,`jenis_kelamin`,`tempat_lahir`,`tgl_lahir`,`alamat`,`no_telp`,`no_bpjs`,`status_periksa`,`sistol`,`distole`,`tinggi`,`berat_badan`,`diagnosa1`,`diagnosa2`,`anamnesa1`,`anamnesa2`,`nama_penyakit`,`tindak_lanjut`) values ('PSN0001',70000,'Dede Sutih','Laki-Laki','Bandung','1995-10-06','Jl Lodan Dalam II C','0812564454565','0598989','SUDAH DI PERIKSA','Sistol','Distole','170','60','Diagnosa 1','Diagnosa 2','Anamnesa 1','Anamnesa 2','Penyakit','TIDAK ADA'),('PSN0002',NULL,'Dede','Laki-Laki','Bandung','2021-10-14','dasdsd','2323232','23232',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `rekam_medis`(`id_pasien`,`jasa_medis`,`nama_pasien`,`jenis_kelamin`,`tempat_lahir`,`tgl_lahir`,`alamat`,`no_telp`,`no_bpjs`,`status_periksa`,`sistol`,`distole`,`tinggi`,`berat_badan`,`diagnosa1`,`diagnosa2`,`anamnesa1`,`anamnesa2`,`anamnesa3`,`anamnesa4`,`anamnesa5`,`nama_penyakit`,`tindak_lanjut`) values ('PSN0001',70000,'Dede Sutih','Laki-Laki','Bandung','1995-10-06','Jl Lodan Dalam II C','0812564454565','0598989','SUDAH DI PERIKSA','Sistol','Distole','170','60','Diagnosa 1','Diagnosa 2','Anamnesa 1','Anamnesa 2',NULL,NULL,NULL,'Penyakit','TIDAK ADA'),('PSN0002',NULL,'Dede','Laki-Laki','Bandung','2021-10-14','dasdsd','2323232','23232','SUDAH DI PERIKSA','sistolll','d','50','50','d','d','123','1234','1235','136','13666','Cacar Air','Cacar Air');
 
 /*Table structure for table `tbl_obat` */
 
@@ -118,7 +121,7 @@ CREATE TABLE `tbl_pasien` (
 
 /*Data for the table `tbl_pasien` */
 
-insert  into `tbl_pasien`(`id_pasien`,`tgl_daftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`status`,`transaksi`,`no_antrian`) values ('PSN0001','2021-10-30','Dede Sutih','Bandung','1995-10-06','Laki-Laki','Jl Lodan Dalam II C','0812564454565','0598989','SUDAH DI PERIKSA','OK','001'),('PSN0002','2021-10-30','Dede','Bandung','2021-10-14','Laki-Laki','dasdsd','2323232','23232','BELUM DI PERIKSA','NOK','002');
+insert  into `tbl_pasien`(`id_pasien`,`tgl_daftar`,`nama`,`tempat_lahir`,`tgl_lahir`,`jenis_kelamin`,`alamat`,`no_telp`,`no_bpjs`,`status`,`transaksi`,`no_antrian`) values ('PSN0001','2021-10-30','Dede Sutih','Bandung','1995-10-06','Laki-Laki','Jl Lodan Dalam II C','0812564454565','0598989','SUDAH DI PERIKSA','OK','001'),('PSN0002','2021-10-30','Dede','Bandung','2021-10-14','Laki-Laki','dasdsd','2323232','23232','SUDAH DI PERIKSA','NOK','002');
 
 /*Table structure for table `tbl_penyakit` */
 
