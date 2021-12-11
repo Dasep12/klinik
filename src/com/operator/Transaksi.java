@@ -75,6 +75,12 @@ private String id ;
         tindak_lanjut = new javax.swing.JTextField();
         sistol = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        anamnesa_3 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        anamnesa_4 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        anamnesa_5 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -237,18 +243,18 @@ private String id ;
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Nama Penyakit");
-        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 90, 33));
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 90, 33));
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Tindak Lanjut");
-        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 100, 33));
+        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 100, 33));
 
         penyakit.setEditable(false);
         penyakit.setBackground(new java.awt.Color(149, 72, 91));
         penyakit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         penyakit.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel7.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 230, 33));
+        jPanel7.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 230, 33));
 
         anamnesa_1.setEditable(false);
         anamnesa_1.setBackground(new java.awt.Color(149, 72, 91));
@@ -301,7 +307,7 @@ private String id ;
         tindak_lanjut.setBackground(new java.awt.Color(149, 72, 91));
         tindak_lanjut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tindak_lanjut.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel7.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 230, 33));
+        jPanel7.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 230, 33));
 
         sistol.setEditable(false);
         sistol.setBackground(new java.awt.Color(149, 72, 91));
@@ -314,7 +320,40 @@ private String id ;
         jLabel17.setText("Sistol");
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 90, 33));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 760, 240));
+        anamnesa_3.setEditable(false);
+        anamnesa_3.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(anamnesa_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 230, 33));
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Anamnesa 4");
+        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 90, 33));
+
+        anamnesa_4.setEditable(false);
+        anamnesa_4.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(anamnesa_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 230, 33));
+
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Anamnesa 3");
+        jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 90, 33));
+
+        anamnesa_5.setEditable(false);
+        anamnesa_5.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(anamnesa_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 230, 33));
+
+        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Anamnesa 5");
+        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 80, 33));
+
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 760, 340));
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
@@ -323,11 +362,13 @@ private String id ;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
         );
 
         pack();
@@ -387,6 +428,9 @@ private String id ;
                 diagnosa_2.setText(res2.getString("diagnosa2"));
                 anamnesa_1.setText(res2.getString("anamnesa1"));
                 anamnesa_2.setText(res2.getString("anamnesa2"));
+                anamnesa_3.setText(res2.getString("anamnesa3"));
+                anamnesa_4.setText(res2.getString("anamnesa4"));
+                anamnesa_5.setText(res2.getString("anamnesa5"));
                 penyakit.setText(res2.getString("nama_penyakit"));
                 tindak_lanjut.setText(res2.getString("tindak_lanjut"));
             }
@@ -503,6 +547,9 @@ private String id ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anamnesa_1;
     private javax.swing.JTextField anamnesa_2;
+    private javax.swing.JTextField anamnesa_3;
+    private javax.swing.JTextField anamnesa_4;
+    private javax.swing.JTextField anamnesa_5;
     private javax.swing.JButton back;
     private javax.swing.JTextField diagnosa_1;
     private javax.swing.JTextField diagnosa_2;
@@ -518,6 +565,9 @@ private String id ;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

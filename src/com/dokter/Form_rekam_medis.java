@@ -71,6 +71,12 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         penyakit = new javax.swing.JComboBox<>();
         selesai = new javax.swing.JButton();
         tindak_lanjut = new javax.swing.JComboBox<>();
+        anamnesa_4 = new javax.swing.JTextField();
+        anamnesa_3 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        anamnesa_5 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -176,22 +182,22 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Nama Penyakit");
-        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 90, 33));
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 90, 33));
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Tindak Lanjut");
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 100, 33));
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 90, 33));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Berat Badan");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 100, 33));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 100, 33));
 
         berat_badan.setBackground(new java.awt.Color(149, 72, 91));
         berat_badan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         berat_badan.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(berat_badan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 230, 33));
+        jPanel5.add(berat_badan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 230, 33));
 
         simpan_rekam.setBackground(new java.awt.Color(48, 37, 40));
         simpan_rekam.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -202,7 +208,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 simpan_rekamActionPerformed(evt);
             }
         });
-        jPanel5.add(simpan_rekam, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 130, 40));
+        jPanel5.add(simpan_rekam, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 130, 40));
 
         status_periksa.setBackground(new java.awt.Color(149, 72, 91));
         status_periksa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -213,12 +219,12 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 status_periksaActionPerformed(evt);
             }
         });
-        jPanel5.add(status_periksa, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 230, 40));
+        jPanel5.add(status_periksa, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 230, 40));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Status Periksa");
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, 33));
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 100, 33));
 
         penyakit.setBackground(new java.awt.Color(149, 72, 91));
         penyakit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -229,7 +235,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 penyakitActionPerformed(evt);
             }
         });
-        jPanel5.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 230, 40));
+        jPanel5.add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 230, 40));
 
         selesai.setBackground(new java.awt.Color(48, 37, 40));
         selesai.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -240,7 +246,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 selesaiActionPerformed(evt);
             }
         });
-        jPanel5.add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 100, 40));
+        jPanel5.add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 350, 100, 40));
 
         tindak_lanjut.setBackground(new java.awt.Color(149, 72, 91));
         tindak_lanjut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -251,9 +257,39 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                 tindak_lanjutActionPerformed(evt);
             }
         });
-        jPanel5.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 230, 40));
+        jPanel5.add(tindak_lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 230, 40));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 330));
+        anamnesa_4.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(anamnesa_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 230, 33));
+
+        anamnesa_3.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(anamnesa_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 230, 33));
+
+        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Anamnesa 3");
+        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 90, 33));
+
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Anamnesa 4");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 90, 33));
+
+        anamnesa_5.setBackground(new java.awt.Color(149, 72, 91));
+        anamnesa_5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        anamnesa_5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(anamnesa_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 230, 33));
+
+        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Anamnesa 5");
+        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 80, 33));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 480));
 
         jPanel6.setBackground(new java.awt.Color(71, 82, 83));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Input Data Obat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -329,7 +365,7 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         });
         jPanel6.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 100, 40));
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 830, 220));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 830, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -339,7 +375,9 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -492,8 +530,11 @@ public class Form_rekam_medis extends javax.swing.JFrame {
         String diagnos2  = diagnosa_2.getText();
         String amns1     = anamnesa_1.getText();
         String amn2     = anamnesa_2.getText();
-        String nmapenyakit   = (String) penyakit.getSelectedItem();
-        String tindak  = (String) penyakit.getSelectedItem();
+        String amn3     = anamnesa_3.getText();
+        String amn4     = anamnesa_4.getText();
+        String amn5     = anamnesa_5.getText();
+        String nmapenyakit  = (String) penyakit.getSelectedItem();
+        String tindak  = (String) tindak_lanjut.getSelectedItem();
         String bb = berat_badan.getText();
 
         if(dst.equals("") || tb.equals("") || sistoll.equals("") || diagnos1.equals("") ||
@@ -511,6 +552,9 @@ public class Form_rekam_medis extends javax.swing.JFrame {
                         + " diagnosa2 = '" + diagnos2 + "' , "
                         + " anamnesa1 = '" + amns1 + "' , "
                         + " anamnesa2 = '" + amn2 + "' , "
+                        + " anamnesa3 = '" + amn3 + "' , "
+                        + " anamnesa4 = '" + amn4 + "' , "
+                        + " anamnesa5 = '" + amn5 + "' , "
                         + " nama_penyakit = '" + nmapenyakit + "' , "
                         + " tindak_lanjut = '" + tindak + "' , "
                         + " status_periksa = '" +  status_periksa.getSelectedItem() + "'  "
@@ -645,6 +689,9 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anamnesa_1;
     private javax.swing.JTextField anamnesa_2;
+    private javax.swing.JTextField anamnesa_3;
+    private javax.swing.JTextField anamnesa_4;
+    private javax.swing.JTextField anamnesa_5;
     private javax.swing.JTextField berat_badan;
     private javax.swing.JTable data_obat;
     private javax.swing.JTextField diagnosa_1;
@@ -661,8 +708,11 @@ public class Form_rekam_medis extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
